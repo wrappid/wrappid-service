@@ -1,0 +1,27 @@
+{
+  "name": "@wrappid/service",
+  "version": "0.0.1",
+  "description": "This is a service middleware to support wrappid framework development.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git:https://github.com/wrappid/service.git"
+  },
+  "keywords": [
+    "wrappid",
+    "nodejs",
+    "middleware"
+  ],
+  "author": "wrappid",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
