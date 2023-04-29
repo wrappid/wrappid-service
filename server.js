@@ -1,21 +1,12 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const { app } = require("./app");
+const { DEFAULT_PORT } = require("./src/wrappid/constants/server.constant");
 
-/**
- * app.(get|post|put|patch|delete)('/:variable?query1=value', middleware(s), (req, res) => {
- *      console.log(req.params.variable)
- *      console.log(req.query.query1)
- *      console.log(req.body.query1)
- * 
- *      res.status(200|400|500).json({
- *          message: "",
- *          data: {} / "" / [],
- *          error: {} / ""
- *      })
- * })
- */
+const __PORT = process.env.PORT || DEFAULT_PORT
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+const serverInit = () => {
+  console.log(`Server is up and running on port ${__PORT}...`);
+};
+
+const server = app.listen(__PORT, serverInit);
+
+module.exports = { server };
