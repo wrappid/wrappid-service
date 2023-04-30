@@ -1,6 +1,16 @@
-# Wrappid Service
+```
+                                    _     _
+    __      ___ __ __ _ _ __  _ __ (_) __| |
+    \ \ /\ / / '__/ _` | '_ \| '_ \| |/ _` |
+     \ V  V /| | | (_| | |_) | |_) | | (_| |
+      \_/\_/ |_|  \__,_| .__/| .__/|_|\__,_|
+                       |_|   |_|
 
-This is a service middleware to support wrappid framework development.
+```
+
+# `Wrappid` Service Boilerplate
+
+This is a **service middleware boilerplate application** to support frontend applications built using the `wrappid` framework, which enables simultaneous development of web and mobile application.
 
 ## Getting Started
 
