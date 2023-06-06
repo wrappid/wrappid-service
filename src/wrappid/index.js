@@ -1,5 +1,5 @@
-import databaseProvider from "./database/database.provider";
+const databaseProvider = require("./database/database.provider");
 
-export {
+module.exports = {
     databaseProvider,
 }

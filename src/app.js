@@ -41,7 +41,11 @@ setupLogging(app);
  * @todo
  * setup database
  */
-databaseProvider
+console.log(`----------------------------------`);
+console.log(`Database Provider`);
+console.log(`----------------------------------`);
+console.log(databaseProvider);
+console.log(`----------------------------------`);
 
 /**
  * @todo
