@@ -39,6 +39,7 @@ const path = require("path");
 const Sequelize = require("sequelize");
 const config = require("../config");
 
+
 const databaseProvider = {};
 
 config.databases.forEach(async (database) => {
@@ -55,6 +56,10 @@ config.databases.forEach(async (database) => {
     
     await databaseProvider[database.name].sequelize.authenticate();
     console.log(`Connection to ${database.name} database has been established successfully.`);
+  
+  
+    
+
   } catch (error) {
     console.error(`Error: ${error.message}`);
     console.error(error);

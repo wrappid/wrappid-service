@@ -22,4 +22,4 @@ const setupLogging = (app) => {
     }));
 }
 
-exports.setupLogging = setupLogging
+module.exports = setupLogging

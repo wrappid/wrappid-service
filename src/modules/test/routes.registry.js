@@ -1,5 +1,5 @@
-import testRouter from "./routes/test.routes";
+const testRouter = require("./routes/test.routes");
 
-const routesRegistry = { "test": testRouter, "test1": testRouter };
+const routesRegistry = { "test": testRouter };
 
-export default routesRegistry;
+exports.routesRegistry = routesRegistry;

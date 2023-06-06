@@ -10,16 +10,6 @@
                 "username": "postgres",
                 "password": "O9mIBut4TqaVCdJsbRpI",
                 "logging": false
-            },
-            {
-                "name": "medicineDB",
-                "host": "database-1.cj1vxerq7jzh.ap-south-1.rds.amazonaws.com",
-                "port": "5432",
-                "dialect": "postgres",
-                "database": "rxefyMedicine",
-                "username": "postgres",
-                "password": "Rxefy#1234",
-                "logging": false
             }
         ],
         "jwt": {

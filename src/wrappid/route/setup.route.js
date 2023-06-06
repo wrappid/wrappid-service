@@ -8,14 +8,15 @@
 const moduleRoutesRegistry = require("../../modules/modules.routes.registry");
 
 const setupRoutes = (app) => {
-    Object.keys(moduleRoutesRegistry).forEach((route) => {
-        // const router = moduleRoutesRegistry[route];
-        // app.use(`/${route}`, moduleRoutesRegistry[route]);
-        
-        console.log(route);
-        console.log(moduleRoutesRegistry[route]);
-    
-      });
+  console.log(`----------------------------------`);
+  console.log(`Setting up routes...`);
+  Object.keys(moduleRoutesRegistry).forEach((route) => {
+    console.log(`Route = ${route}`);
+    console.log(`RouteData = ${moduleRoutesRegistry[route]}`);
+    app.use(`/${route}`, moduleRoutesRegistry[route]);
+  });
+  console.log(`Routes setup successfully.`);
+  console.log(`----------------------------------`);
 }
 
-exports.setupRoutes = setupRoutes;
+module.exports = setupRoutes;

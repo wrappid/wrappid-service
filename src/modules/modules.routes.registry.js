@@ -1,4 +1,8 @@
 
-import {default as testRoutes} from "./test/routes.registry";
-const moduleRoutesRegistry = {...testRoutes};
+const testRoutes = require("./test/routes.registry");
+
+console.log(testRoutes);
+
+const moduleRoutesRegistry = { ...testRoutes.routesRegistry };
+
 module.exports = moduleRoutesRegistry;

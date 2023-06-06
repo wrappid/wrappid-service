@@ -7,4 +7,4 @@ const testMiddleware = (req, res, next) => {
     }
 };
 
-export default testMiddleware;
+module.exports = testMiddleware;

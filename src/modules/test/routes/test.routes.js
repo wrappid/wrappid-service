@@ -1,12 +1,14 @@
-import { Router } from "express";
+const express = require("express");
 
-import { testGetFunc, testPostFunc, testPutFunc, testPatchFunc } from "../controllers/test.controller";
-import testMiddleware from "../middlewares/test.middleware";
-const testRouter = Router();
+const testController = require("../controllers/test.controller");
 
-testRouter.get("/test", testMiddleware, testGetFunc);
-testRouter.post("/test", testMiddleware, testPostFunc);
-testRouter.put("/test", testMiddleware, testPutFunc);
-testRouter.patch("/test", testMiddleware, testPatchFunc);
+const testMiddleware = require("../middlewares/test.middleware");
 
-export default testRouter;
+const testRouter = express.Router();
+
+testRouter.get("/", testMiddleware, testController.testGetFunc);
+testRouter.post("/", testMiddleware, testController.testPostFunc);
+testRouter.put("/", testMiddleware, testController.testPutFunc);
+testRouter.patch("/", testMiddleware, testController.testPatchFunc);
+
+module.exports = testRouter;
