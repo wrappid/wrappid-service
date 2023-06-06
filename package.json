@@ -2,9 +2,9 @@
   "name": "@wrappid/service",
   "version": "0.0.1",
   "description": "This is a service middleware to support wrappid framework development.",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon src/server.js",
     "test": "jest"
   },
   "repository": {
@@ -19,7 +19,9 @@
   "author": "wrappid",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"

@@ -31,3 +31,7 @@
  *      ...
  * 
  */
+
+const databaseManager = {};
+
+export default databaseManager;

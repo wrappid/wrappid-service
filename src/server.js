@@ -1,5 +1,5 @@
 const { app } = require("./app");
-const { DEFAULT_PORT } = require("./src/wrappid/constants/server.constant");
+const { DEFAULT_PORT } = require("./wrappid/constants/server.constant");
 
 const __PORT = process.env.PORT || DEFAULT_PORT
 
