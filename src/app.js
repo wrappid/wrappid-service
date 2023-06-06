@@ -9,7 +9,7 @@ var bodyParser = require("body-parser");
 
 var cors = require("cors");
 const { setupLogging } = require('./wrappid/logging');
-const { databaseManager } = require('./wrappid');
+const { databaseProvider } = require('./wrappid');
 var options = {
   inflate: true,
   limit: "50mb",
@@ -41,7 +41,7 @@ setupLogging(app);
  * @todo
  * setup database
  */
-databaseManager
+databaseProvider
 
 /**
  * @todo

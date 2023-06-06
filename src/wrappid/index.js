@@ -1,5 +1,5 @@
-import databaseManager from "./database/database.manager";
+import databaseProvider from "./database/database.provider";
 
 export {
-    databaseManager,
+    databaseProvider,
 }
