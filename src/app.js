@@ -8,8 +8,7 @@ var bodyParser = require("body-parser");
 // const cookieParser = require('cookie-parser');
 
 var cors = require("cors");
-const { setupLogging } = require('./wrappid/logging');
-const { databaseProvider } = require('./wrappid');
+const { setupLogging, setupRoutes, databaseProvider } = require('./wrappid');
 var options = {
   inflate: true,
   limit: "50mb",
@@ -51,6 +50,7 @@ console.log(`----------------------------------`);
  * @todo
  * setup routes
  */
+setupRoutes(app);
 
 module.exports = {
     app
