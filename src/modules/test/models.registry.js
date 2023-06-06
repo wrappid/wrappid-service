@@ -1,10 +1,10 @@
-import testModel from "./models/test.model";
+const test = require("./models/test.model");
 
 const modelsRegistry = {
     "test": {
-        database: "test",
-        model   : testModel
+        database: "application",
+        model   : test
     }
 };
 
-export default modelsRegistry;
+exports.modelsRegistry = modelsRegistry;

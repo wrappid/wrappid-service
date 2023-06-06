@@ -2,7 +2,7 @@
     "dev": {
         "databases": [
             {
-                "name": "applicationDB",
+                "name": "application",
                 "host": "rxefy.c1djpfkddxmf.ap-south-1.rds.amazonaws.com",
                 "port": "5432",
                 "dialect": "postgres",
@@ -57,47 +57,6 @@
             ]
         }
     },
-    "test": {
-        "databases": [
-            {
-                "host": "database-1.cj1vxerq7jzh.ap-south-1.rds.amazonaws.com",
-                "port": "5432",
-                "dialect": "postgres",
-                "database": "rxefy-stage",
-                "username": "postgres",
-                "password": "Rxefy#1234"
-            },
-            {
-                "host": "database-1.cj1vxerq7jzh.ap-south-1.rds.amazonaws.com",
-                "port": "5432",
-                "dialect": "postgres",
-                "database": "rxefyMedicine",
-                "username": "postgres",
-                "password": "Rxefy#1234",
-                "logging": false
-            }
-        ]
-    },
-    "prod": {
-        "databases": [
-            {
-                "host": "",
-                "port": "",
-                "dialect": "postgres",
-                "database": "application_db",
-                "username": "",
-                "password": "",
-                "logging": true
-            },
-            {
-                "host": "",
-                "port": "",
-                "dialect": "postgres",
-                "database": "data_db",
-                "username": "",
-                "password": "",
-                "logging": true
-            }
-        ]
-    }
+    "test": {},
+    "prod": {}
 }

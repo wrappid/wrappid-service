@@ -1,5 +1,5 @@
-import {default  as testmodel} from "./test/models/test.model";
+const testModels = require("./test/models.registry");
 
-module.exports = {
-    ...testmodel
-}
+const moduleModelsRegistry = { ...testModels.modelsRegistry };
+
+module.exports = moduleModelsRegistry;

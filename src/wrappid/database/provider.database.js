@@ -37,7 +37,8 @@
 const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
-const config = require("../config/config.provider");
+const config = require("../config/provider.config");
+const moduleModelsRegistry = require("../../modules/modules.models.registry");
 
 const databaseProvider = {};
 
@@ -55,6 +56,7 @@ config.databases.forEach(async (database) => {
     
     await databaseProvider[database.name].sequelize.authenticate();
     console.log(`Connection to ${database.name} database has been established successfully.`);
+
   } catch (error) {
     console.error(`Error: ${error.message}`);
     console.error(error);
