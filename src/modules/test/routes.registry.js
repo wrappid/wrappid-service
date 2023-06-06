@@ -1,5 +1,5 @@
 import testRouter from "./routes/test.routes";
 
-const routes = { "test": testRouter };
+const routesRegistry = { "test": testRouter, "test1": testRouter };
 
-export default routes;
+export default routesRegistry;
