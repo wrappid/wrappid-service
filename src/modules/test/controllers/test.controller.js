@@ -1,3 +1,6 @@
+
+const testFunctions = require("../functions/test.functions");
+
 /**
  * 
  * @param {*} req 
@@ -5,7 +8,8 @@
  * @returns 
  */
 module.exports.testGetFunc = async (req, res) => {
-    return res.status(200).json({ message: "This is a test GET API." });
+    let data = await testFunctions.readTestData();
+    return res.status(200).json({ message: "This is a test GET API.", data });
 };
 
 /**

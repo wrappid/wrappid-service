@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 
 var cors = require("cors");
 const { setupLogging, setupRoutes, databaseProvider } = require('./wrappid');
+const setupModels = require('./wrappid/database/setup.database');
 var options = {
   inflate: true,
   limit: "50mb",
@@ -26,11 +27,12 @@ setupLogging(app);
  * @todo
  * setup database
  */
-// console.log(`----------------------------------`);
-// console.log(`Database Provider`);
-// console.log(`----------------------------------`);
-// console.log(databaseProvider);
-// console.log(`----------------------------------`);
+console.log(`----------------------------------`);
+console.log(`Database Provider`);
+console.log(`----------------------------------`);
+console.log(databaseProvider);
+console.log(`----------------------------------`);
+setupModels(databaseProvider);
 
 /**
  * @todo
