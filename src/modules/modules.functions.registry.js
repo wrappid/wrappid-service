@@ -1,7 +1,7 @@
-import {default as testFunctions} from "./test/functions/test.functions";
-import {default as authFunctions} from "./auth/functions/test.functions";
+const testFunctionsRegistry = require("./test/functions.registry");
+const authFunctionsRegistry = require("./auth/functions.registry");
 
 module.exports = {
-    ...testFunctions,
-    
+    ...testFunctionsRegistry,
+    ...authFunctionsRegistry,
 }

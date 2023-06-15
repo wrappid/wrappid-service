@@ -5,4 +5,4 @@ const functionsRegistry = {
     "testFunc2": testFunctions.testFunc2
 };
 
-export default functionsRegistry;
+module.exports = functionsRegistry;

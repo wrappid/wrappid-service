@@ -38,7 +38,6 @@ const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
 const config = require("../config/provider.config");
-const moduleModelsRegistry = require("../../modules/modules.models.registry");
 
 const databaseProvider = {};
 
