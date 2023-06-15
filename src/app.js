@@ -39,9 +39,9 @@ console.log(`----------------------------------`);
 console.log(databaseProvider);
 console.log(`----------------------------------`);
 console.log(`Get data from test models`);
-let data = await databaseProvider.application.models.test.findAll();
 console.log(`----------------------------------`);
-console.log(data);
+// let data = await databaseProvider.application.models.test.findAll();
+// console.log(data);
 console.log(`----------------------------------`);
 
 /**
