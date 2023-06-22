@@ -2,11 +2,7 @@ const express = require("express");
 
 const authController = require("../controllers/auth.controller");
 
-// const authMiddleware = require("../middlewares/auth.middleware");
-
 const authRouter = express.Router();
-
-// authRouter.get("/", authMiddleware, authController.authGetFunc);
 
 authRouter.post("/checkLoginOrRegister", authController.checkLoginOrRegister);
 authRouter.post("/login", authController.login);

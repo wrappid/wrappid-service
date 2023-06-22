@@ -4,8 +4,7 @@ const app = express();
 var bodyParser = require("body-parser");
 
 var cors = require("cors");
-const { setupLogging, setupRoutes, databaseProvider } = require('./wrappid');
-const setupModels = require('./wrappid/database/setup.database');
+const { setupLogging, setupModels, setupRoutes, databaseProvider } = require('./wrappid');
 var options = {
   inflate: true,
   limit: "50mb",
@@ -27,21 +26,33 @@ setupLogging(app);
  * @todo
  * setup database
  */
-console.log(`----------------------------------`);
-console.log(`Database Provider`);
-console.log(`----------------------------------`);
-console.log(databaseProvider);
-console.log(`----------------------------------`);
+// console.log(`----------------------------------`);
+// console.log(`Database Provider`);
+// console.log(`----------------------------------`);
+// console.log(databaseProvider);
+// console.log(`----------------------------------`);
 setupModels(databaseProvider);
-console.log(`----------------------------------`);
-console.log(`Post Setup Database Provider`);
-console.log(`----------------------------------`);
-console.log(databaseProvider);
-console.log(`----------------------------------`);
-console.log(`Get data from test models`);
-console.log(`----------------------------------`);
-// let data = await databaseProvider.application.models.test.findAll();
-// console.log(data);
+// console.log(`----------------------------------`);
+// console.log(`Post Setup Database Provider`);
+// console.log(`----------------------------------`);
+// console.log(databaseProvider);
+// console.log(`----------------------------------`);
+// console.log(`Get data from test models`);
+// console.log(`----------------------------------`);
+
+const testDatabase = async () => {
+  try{
+    // let data = await databaseProvider.application.models.test.create({name: "Rahul"});
+    
+    let data = await databaseProvider.application.models.testdatas.findAll();
+    console.log(data);
+  } catch (err){
+    console.log("----------------------------------");
+    console.log(err);
+    console.log("----------------------------------");
+  }
+}
+// testDatabase();
 console.log(`----------------------------------`);
 
 /**

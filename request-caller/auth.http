@@ -1,0 +1,6 @@
+POST http://localhost:8080/auth/checkLoginOrRegister HTTP/1.1
+content-type: application/json
+
+{
+    "emailOrPhone": "neel@rxefy.com",
+}

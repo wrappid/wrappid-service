@@ -1,3 +1,41 @@
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const sequelize = require("sequelize");
+const { clearValidatePhoneEmail, getDeviceId } = require("../../../wrappid/communication/helper");
+const env = process.env.NODE_ENV || "test";
+const config = require("../../../wrappid/config/provider.config");
+const accessTokenSecret = config.jwt.accessTokenSecret;
+const refreshAccessTokenSecret = config.jwt.refreshAccessTokenSecret;
+const expTime = config.jwt.expTime;
+const expTimeRefreshToken = config.jwt.expTimeRefreshToken;
+const databaseActions = require("../../../wrappid/database/actions.database");
+
+// databaseActions.findAll("application", "testdatas", {})
+
+const DeviceDetector = require("node-device-detector");
+const {
+  communicate,
+} = require("../../../wrappid/communication/helper");
+const {constant} = require("../../../wrappid/constants/server.constant");
+const { loginHelper } = require("../../../wrappid/communication/helper");
+const { entityStatus } = require("../../../wrappid/constants/server.constant");
+const databaseProvider = require("../../../wrappid/database/provider.database")
+const { validateAndGetAuthType } = require("../functions/auth.functions");
+// const postCheckLoginOrRegister =
+//   require("../util/yupValidationSchema").postCheckLoginOrRegister;
+// const login = require("../util/yupValidationSchema").login;
+// const postLoginWithOtp =
+//   require("../util/yupValidationSchema").postLoginWithOtp;
+// const postLogoutSchema =
+//   require("../util/yupValidationSchema").postLogoutSchema;
+// const refreshTokenSchema =
+//   require("../util/yupValidationSchema").refreshTokenSchema;
+// const getIpSchema = require("../util/yupValidationSchema").getIpSchema;
+// const resetpasswordSchema =
+//   require("../util/yupValidationSchema").resetpasswordSchema;
+// const changePasswordSchema =
+//   require("../util/yupValidationSchema").changePasswordSchema;
+
 /**
  * 
  * @param {*} req 
@@ -5,180 +43,79 @@
  * @returns 
  */
 module.exports.checkLoginOrRegister = async (req, res) => {
-    try {
-        // var isValidJOI = await authenticateJOI(req,"checkLoginOrRegisterPOST",["body","query"])
-        var emailOrPhone = req.body.emailOrPhone;
-        var ob = clearValidatePhoneEmail(req.body.emailOrPhone);
-        var whereOb = {};
-        if (ob.type === constant.communication.EMAIL)
-            whereOb = { email: emailOrPhone };
-        else if (ob.type === constant.communication.SMS)
-            whereOb = { phone: emailOrPhone };
-        else {
-            console.log("Not a valid email or phone");
-            res.status(500).json({ message: "Not a valid email or phone" });
-            return;
-        }
+  try {
+    /**
+     * @todo
+     * 
+     * 1. validate email or phone
+     * 2. get type [EMAIL or PHONE]
+     */
+    // ---------------------  
+    let emailOrPhone = req.body.emailOrPhone;
+    let whereOB = validateAndGetAuthType(emailOrPhone);
 
-        db.Users.findOne({
-            where: whereOb,
-        })
-            .then(async (data) => {
-                try {
-                    if (data) {
-                        if (
-                            (req.query &&
-                                req.query.loginWithOtp &&
-                                req.query.loginWithOtp == 1) ||
-                            data.firstLogin
-                        ) {
-                            const result = await db.sequelize.transaction(async (t) => {
-                                var comRes = await communicate(
-                                    data,
-                                    ob.type,
-                                    ob.type === constant.communication.EMAIL
-                                        ? constant.communication.SENT_OTP_MAIL_EN
-                                        : ob.type === constant.communication.SMS
-                                            ? constant.communication.SENT_OTP_SMS_EN
-                                            : null,
-                                    [],
-                                    (otpFlag = true),
-                                    (transaction = t)
-                                );
-                                if (comRes.success) {
-                                    if (data.firstLogin) {
-                                        console.log(
-                                            "OTP sent for registered user for first login"
-                                        );
-                                        res.status(201).json({
-                                            message:
-                                                "OTP sent for registered user for first login",
-                                        });
-                                    } else {
-                                        console.log("OTP sent for registered user");
-                                        res
-                                            .status(200)
-                                            .json({ message: "OTP sent for registered user" });
-                                    }
-                                } else {
-                                    throw "Can't send OTP right now";
-                                }
-                            });
-                        } else {
-                            console.log("User found", data.id);
-                            var personData = await db.Persons.findOne({
-                                where: {
-                                    userId: data.id,
-                                },
-                            });
+    const data = await databaseActions.findOne("application", "Users", { where: whereOB });
+    console.log(data);
 
-                            res.status(200).json({
-                                message: "User Found",
-                                data: {
-                                    name:
-                                        personData.firstName +
-                                        " " +
-                                        personData.middleName +
-                                        " " +
-                                        personData.lastName,
-                                    photoUrl: personData.photoUrl,
-                                    isVerified: personData.isVerified,
-                                },
-                            });
-                        }
-                    } else {
-                        console.log("Sent OTP to unregistered user: ", ob.type);
-                        if (ob.valid) {
-                            var userBody = whereOb;
-                            try {
-                                const result = await db.sequelize.transaction(async (t) => {
-                                    var r = await db.Roles.findOne({
-                                        where: { role: "doctor" },
-                                    });
-                                    var u = await db.Users.create(
-                                        {
-                                            ...userBody,
-                                            roleId: r.id,
-                                            firstLogin: true,
-                                        },
-                                        { transaction: t }
-                                    );
-                                    console.log("User Created", u.id);
-
-                                    var p = await db.Persons.create(
-                                        {
-                                            ...userBody,
-                                            profileId: Date.now(),
-                                            userId: u.id,
-                                            /**
-                                             * @todo
-                                             * added for phase 0.5
-                                             */
-                                            isVerified: true,
-                                        },
-                                        { transaction: t }
-                                    );
-                                    console.log("Person Created", u.id);
-
-                                    var p = await db.PersonContacts.create(
-                                        {
-                                            data: emailOrPhone,
-                                            type:
-                                                ob.type === constant.communication.EMAIL
-                                                    ? constant.contact.EMAIL
-                                                    : constant.contact.PHONE,
-                                            personId: p.id,
-                                            _status: entityStatus.ACTIVE,
-                                        },
-                                        { transaction: t }
-                                    );
-                                    console.log("Person contact Created", p.id);
-
-                                    var comRes = await communicate(
-                                        u,
-                                        ob.type,
-                                        ob.type === constant.communication.EMAIL
-                                            ? constant.communication.SENT_OTP_MAIL_EN
-                                            : ob.type === constant.communication.SMS
-                                                ? constant.communication.SENT_OTP_SMS_EN
-                                                : null,
-                                        [],
-                                        (otpFlag = true),
-                                        (transaction = t)
-                                    );
-                                    console.log("COM res", comRes);
-                                    if (comRes.success) {
-                                        console.log("OTP sent for unregistered user");
-                                        res
-                                            .status(201)
-                                            .json({ message: "OTP sent for unregistered user" });
-                                    } else {
-                                        throw "Can't send OTP right no";
-                                    }
-                                });
-                            } catch (error) {
-                                console.error("internal error", error);
-                                res.status(500).json({ message: "Internal error" });
-                            }
-                        } else {
-                            console.error("Not a valid mail or phone:", emailOrPhone);
-                            res.status(405).json({ message: "Not valid phone or email" });
-                        }
-                    }
-                } catch (err) {
-                    console.log("Error in check register", err);
-                    res.status(500).json({ message: err });
+    /* if (data) {
+        if (req.query && req.query.loginWithOtp && req.query.loginWithOtp == 1 || data.firstLogin) {
+              const result = await databaseProvider.application.sequelize.transaction(async (t) => {
+              var comRes = await communicate(
+                data,
+                ob.type,
+                ob.type === constant.communication.EMAIL
+                  ? constant.communication.SENT_OTP_MAIL_EN
+                  : ob.type === constant.communication.SMS
+                  ? constant.communication.SENT_OTP_SMS_EN
+                  : null,
+                [],
+                (otpFlag = true),
+                (transaction = t)
+              );
+              if (comRes.success) {
+                if (data.firstLogin) {
+                  console.log(
+                    "OTP sent for registered user for first login"
+                  );
+                  res.status(201).json({
+                    message:
+                      "OTP sent for registered user for first login",
+                  });
+                } else {
+                  console.log("OTP sent for registered user");
+                  res
+                    .status(200)
+                    .json({ message: "OTP sent for registered user" });
                 }
-            })
-            .catch((err) => {
-                console.log("Error in check register", err);
-                res.status(500).json({ message: err });
+              } else {
+                throw "Can't send OTP right now";
+              }
+            }); 
+            console.log(`Don't know what to do ${"......."}`);
+          
+        } else {
+            console.log("User found", data.id);
+            const personData = await databaseActions.findOne("application", "Users", { where: whereOb });
+            console.log(personData);
+            res.status(200).json({
+                message: "User Found",
+                data: {
+                    name: personData.firstName + " " + personData.middleName + " " + personData.lastName,
+                    photoUrl: personData.photoUrl,
+                    isVerified: personData.isVerified,
+                },
             });
-    } catch (error) {
-        console.error("checkLoginOrRegister Error:: ", error);
-        res.status(500).json({ message: error.message });
-    }
+        }
+    } else {
+        
+    } */
+    return res.status(200).json({ message: "Check login or register working.", data });
+  } catch (error) {
+      console.error("checkLoginOrRegister Error: ", error);
+      res.status(500).json({ message: error.message });
+  }
 }
+
   // login
 module.exports.login = async (req, res) => {
     try {
