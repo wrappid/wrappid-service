@@ -1,10 +1,10 @@
-const { databaseProvider } = require("../../../wrappid");
+const {databaseActions} = require("../../../wrappid/index");
 
 /**
  * 
  * @returns 
  */
-module.exports.testFunc1 = () => {
+const testFunc1 = () => {
     return "This is a test func 1.";
 };
 
@@ -12,33 +12,49 @@ module.exports.testFunc1 = () => {
  * 
  * @returns 
  */
-module.exports.testFunc2 = () => {
+const testFunc2 = () => {
     return "This is a test func 2.";
 };
 
 /**
  * 
  */
-module.exports.createTestData = () => { };
+const createTestData = () => { };
 
 /**
  * 
  */
-module.exports.updateTestDat = () => { };
+const updateTestData = () => { };
 
 /**
  * 
  * @returns 
  */
-module.exports.readTestData = async () => {
-    console.log(`--------------------------------`);
-    console.log(databaseProvider);
-    console.log(`--------------------------------`);
-    // let data = await databaseProvider.application.Test.findAll();
-    return Object.keys(databaseProvider);
+const readTestData = async () => {
+    try {
+        // console.log(`--------------------------------`);
+        // const {databaseProvider} = require("../../../wrappid");
+        // console.log(databaseProvider);
+        // console.log(`--------------------------------`);
+        // let data = await databaseProvider.application.models.testdatas.findAll();
+        let data = await databaseActions.findAll("application", "testdatas", {});
+        return data;
+    } catch (error) {
+        throw new Error(error);
+    }
 };
+
 
 /**
  * 
  */
-module.exports.deleteTestData = () => { };
+const deleteTestData = () => { };
+
+module.exports = {
+    testFunc1,
+    testFunc2,
+    createTestData,
+    updateTestData,
+    readTestData,
+    deleteTestData
+};
