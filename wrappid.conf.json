@@ -3,18 +3,19 @@
         "databases": [
             {
                 "name": "application",
-                "host": "rxefy.c1djpfkddxmf.ap-south-1.rds.amazonaws.com",
+                "host": "rxefy-stage.c1djpfkddxmf.ap-south-1.rds.amazonaws.com",
                 "port": "5432",
                 "dialect": "postgres",
                 "database": "rxefy-stage",
                 "username": "postgres",
                 "password": "O9mIBut4TqaVCdJsbRpI",
-                "logging": false
+                "logging": false,
+                "otpLength": 6
             }
         ],
         "jwt": {
-            "accessTokenSecret": "",
-            "refreshAccessTokenSecret": "",
+            "accessTokenSecret": "ce77d552ea82451cbcce28c5ea59711d",
+            "refreshAccessTokenSecret": "2c1a3c2d2f024d429a97c7f49cd54582",
             "expTime": "60m",
             "expTimeRefreshToken": "1000m"
         },
