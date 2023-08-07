@@ -22,11 +22,14 @@
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "ioredis": "^5.3.2",
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
     "node-device-detector": "^2.0.14",
     "otp-generator": "^4.0.1",
     "pg": "^8.11.0",
+    "redis": "^4.6.7",
+    "redis-json": "^6.0.3",
     "sequelize": "^6.32.1"
   },
   "devDependencies": {

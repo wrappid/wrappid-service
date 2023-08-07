@@ -1,5 +1,4 @@
 const {databaseActions} = require("../../../wrappid/index");
-
 /**
  * 
  * @returns 
@@ -19,25 +18,53 @@ const testFunc2 = () => {
 /**
  * 
  */
-const createTestData = () => { };
+const createTestData = async (req) => { 
+    try {
+        const {databaseActions} = require("../../../wrappid/index");
+        let data = await databaseActions.create("application", "testdatas", {req});
+        return data;
+    } catch (error) {
+        throw new Error(error);
+    }
+
+};
 
 /**
  * 
  */
-const updateTestData = () => { };
+const updateTestData = async (req) => { 
+    try {
+        const {databaseActions} = require("../../../wrappid/index");
+       let data = await databaseActions.update("application", "testdatas", {req});
+       return data;
+   } catch (error) {
+       throw new Error(error);
+   }
+};
 
 /**
  * 
  * @returns 
  */
-const readTestData = async () => {
+// const readTestData = async () => {
+//     try {
+//          const {databaseActions} = require("../../../wrappid/index");
+//         let data = await databaseActions.findAll("application", "testdatas", {});
+//         return data;
+//     } catch (error) {
+//         throw new Error(error);
+//     }
+// };
+
+/**
+ * 
+ */
+const readTestData = async (req) => {
     try {
-        // console.log(`--------------------------------`);
-        // const {databaseProvider} = require("../../../wrappid");
-        // console.log(databaseProvider);
-        // console.log(`--------------------------------`);
-        // let data = await databaseProvider.application.models.testdatas.findAll();
-        let data = await databaseActions.findAll("application", "testdatas", {});
+        //cache call to get data
+        const {databaseActions} = require("../../../wrappid/index");
+        let data = await databaseActions.findOne("application", "testdatas", {req});
+        //cache call to get data
         return data;
     } catch (error) {
         throw new Error(error);
@@ -48,7 +75,16 @@ const readTestData = async () => {
 /**
  * 
  */
-const deleteTestData = () => { };
+const deleteTestData = async(req) => {
+    try {
+        const {databaseActions} = require("../../../wrappid/index");
+       let data = await databaseActions.delete("application", "testdatas", {req});
+       return data;
+   } catch (error) {
+       throw new Error(error);
+   }
+
+ };
 
 module.exports = {
     testFunc1,

@@ -12,11 +12,39 @@ const databaseActions = {
             throw new Error(error);
         }
     },
-
-    findOne: async (database,model,options) => {
+    
+    delete: async(database,model, data) => {
         try {
             const databaseProvider = require("./provider.database")
-            return await databaseProvider[database].models[model].findOne(options);
+            return await databaseProvider[database].models[model].destroy({
+                 where: {
+                  id:  data['req']['body']['id']
+                },
+              });
+        } catch (error) {
+            throw new Error(error);
+        }
+    },
+
+    update:  async(database,model, data) => {
+        try {
+            const databaseProvider = require("./provider.database")
+            return await databaseProvider[database].models[model].update( {name : data['req']['body']['name']}, 
+            {where:{id:data['req']['body']['id']}}
+            );
+        } catch (error) {
+            throw new Error(error);
+        }
+    },
+
+    findOne: async (database,model,data) => {
+        try {
+            const databaseProvider = require("./provider.database")
+            return await databaseProvider[database].models[model].findAll({
+                where: {
+                  id: data['req']['body']['id']
+                }
+              });
 
         } catch(error) {
             throw new Error(error);
@@ -26,7 +54,7 @@ const databaseActions = {
     create: async (database, model, data) => {
         try {
             const databaseProvider = require("./provider.database");
-            return await databaseProvider[database].models[model].create(data);
+            return await databaseProvider[database].models[model].create({name: data['req']['body']['name']});
         } catch (error) {
             throw new Error(error);
         }
