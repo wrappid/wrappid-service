@@ -3,12 +3,12 @@
         "databases": [
             {
                 "name": "application",
-                "host": "rxefy-stage.c1djpfkddxmf.ap-south-1.rds.amazonaws.com",
+                "host": "localhost",
                 "port": "5432",
                 "dialect": "postgres",
-                "database": "rxefy-stage",
+                "database": "application",
                 "username": "postgres",
-                "password": "O9mIBut4TqaVCdJsbRpI",
+                "password": "admin",
                 "logging": false,
                 "otpLength": 6
             }

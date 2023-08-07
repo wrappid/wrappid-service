@@ -42,8 +42,8 @@ setupModels(databaseProvider);
 
 const testDatabase = async () => {
   try{
+
     // let data = await databaseProvider.application.models.test.create({name: "Rahul"});
-    
     let data = await databaseProvider.application.models.testdatas.findAll();
     console.log(data);
   } catch (err){

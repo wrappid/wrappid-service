@@ -1,5 +1,8 @@
-const authModels = require("./auth/models.registry");
+const testModels = require("./test/models.registry");
 
-const moduleModelsRegistry = { ...authModels.modelsRegistry };
+const moduleModelsRegistry = { 
+    ...testModels.modelsRegistry
+};
+
 
 module.exports = moduleModelsRegistry;
