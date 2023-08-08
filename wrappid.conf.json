@@ -1,5 +1,21 @@
 {
     "dev": {
+        "cache": [
+            {
+                "name":"first",
+                "username": "",
+                "password": "admin",
+                "host": "127.0.0.1",
+                "port": "6379"
+            },
+            {  
+                "name":"second",
+                "username": "",
+                "password": "admin",
+                "host": "127.0.0.1",
+                "port": "6379"
+            }
+        ],
         "databases": [
             {
                 "name": "application",
@@ -58,6 +74,8 @@
             ]
         }
     },
-    "test": {},
+    "test": {
+        
+    }, 
     "prod": {}
 }

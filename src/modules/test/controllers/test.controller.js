@@ -1,6 +1,6 @@
 
 const testFunctions = require("../functions/test.functions");
-// const {fun1} = require("../../../wrappid/cache/cache.managet")
+const cachemanager = require("../../../wrappid/cache/cache.manager")
 
 /**
  * 

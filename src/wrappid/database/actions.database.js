@@ -16,11 +16,7 @@ const databaseActions = {
     delete: async(database,model, data) => {
         try {
             const databaseProvider = require("./provider.database")
-            return await databaseProvider[database].models[model].destroy({
-                 where: {
-                  id:  data['req']['body']['id']
-                },
-              });
+            return await databaseProvider[database].models[model].destroy(data);
         } catch (error) {
             throw new Error(error);
         }
