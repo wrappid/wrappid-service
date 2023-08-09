@@ -1,10 +1,16 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
 var bodyParser = require("body-parser");
 
 var cors = require("cors");
-const { setupLogging, setupModels, setupRoutes, databaseProvider } = require('./wrappid');
+const {
+  setupLogging,
+  setupModels,
+  setupRoutes,
+  databaseProvider,
+  cacheProvider,
+} = require("./wrappid");
 var options = {
   inflate: true,
   limit: "50mb",
@@ -41,17 +47,16 @@ setupModels(databaseProvider);
 // console.log(`----------------------------------`);
 
 const testDatabase = async () => {
-  try{
-
+  try {
     // let data = await databaseProvider.application.models.test.create({name: "Rahul"});
     let data = await databaseProvider.application.models.testdatas.findAll();
     console.log(data);
-  } catch (err){
+  } catch (err) {
     console.log("----------------------------------");
     console.log(err);
     console.log("----------------------------------");
   }
-}
+};
 // testDatabase();
 console.log(`----------------------------------`);
 

@@ -3,15 +3,15 @@
         "cache": [
             {
                 "name":"first",
-                "username": "",
-                "password": "admin",
+                "username": "default",
+                "password": "",
                 "host": "127.0.0.1",
                 "port": "6379"
             },
             {  
                 "name":"second",
                 "username": "",
-                "password": "admin",
+                "password": "",
                 "host": "127.0.0.1",
                 "port": "6379"
             }

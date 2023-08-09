@@ -1,72 +1,69 @@
-
 const databaseActions = {
-    
-    /**
-     * 
-    */
-   findAll: async (database, model, options) => {
-       try {
-            const databaseProvider = require("./provider.database")
-            return await databaseProvider[database].models[model].findAll(options);
-        } catch (error) {
-            throw new Error(error);
-        }
-    },
-    
-    delete: async(database,model, data) => {
-        try {
-            const databaseProvider = require("./provider.database")
-            return await databaseProvider[database].models[model].destroy(data);
-        } catch (error) {
-            throw new Error(error);
-        }
-    },
+  /**
+   *
+   */
+  findAll: async (database, model, options) => {
+    try {
+      const databaseProvider = require("./provider.database");
+      return await databaseProvider[database].models[model].findAll(options);
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
 
-    update:  async(database,model, data) => {
-        try {
-            const databaseProvider = require("./provider.database")
-            return await databaseProvider[database].models[model].update( {name : data['req']['body']['name']}, 
-            {where:{id:data['req']['body']['id']}}
-            );
-        } catch (error) {
-            throw new Error(error);
-        }
-    },
+  delete: async (database, model, data) => {
+    try {
+      const databaseProvider = require("./provider.database");
+      return await databaseProvider[database].models[model].destroy(data);
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
 
-    findOne: async (database,model,data) => {
-        try {
-            const databaseProvider = require("./provider.database")
-            return await databaseProvider[database].models[model].findAll({
-                where: {
-                  id: data['req']['body']['id']
-                }
-              });
+  update: async (database, model, data) => {
+    try {
+      const databaseProvider = require("./provider.database");
+      return await databaseProvider[database].models[model].update(
+        { name: data["req"]["body"]["name"] },
+        { where: { id: data["req"]["body"]["id"] } }
+      );
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
 
-        } catch(error) {
-            throw new Error(error);
-        }
-    },
+  findOne: async (database, model, data) => {
+    try {
+      const databaseProvider = require("./provider.database");
+      return await databaseProvider[database].models[model].findAll({
+        where: {
+          id: data["req"]["body"]["id"],
+        },
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
 
-    create: async (database, model, data) => {
-        try {
-            const databaseProvider = require("./provider.database");
-            return await databaseProvider[database].models[model].create({name: data['req']['body']['name']});
-        } catch (error) {
-            throw new Error(error);
-        }
+  create: async (database, model, data) => {
+    try {
+      const databaseProvider = require("./provider.database");
+      return await databaseProvider[database].models[model].create({
+        name: data["req"]["body"]["name"],
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
 
-
-    },
-
-    findByPk: async (database, model, primaryKey) => {
-        try {
-          const databaseProvider = require("./provider.database");
-          return await databaseProvider[database].models[model].findOne(primaryKey);
-        } catch (error) {
-          throw new Error(error);
-        }
-      },
-
-}
+  findByPk: async (database, model, primaryKey) => {
+    try {
+      const databaseProvider = require("./provider.database");
+      return await databaseProvider[database].models[model].findOne(primaryKey);
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+};
 
 module.exports = databaseActions;
