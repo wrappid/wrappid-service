@@ -4,7 +4,10 @@ const app = express();
 var bodyParser = require("body-parser");
 
 var cors = require("cors");
+const {activityLogger} = require("../src/wrappid/middlewares/apiLogger.middleware")
+
 const {
+  
   setupLogging,
   setupModels,
   setupRoutes,
@@ -22,6 +25,7 @@ app.use(cors());
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.raw(options));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(activityLogger);
 
 /**
  * Setup Logging
