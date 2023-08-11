@@ -87,6 +87,11 @@ const constant = {
         TEXT: "text/plain",
       },
     },
+
+    storageType: {
+      AWS_S3: "aws_s3",
+      LOCAL: "local",
+    }
   };
   
   module.exports = {constant,  DEFAULT_PORT: 8080};

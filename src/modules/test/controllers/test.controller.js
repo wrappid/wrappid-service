@@ -1,4 +1,22 @@
 const testFunctions = require("../functions/test.functions");
+const databaseProvider = require("../../../wrappid/database/provider.database");
+
+module.exports.testUploadFunc = async (req, res) => {
+  try {
+    console.log("req.file in test.controller", req.file);
+    const body = req.file;
+    console.log("location: ", body.location);
+    await databaseProvider["application"].models[
+      "FileHandlers"
+    ].create({
+      fileUrl: body.location,
+    });
+    return res.status(200).json({ message: "Response Data:"});
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Something went wrong"});
+  }
+};
 
 /**
  *

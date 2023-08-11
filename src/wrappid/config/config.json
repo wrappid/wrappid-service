@@ -1,0 +1,153 @@
+{
+    "development": {
+      "username": "postgres",
+      "password": "Rxefy#1234",
+      "database": "prescription",
+      "host": "database-1.cj1vxerq7jzh.ap-south-1.rds.amazonaws.com",
+      "dialect": "postgres",
+      "port": "5432",
+      "accessTokenSecret": "NwqeSDI3WCYJBnn1YY5Yaq2,96y59rn8",
+      "refreshAccessTokenSecret": "truyiUIIViBubi63WPlmwaczx7f4s20l",
+      "expTime": "60m",
+      "expTimeRefreshToken": "1000m",
+      "region": "ap-south-1",
+      "accessKeyId": "AKIAWFKWOFQIJVSEK2VE",
+      "secretAccessKey": "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",
+      "bucket": "elasticbeanstalk-ap-south-1-423772433424",
+      "logging": false,
+      "mailFrom": "Rxefy",
+      "mailId": "no-reply@rxefy.com",
+      "mailPassword": "twjfhvnmxcpeascs",
+      "backendUrl": "http://localhost:3000",
+      "maxRow": 100,
+      "cachePage": 2,
+      "OtpSendToMobile": false,
+      "otpLength": 6,
+      "razorpayKey": "rzp_test_7SYQ1efss6fo6a",
+      "razorpaySecret": "eL5b9zxu7HdTA2Y2r7e04Jzg",
+      "medicineDB": {
+        "username": "postgres",
+        "password": "Rxefy#1234",
+        "database": "rxefyMedicine",
+        "host": "database-1.cj1vxerq7jzh.ap-south-1.rds.amazonaws.com",
+        "dialect": "postgres",
+        "port": "5432",
+        "logging": false
+      },
+      "smsProvider": {
+        "url": "https://www.kit19.com/ComposeSMS.aspx?username=rxefy968669&password=18826&sender=RXEFYT&to=#phone&message=#message&priority=1&dnd=1&unicode=0&dlttemplateid=1707167264959149149"
+      },
+      "frontendUrl": "http://localhost:3000",
+      "github": {
+        "createIssueURL": "https://api.github.com/repos/rxefy/rxefy-reported-errors/issues",
+        "token": "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",
+        "defaultLabels": [
+          "Public Issues"
+        ]
+      },
+      "whatsapp": {
+        "accessToken": "EAAGGOPHCcqwBALUR4O3ZBcPiPzBxfZCxDcya64S9ttOuK6A98fEW2KzjqdaqRW36ZBc0cv82M7BXRyZBYMzeNZArKg0XTVgea5D4qJe9F6ZC0Rg5wgn8OkRzW0nLDqy6w5BjFZCmBDQ9GRfTMZAXXEMdqRZAaZBj1QLZCZBvnHRsK7RAZBvh26B4RIAAnXlpopaXlhXUhWwoElZBp4hgZDZD",
+        "api_url": "https://graph.facebook.com/v15.0/:id/messages",
+        "id": "102308052747189"
+      }
+    },
+    "test": {
+      "username": "postgres",
+      "password": "O9mIBut4TqaVCdJsbRpI",
+      "database": "rxefy-stage",
+      "host": "rxefy-stage.c1djpfkddxmf.ap-south-1.rds.amazonaws.com",
+      "dialect": "postgres",
+      "port": "5432",
+      "accessTokenSecret": "ce77d552ea82451cbcce28c5ea59711d",
+      "refreshAccessTokenSecret": "2c1a3c2d2f024d429a97c7f49cd54582",
+      "expTime": "60m",
+      "expTimeRefreshToken": "1000m",
+      "region": "ap-south-1",
+      "accessKeyId": "AKIAWFKWOFQIJVSEK2VE",
+      "secretAccessKey": "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",
+      "bucket": "elasticbeanstalk-ap-south-1-423772433424",
+      "logging": false,
+      "mailFrom": "Rxefy",
+      "mailId": "no-reply@rxefy.com",
+      "mailPassword": "twjfhvnmxcpeascs",
+      "backendUrl": "http://localhost:3000",
+      "maxRow": 100,
+      "cachePage": 2,
+      "OtpSendToMobile": false,
+      "otpLength": 6,
+      "razorpayKey": "rzp_test_7SYQ1efss6fo6a",
+      "razorpaySecret": "eL5b9zxu7HdTA2Y2r7e04Jzg",
+      "medicineDB": {
+        "username": "postgres",
+        "password": "Rxefy#1234",
+        "database": "rxefyMedicine",
+        "host": "database-1.cj1vxerq7jzh.ap-south-1.rds.amazonaws.com",
+        "dialect": "postgres",
+        "port": "5432",
+        "logging": false
+      },
+      "smsProvider": {
+        "url": "https://www.kit19.com/ComposeSMS.aspx?username=rxefy968669&password=18826&sender=RXEFYT&to=#phone&message=#message&priority=1&dnd=1&unicode=0&dlttemplateid=1707167264959149149"
+      },
+      "frontendUrl": "http://stageapp.rxefy.com",
+      "github": {
+        "createIssueURL": "https://api.github.com/repos/rxefy/rxefy-reported-errors/issues",
+        "token": "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",
+        "defaultLabels": [
+          "Public Issues"
+        ]
+      },
+      "whatsapp": {
+        "accessToken": "EAAGGOPHCcqwBALUR4O3ZBcPiPzBxfZCxDcya64S9ttOuK6A98fEW2KzjqdaqRW36ZBc0cv82M7BXRyZBYMzeNZArKg0XTVgea5D4qJe9F6ZC0Rg5wgn8OkRzW0nLDqy6w5BjFZCmBDQ9GRfTMZAXXEMdqRZAaZBj1QLZCZBvnHRsK7RAZBvh26B4RIAAnXlpopaXlhXUhWwoElZBp4hgZDZD",
+        "api_url": "https://graph.facebook.com/v15.0/:id/messages",
+        "id": "102308052747189"
+      }
+    },
+    "production": {
+      "username": "postgres",
+      "password": "Rxefy#1234",
+      "database": "prescription",
+      "host": "database-1.cj1vxerq7jzh.ap-south-1.rds.amazonaws.com",
+      "dialect": "postgres",
+      "port": "5432",
+      "accessTokenSecret": "NwqeSDI3WCYJBnn1YY5Yaq2,96y59rn8",
+      "refreshAccessTokenSecret": "truyiUIIViBubi63WPlmwaczx7f4s20l",
+      "expTime": "60m",
+      "expTimeRefreshToken": "1000m",
+      "region": "ap-south-1",
+      "accessKeyId": "AKIAWFKWOFQIJVSEK2VE",
+      "secretAccessKey": "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",
+      "bucket": "elasticbeanstalk-ap-south-1-423772433424",
+      "logging": false,
+      "mailFrom": "Rxefy",
+      "mailId": "no-reply@rxefy.com",
+      "mailPassword": "twjfhvnmxcpeascs",
+      "backendUrl": "http://localhost:3000",
+      "maxRow": 100,
+      "cachePage": 2,
+      "OtpSendToMobile": false,
+      "otpLength": 6,
+      "razorpayKey": "rzp_test_7SYQ1efss6fo6a",
+      "razorpaySecret": "eL5b9zxu7HdTA2Y2r7e04Jzg",
+      "medicineDB": {
+        "username": "postgres",
+        "password": "Rxefy#1234",
+        "database": "rxefyMedicine",
+        "host": "database-1.cj1vxerq7jzh.ap-south-1.rds.amazonaws.com",
+        "dialect": "postgres",
+        "port": "5432",
+        "logging": false
+      },
+      "smsProvider": {
+        "url": "https://www.kit19.com/ComposeSMS.aspx?username=rxefy968669&password=18826&sender=RXEFYT&to=#phone&message=#message&priority=1&dnd=1&unicode=0&dlttemplateid=1707167264959149149"
+      },
+      "github": {
+        "createIssueURL": "https://api.github.com/repos/rxefy/rxefy-reported-errors/issues",
+        "token": "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",
+        "defaultLabels": [
+          "Public Issues"
+        ]
+      },
+      "frontendUrl": "http://stageapp.rxefy.com"
+    }
+  }
