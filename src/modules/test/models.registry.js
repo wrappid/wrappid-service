@@ -1,5 +1,5 @@
 const testdatas = require("./models/testdatas.model");
-const api_request_logs = require("./models/api_request_logs.model");
+const ApirequestLogs = require("./models/ApirequestLogs.model");
 const FileHandlers = require("./models/fileHandler.model");
 
 const modelsRegistry = {
@@ -7,9 +7,9 @@ const modelsRegistry = {
         database: "application",
         model   : testdatas
     },
-    "api_request_logs": {
+    "ApirequestLogs": {
         database : "application",
-        model    : api_request_logs
+        model    : ApirequestLogs
     },
     "FileHandlers": {
         database: "application",

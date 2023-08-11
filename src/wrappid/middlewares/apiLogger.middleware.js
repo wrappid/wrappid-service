@@ -1,36 +1,41 @@
-
 const databaseProvider = require("../database/provider.database");
 let Sequelize = require("sequelize");
 
 const activityLogger = async (req, res, next) => {
-  const ipAddress = req.socket.remoteAddress;
-  console.log('::---'+ipAddress+'---::');
-
-  console.log("::---- Hello activityLogger ----::");
   try {
-    result = await databaseProvider["application"].models["api_request_logs"].create({
-      ip: ipAddress,
+    result = await databaseProvider["application"].models[
+      "ApirequestLogs"
+    ].create({
+      ip: req.socket.remoteAddress,
       access_key: " ",
       endpoint: req.originalUrl,
       request: req.method,
       req_body: req.body,
       header_stack: req.headers,
-      start_ts: Sequelize.literal('CURRENT_TIMESTAMP')
+      start_ts: Sequelize.literal("CURRENT_TIMESTAMP"),
     });
-  
+
     let id = result.id;
     let send = res.send;
-    res.send = async function  (body) {
-      await databaseProvider["application"].models["api_request_logs"].update({
-        response : body,
-        end_ts: Sequelize.literal('CURRENT_TIMESTAMP')
-      }, {where: {id:id}});
+    let res_body;
+    res.send = async function (body) {
+      res_body = body;
       await send.call(this, body);
-  };
+    };
+    res.on("finish", async () => {
+      console.log(`Responded with status ${res.statusCode}`);
+      await databaseProvider["application"].models["ApirequestLogs"].update(
+        {
+          response: res_body,
+          response_header: res._headers,
+          response_status: res.statusCode,
+          end_ts: Sequelize.literal("CURRENT_TIMESTAMP"),
+        },
+        { where: { id: id } }
+      );
+    });
 
-    // console.log('::---'+result.id+'---::')
     next();
-    
   } catch (error) {
     throw new Error(error);
   }
