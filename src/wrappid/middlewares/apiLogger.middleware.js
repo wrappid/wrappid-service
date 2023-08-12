@@ -1,7 +1,7 @@
 const databaseProvider = require("../database/provider.database");
 let Sequelize = require("sequelize");
 
-const activityLogger = async (req, res, next) => {
+const apiLogger = async (req, res, next) => {
   try {
     result = await databaseProvider["application"].models[
       "ApirequestLogs"
@@ -23,7 +23,6 @@ const activityLogger = async (req, res, next) => {
       await send.call(this, body);
     };
     res.on("finish", async () => {
-      console.log(`Responded with status ${res.statusCode}`);
       await databaseProvider["application"].models["ApirequestLogs"].update(
         {
           response: res_body,
@@ -41,6 +40,4 @@ const activityLogger = async (req, res, next) => {
   }
 };
 
-module.exports = {
-  activityLogger,
-};
+module.exports = apiLogger;

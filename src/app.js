@@ -4,10 +4,10 @@ const app = express();
 var bodyParser = require("body-parser");
 
 var cors = require("cors");
-const {activityLogger} = require("../src/wrappid/middlewares/apiLogger.middleware")
+const apiLogger = require("../src/wrappid/middlewares/apiLogger.middleware");
+const initializeCronJobs = require("./wrappid/tasks/initTasks");
 
 const {
-  
   setupLogging,
   setupModels,
   setupRoutes,
@@ -25,12 +25,23 @@ app.use(cors());
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.raw(options));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(activityLogger);
+/**
+ *
+ */
+setupModels(databaseProvider);
+app.use(apiLogger);
+
+/**
+ * corn jobs
+ */
+// initializeCronJobs();
 
 /**
  * Setup Logging
  */
 setupLogging(app);
+
+// initTasks();
 
 /**
  * @todo
@@ -41,7 +52,6 @@ setupLogging(app);
 // console.log(`----------------------------------`);
 // console.log(databaseProvider);
 // console.log(`----------------------------------`);
-setupModels(databaseProvider);
 // console.log(`----------------------------------`);
 // console.log(`Post Setup Database Provider`);
 // console.log(`----------------------------------`);
