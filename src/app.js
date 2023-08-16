@@ -4,8 +4,6 @@ const app = express();
 var bodyParser = require("body-parser");
 
 var cors = require("cors");
-const apiLogger = require("../src/wrappid/middlewares/apiLogger.middleware");
-const initializeCronJobs = require("./wrappid/tasks/initTasks");
 
 const {
   setupLogging,
@@ -13,7 +11,10 @@ const {
   setupRoutes,
   databaseProvider,
   cacheProvider,
-} = require("./wrappid");
+  MiddlewaresRegistry,
+  initializeCronJobs
+} = require("@wrappid/service-core");
+
 var options = {
   inflate: true,
   limit: "50mb",
@@ -29,50 +30,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
  *
  */
 setupModels(databaseProvider);
-// app.use(apiLogger);
+app.use(MiddlewaresRegistry.apiLogger);
 
 /**
  * corn jobs
  */
-// initializeCronJobs();
+initializeCronJobs();
 
 /**
  * Setup Logging
  */
 setupLogging(app);
-
-// initTasks();
-
-/**
- * @todo
- * setup database
- */
-// console.log(`----------------------------------`);
-// console.log(`Database Provider`);
-// console.log(`----------------------------------`);
-// console.log(databaseProvider);
-// console.log(`----------------------------------`);
-// console.log(`----------------------------------`);
-// console.log(`Post Setup Database Provider`);
-// console.log(`----------------------------------`);
-// console.log(databaseProvider);
-// console.log(`----------------------------------`);
-// console.log(`Get data from test models`);
-// console.log(`----------------------------------`);
-
-const testDatabase = async () => {
-  try {
-    // let data = await databaseProvider.application.models.test.create({name: "Rahul"});
-    let data = await databaseProvider.application.models.testdatas.findAll();
-    console.log(data);
-  } catch (err) {
-    console.log("----------------------------------");
-    console.log(err);
-    console.log("----------------------------------");
-  }
-};
-// testDatabase();
-console.log(`----------------------------------`);
 
 /**
  * @todo
