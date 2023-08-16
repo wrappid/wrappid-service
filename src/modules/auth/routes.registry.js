@@ -1,5 +1,5 @@
-const authRouter = require("./routes/auth.routes");
+const testRouter = require("../test/routes/test.routes");
 
-const routesRegistry = { "auth": authRouter };
+const routesRegistry = { "test": testRouter };
 
 exports.routesRegistry = routesRegistry;
