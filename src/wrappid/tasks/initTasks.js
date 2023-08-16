@@ -1,12 +1,11 @@
 const cron = require("node-cron");
-const jobs = require("./jobs");
-let Sequelize = require("sequelize");
+const tasksRegistry = require("./../registry/TasksRegistry");
 
 const initializeCronJobs = async () => {
   console.log(`::----- Its initializeCronJobs -----::`);
   try {
     const { databaseActions } = require("../../wrappid/index");
-    cronSchemas = await databaseActions.findAll("application", "Cronschemas");
+    cronSchemas = await databaseActions.findAll("application", "CronSchemas");
   } catch (error) {
     throw new Error(error);
   }
@@ -30,9 +29,10 @@ const initializeCronJobs = async () => {
       }
 
       cron.schedule(cronSchema?.expression, () => {
-        let cronModule = jobs[cronSchema.cronModule];
+        let taskname = cronSchema.cronModule;
+        let cronModule = tasksRegistry[`${taskname}`];
         try {
-          console.log("running every minute to 1 from 5");
+          // console.log("running every minute to 1 from 5");
           if (cronModule.prePerform() /*pass or access db inside*/) {
             cronModule.perform(); // pass or access db inside
           }

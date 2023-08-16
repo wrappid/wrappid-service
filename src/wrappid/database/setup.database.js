@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const ModelsRegistry = require("../../ModelsRegistry");
+const ModelsRegistry = require("../../wrappid/registry/ModelsRegistry");
 
 const setupModels = (databaseProvider) => {
     Object.keys(databaseProvider).forEach(databaseName => {

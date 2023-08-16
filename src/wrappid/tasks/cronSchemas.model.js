@@ -1,7 +1,7 @@
 let Sequelize = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  const Cronschema = sequelize.define(
-    "Cronschemas",
+  const CronSchema = sequelize.define(
+    "CronSchemas",
     {
       id: {
         type: DataTypes.INTEGER,
@@ -26,5 +26,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  return Cronschema;
+  return CronSchema;
 };
