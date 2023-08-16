@@ -4,7 +4,7 @@ const env = process.env.NODE_ENV || "development";
 var config = require("../../config/config.json")[env];
 const {
   validatePhone,
-} = require("../../module/communication/communication.validator");
+} = require("./communication.validator");
 
 async function sentSms(ob) {
   var phone = ob.phone;

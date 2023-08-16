@@ -22,5 +22,6 @@ testRouter.get("/", validation(getTest), testController.testGetFunc);
 testRouter.post("/", validation(postTest), testController.testPostFunc);
 testRouter.put("/", validation(putTest), testController.testPutFunc);
 testRouter.patch("/", validation(patchTest), testController.testPatchFunc);
+testRouter.get("/sentMail", testMiddleware , testController.testSentMail);
 
 module.exports = testRouter;

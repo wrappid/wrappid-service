@@ -45,8 +45,8 @@ const patchTest = {
 
 const validateEmail = yup
   .string()
-  .matches(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/, "Invalid email")
-  .required();
+  .matches(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/, "Invalid email");
+  
 
 const validatePhone = yup
   .string()

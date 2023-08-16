@@ -1,8 +1,8 @@
 const nodemailer = require("nodemailer");
-const config = require("../../config/config.json");
+const config = require("../config/config.json");
 const {
   validateEmail,
-} = require("../../module/communication/communication.validator");
+} = require("./communication.validator");
 const env = process.env.NODE_ENV || "development";
 
 var transporter = nodemailer.createTransport({

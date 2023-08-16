@@ -103,6 +103,17 @@ const deleteTestData = async (req) => {
   }
 };
 
+
+const sentMail = async (mailoptions) => {
+  try {
+   const mail = require("./../../../wrappid/communication/sentMail")
+   return await mail.sentMail(mailoptions);
+  }catch (error) {
+    throw new Error(error);
+  }
+};
+
+
 module.exports = {
   testFunc1,
   testFunc2,
@@ -110,4 +121,5 @@ module.exports = {
   updateTestData,
   readTestData,
   deleteTestData,
+  sentMail
 };

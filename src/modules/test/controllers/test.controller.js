@@ -111,3 +111,15 @@ module.exports.testPutFunc = async (req, res) => {
     return res.status(500).json({ message: "Something went wrong.", error });
   }
 };
+
+
+module.exports.testSentMail = async (req, res) => {
+  try{
+    let mailoptions = { to: "pritam@rxefy.com"};
+    let data = await testFunctions.sentMail(mailoptions);
+    return res.status(200).json({ message: "Mail sent", data });
+  }catch(error){
+    console.log(error);
+    return res.status(500).json({ message: "Something went wrong.", error });
+  }
+};
