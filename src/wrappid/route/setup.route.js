@@ -11,6 +11,7 @@ const setupRoutes = (app) => {
   console.log(`----------------------------------`);
   console.log(`Setting up routes...`);
   Object.keys(moduleRoutesRegistry).forEach((route) => {
+    console.log(`Adding ${route} route...`);
     app.use(`/${route}`, moduleRoutesRegistry[route]);
   });
   console.log(`Routes setup successfully.`);
