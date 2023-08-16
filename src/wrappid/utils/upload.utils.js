@@ -143,7 +143,9 @@ function uploadLocal({filename, req, res, next}) {
 	
 		const uploadFile = multer({
 			storage: storage,
-			limits: validation.maxSize,
+			limits: {
+				fileSize: validation.maxSize,
+			},
 		});
 	
 		// if(count === 1) {
