@@ -34,7 +34,8 @@
     "pg": "^8.11.0",
     "redis": "^4.6.7",
     "redis-json": "^6.0.3",
-    "sequelize": "^6.32.1"
+    "sequelize": "^6.32.1",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
