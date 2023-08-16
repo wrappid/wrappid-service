@@ -3,9 +3,9 @@ const express = require("express");
 const testController = require("../controllers/test.controller");
 
 const testMiddleware = require("../middlewares/test.middleware");
-const fileHandlerMiddleware = require("../../../wrappid/middlewares/fileHandler.middleware");
+// const {fileHandler, filesHandler} = require("../../../wrappid/middlewares/fileHandler.middleware");
+const fileHandler = require("../../../wrappid/middlewares/fileHandler.middleware");
 const { constant } = require("../../../wrappid/constants/server.constant");
-const { uploadS3 } = require("../../../wrappid/middlewares/fileHandler.middleware");
 const getTest = require("../../../wrappid/utils/yupValidationSchema").getTest;
 const postTest = require("../../../wrappid/utils/yupValidationSchema").postTest;
 const putTest = require("../../../wrappid/utils/yupValidationSchema").putTest;
@@ -14,8 +14,9 @@ const validation = require("../../../wrappid/middlewares/validation.middleware")
 
 const testRouter = express.Router();
 
-// testRouter.post("/upload", filesHandlerMiddleware({storageType: constant.storageType.AWS_S3, naming: "ProfilePic"}), testController.testUploadFunc);
-// testRouter.post("/upload", uploadS3.single("ProfilePic"), testController.testUploadFunc);
+// testRouter.post("/upload", fileHandler({storageType: constant.storageType.AWS_S3, filename: "flashoff"}), testController.testUploadFunc);
+testRouter.post("/upload", fileHandler({storageType: constant.storageType.LOCAL, filename: "flashoff"}), testController.testUploadFunc);
+// testRouter.post("/upload/multiple", filesHandler({storageType: constant.storageType.LOCAL, files: 'photos'}), testController.testMultipleUploadFunc);
 
 testRouter.get("/", validation(getTest), testController.testGetFunc);
 testRouter.post("/", validation(postTest), testController.testPostFunc);

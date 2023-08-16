@@ -1,22 +1,49 @@
 const testFunctions = require("../functions/test.functions");
 const databaseProvider = require("../../../wrappid/database/provider.database");
+const { constant } = require("../../../wrappid/constants/server.constant");
 
 module.exports.testUploadFunc = async (req, res) => {
   try {
     console.log("req.file in test.controller", req.file);
     const body = req.file;
-    console.log("location: ", body.location);
-    await databaseProvider["application"].models[
-      "FileHandlers"
-    ].create({
-      fileUrl: body.location,
-    });
-    return res.status(200).json({ message: "Response Data:"});
+    const storageType = req.storageType;
+    // console.log("storageType: ", req.storageType);
+    // console.log("location: ", body);
+    if (storageType === constant.storageType.AWS_S3) {
+      await databaseProvider["application"].models[
+        "FileHandlers"
+      ].create({
+        fileUrl: body.location,
+      });
+    }
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ message: "Something went wrong"});
   }
 };
+
+// module.exports.testMultipleUploadFunc = async (req, res) => {
+//   try {
+//     console.log("req.files in test.controller", req.files);
+//     const body = req.files;
+//     const storageType = req.storageType;
+
+//     console.log("body in test.controller", body);
+//     console.log("storageType: ", storageType);
+
+//     // if (storageType === constant.storageType.AWS_S3) {
+//     //   await databaseProvider["application"].models[
+//     //     "FileHandlers"
+//     //   ].create({
+//     //     fileUrl: body.location,
+//     //   });
+//       return res.status(200).json({ message: "Controller called"});
+//     // }
+
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ message: "Something went wrong in controller" });
+//   }
+// };
 
 /**
  *

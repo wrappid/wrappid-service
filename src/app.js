@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
  *
  */
 setupModels(databaseProvider);
-app.use(apiLogger);
+// app.use(apiLogger);
 
 /**
  * corn jobs
