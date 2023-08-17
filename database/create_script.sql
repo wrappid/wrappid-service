@@ -40,9 +40,9 @@ ALTER TABLE IF EXISTS public."CronSchemas"
 
 
 
--- Table: public.ApirequestLogs
+-- Table: public.ApiRequestLogs
 
--- DROP TABLE IF EXISTS public."ApirequestLogs";
+-- DROP TABLE IF EXISTS public."ApiRequestLogs";
 
 CREATE TABLE IF NOT EXISTS public."ApiRequestLogs"
 (

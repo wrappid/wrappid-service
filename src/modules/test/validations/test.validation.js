@@ -1,5 +1,9 @@
 const yup = require("yup");
 
+const getTestAll = {
+  query: yup.object({}).noUnknown().strict(),
+};
+
 const getTest = {
   body: yup
     .object({
@@ -52,6 +56,7 @@ const validatePhone = yup
   .required();
 
 module.exports = {
+  getTestAll,
   getTest,
   postTest,
   putTest,

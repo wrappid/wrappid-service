@@ -42,6 +42,16 @@ module.exports.testUploadFunc = async (req, res) => {
 //   }
 // };
 
+module.exports.testGetAllFunc = async (req, res) => {
+  try {
+    let data = await testFunctions.readTestDataAll(req);
+    return res.status(200).json({ message: "Response Data(•_•) :", data });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Something went wrong.", error });
+  }
+};
+
 /**
  *
  * @param {*} req

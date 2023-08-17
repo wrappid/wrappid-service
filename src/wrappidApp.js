@@ -6,14 +6,13 @@ const {
   setupLogging,
   setupRoutes,
   setupTasks,
-  CoreModelsRegistry,
 } = require("@wrappid/service-core");
 
 const wrappidApp = express();
 
 let bodyParser = require("body-parser");
 let cors = require("cors");
-const { RoutesRegistry, TasksRegistry } = require("./registry");
+const { RoutesRegistry, TasksRegistry, ModelsRegistry } = require("./registry");
 let options = {
   inflate: true,
   limit: "50mb",
@@ -30,7 +29,7 @@ wrappidApp.use(bodyParser.urlencoded({ extended: true }));
 /**
  *
  */
-setupModels(CoreModelsRegistry);
+setupModels(ModelsRegistry);
 wrappidApp.use(CoreMiddlewaresRegistry.apiLogger);
 
 /**

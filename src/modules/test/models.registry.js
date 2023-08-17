@@ -1,11 +1,10 @@
-const testdatas = require("./models/testdatas.model");
-const ApirequestLogs = require("@wrappid/service-core/models/ApiRequestLogs.model");
-const FileHandlers = require("./models/fileHandler.model");
+const TestDatas = require("./models/TestDatas.model");
+const FileHandlers = require("./models/FileHandlers.model");
 
 const modelsRegistry = {
-    "testdatas": {
+    "TestDatas": {
         database: "application",
-        model   : testdatas
+        model   : TestDatas
     },
     "FileHandlers": {
         database: "application",

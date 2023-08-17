@@ -1,4 +1,4 @@
-const { databaseActions } = require("@wrappid/service-core");
+const { cacheActions, databaseActions } = require("@wrappid/service-core");
 
 /**
  *
@@ -51,10 +51,33 @@ const updateTestData = async (req) => {
 };
 
 /**
+ * @returns
+ */
+const readTestDataAll = async (req) => {
+  try {
+    //cache call to get data
+    let cacheKey = "testData";
+    let result = await cacheActions.read("first", cacheKey);
+    if (result) {
+      return result;
+    } else {
+      //Database call and update to cache
+      let result = await databaseActions.findAll("application", "TestDatas");
+      // Update chache with data
+      let cacheKey = result[0]["id"].toString();
+      let data = JSON.stringify(result[0]);
+      await cacheActions.update("first", cacheKey, data);
+      return data;
+    }
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+/**
  *
  * @returns
  */
-
 const readTestData = async (req) => {
   try {
     //cache call to get data
@@ -120,6 +143,7 @@ module.exports = {
   createTestData,
   updateTestData,
   readTestData,
+  readTestDataAll,
   deleteTestData,
   sentMail
 };

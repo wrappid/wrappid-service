@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const testdatas = sequelize.define("testdatas", {
+    const TestDatas = sequelize.define("TestDatas", {
         id: {
             autoIncrement: true,
             primaryKey: true,
@@ -15,5 +15,5 @@ module.exports = (sequelize, DataTypes) => {
         updatedAt: false,
     });
 
-    return testdatas;
+    return TestDatas;
 };
