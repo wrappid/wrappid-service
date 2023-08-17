@@ -2,9 +2,9 @@ console.log("###########################################");
 console.log("server.js start");
 console.log("###########################################");
 
-const { constant } = require("@wrappid/service-core");
+const { DEFAULT_PORT } = require("@wrappid/service-core");
 
-const __PORT = process.env.PORT || constant.DEFAULT_PORT
+const __PORT = process.env.PORT || DEFAULT_PORT
 
 const serverInit = () => {
   console.log("###########################################");
