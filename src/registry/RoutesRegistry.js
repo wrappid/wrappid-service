@@ -1,7 +1,7 @@
 const modulesRoutesRegistry = require("../modules/modules.routes.registry");
 
 const RoutesRegistry = {
-    ...modulesRoutesRegistry
+    ...modulesRoutesRegistry,
 };
 
 module.exports = RoutesRegistry;

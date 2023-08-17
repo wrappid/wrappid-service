@@ -1,7 +1,9 @@
+const { CoreFunctionsRegistry } = require("@wrappid/service-core");
 const modulesFunctionsRegistry = require("../modules/modules.functions.registry");
 
 const FunctionsRegistry = {
-    ...modulesFunctionsRegistry
+    ...modulesFunctionsRegistry,
+    ...CoreFunctionsRegistry
 };
 
 module.exports = FunctionsRegistry;
