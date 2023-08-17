@@ -1,6 +1,5 @@
 const testFunctions = require("../functions/test.functions");
-const databaseProvider = require("../../../wrappid/database/provider.database");
-const { constant } = require("../../../wrappid/constants/server.constant");
+const { databaseActions } = require("@wrappid/service-core");
 
 module.exports.testUploadFunc = async (req, res) => {
   try {
@@ -10,9 +9,7 @@ module.exports.testUploadFunc = async (req, res) => {
     // console.log("storageType: ", req.storageType);
     // console.log("location: ", body);
     if (storageType === constant.storageType.AWS_S3) {
-      await databaseProvider["application"].models[
-        "FileHandlers"
-      ].create({
+      await databaseActions("application","FileHandlers",{
         fileUrl: body.location,
       });
     }
@@ -111,7 +108,6 @@ module.exports.testPutFunc = async (req, res) => {
     return res.status(500).json({ message: "Something went wrong.", error });
   }
 };
-
 
 module.exports.testSentMail = async (req, res) => {
   try{

@@ -2,14 +2,14 @@
     "dev": {
         "cache": [
             {
-                "name":"first",
+                "name": "first",
                 "username": "default",
                 "password": "",
                 "host": "127.0.0.1",
                 "port": "6379"
             },
-            {  
-                "name":"second",
+            {
+                "name": "second",
                 "username": "",
                 "password": "",
                 "host": "127.0.0.1",
@@ -24,7 +24,7 @@
                 "dialect": "postgres",
                 "database": "application",
                 "username": "postgres",
-                "password": "admin",
+                "password": "techoneel",
                 "logging": false,
                 "otpLength": 6
             }
@@ -74,8 +74,6 @@
             ]
         }
     },
-    "test": {
-        
-    }, 
+    "test": {},
     "prod": {}
 }

@@ -44,7 +44,7 @@ ALTER TABLE IF EXISTS public."CronSchemas"
 
 -- DROP TABLE IF EXISTS public."ApirequestLogs";
 
-CREATE TABLE IF NOT EXISTS public."ApirequestLogs"
+CREATE TABLE IF NOT EXISTS public."ApiRequestLogs"
 (
     id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     access_key text COLLATE pg_catalog."default",
@@ -65,5 +65,5 @@ CREATE TABLE IF NOT EXISTS public."ApirequestLogs"
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS public."ApirequestLogs"
+ALTER TABLE IF EXISTS public."ApiRequestLogs"
     OWNER to postgres;

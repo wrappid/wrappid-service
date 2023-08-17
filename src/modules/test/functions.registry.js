@@ -1,4 +1,4 @@
-import testFunctions from "./functions/test.functions";
+const testFunctions = require("./functions/test.functions");
 
 const functionsRegistry = {
     "testFunc1": testFunctions.testFunc1,

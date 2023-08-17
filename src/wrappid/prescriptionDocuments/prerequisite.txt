@@ -1,2 +1,0 @@
-Note: The folder where we want to store uploaded files via multer.diskStorage()
-needs to be created manually if the destination field is provided as a function.

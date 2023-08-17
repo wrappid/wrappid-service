@@ -1,12 +1,14 @@
-const app = require("./app");
-const { DEFAULT_PORT } = require("./wrappid/constants/server.constant");
+const { constant } = require("@wrappid/service-core");
+const { setApplicationContext } = require("@wrappid/service-core");
+const ApplicationContext = require("./ApplicationContext");
+const wrappidApp = require("./wrappidApp");
 
-const __PORT = process.env.PORT || DEFAULT_PORT
+const __PORT = process.env.PORT || constant.DEFAULT_PORT
 
 const serverInit = () => {
   console.log(`Server is up and running on port ${__PORT}...`);
 };
 
-const server = app.listen(__PORT, serverInit);
+const server = wrappidApp.listen(__PORT, serverInit);
 
 module.exports = { server };

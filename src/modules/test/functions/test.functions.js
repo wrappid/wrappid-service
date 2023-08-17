@@ -1,4 +1,5 @@
-const { databaseActions } = require("../../../wrappid/index");
+const { databaseActions } = require("@wrappid/service-core");
+
 /**
  *
  * @returns
@@ -20,7 +21,6 @@ const testFunc2 = () => {
  */
 const createTestData = async (req) => {
   try {
-    const { databaseActions } = require("../../../wrappid/index");
     let data = await databaseActions.create("application", "testdatas", {
       req,
     });
