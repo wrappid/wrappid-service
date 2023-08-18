@@ -21,7 +21,7 @@ const testFunc2 = () => {
  */
 const createTestData = async (req) => {
   try {
-    let data = await databaseActions.create("application", "testdatas", {
+    let data = await databaseActions.create("application", "TestDatas", {
       req,
     });
     return data;
@@ -35,14 +35,12 @@ const createTestData = async (req) => {
  */
 const updateTestData = async (req) => {
   try {
-    const { cacheActions } = require("../../../wrappid/index");
-    const { databaseActions } = require("../../../wrappid/index");
-    let ressult = await databaseActions.update("application", "testdatas", {
-      req,
+    let ressult = await databaseActions.update("application", "TestDatas", {
+      req
     });
     // Update chache with data
-    let cacheKey = req["body"]["id"].toString();
-    let data = JSON.stringify(req["body"]);
+    let cacheKey = req.params.id.toString();
+    let data = JSON.stringify(req.params);
     await cacheActions.update("first", cacheKey, data);
     return data;
   } catch (error) {
@@ -64,8 +62,8 @@ const readTestDataAll = async (req) => {
       //Database call and update to cache
       let result = await databaseActions.findAll("application", "TestDatas");
       // Update chache with data
-      let cacheKey = result[0]["id"].toString();
-      let data = JSON.stringify(result[0]);
+      let cacheKey = "testData";
+      let data = JSON.stringify(result);
       await cacheActions.update("first", cacheKey, data);
       return data;
     }
@@ -81,15 +79,13 @@ const readTestDataAll = async (req) => {
 const readTestData = async (req) => {
   try {
     //cache call to get data
-    const { cacheActions } = require("../../../wrappid/index");
-    let cacheKey = req["body"]["id"].toString();
+    let cacheKey = req.params.id.toString();
     let result = await cacheActions.read("first", cacheKey);
     if (result) {
       return result;
     } else {
       //Database call and update to cache
-      const { databaseActions } = require("../../../wrappid/index");
-      let result = await databaseActions.findOne("application", "testdatas", {
+      let result = await databaseActions.findOne("application", "TestDatas", {
         req,
       });
       // Update chache with data
@@ -108,14 +104,12 @@ const readTestData = async (req) => {
  */
 const deleteTestData = async (req) => {
   try {
-    const { cacheActions } = require("../../../wrappid/index");
-    const { databaseActions } = require("../../../wrappid/index");
-    let data = await databaseActions.delete("application", "testdatas", {
+    let data = await databaseActions.delete("application", "TestDatas", {
       where: {
-        id: req["body"]["id"],
+        id: req.params.id,
       },
     });
-    cacheKey = req["body"]["id"].toString();
+    cacheKey = req.params.toString();
     await cacheActions.delete("first", cacheKey);
 
     //if present in cache then delete from cache

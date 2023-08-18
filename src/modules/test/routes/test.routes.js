@@ -14,7 +14,7 @@ testRouter.post("/upload", CoreMiddlewaresRegistry.fileHandler({storageType: con
 testRouter.get("/", CoreMiddlewaresRegistry.validation(getTestAll), testController.testGetAllFunc);
 testRouter.get("/:id", CoreMiddlewaresRegistry.validation(getTest), testController.testGetFunc);
 testRouter.post("/", CoreMiddlewaresRegistry.validation(postTest), testController.testPostFunc);
-testRouter.put("/:id", CoreMiddlewaresRegistry.validation(putTest), testController.testPutFunc);
+testRouter.put("/:id/:name", CoreMiddlewaresRegistry.validation(putTest), testController.testPutFunc);
 testRouter.patch("/:id", CoreMiddlewaresRegistry.validation(patchTest), testController.testPatchFunc);
 
 module.exports = testRouter;

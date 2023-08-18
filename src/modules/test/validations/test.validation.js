@@ -7,11 +7,16 @@ const getTestAll = {
 const getTest = {
   body: yup
     .object({
-      id: yup.mixed().required(),
+      id: yup.mixed(),
     })
     .noUnknown()
     .strict(),
-  query: yup.object({}).noUnknown().strict(),
+  query: yup
+    .object({
+      id: yup.mixed(),
+    })
+    .noUnknown()
+    .strict(),
 };
 
 const postTest = {
@@ -27,22 +32,25 @@ const postTest = {
 const putTest = {
   body: yup
     .object({
-      id: yup.mixed().required(),
-      name: yup.string().required(),
+      id: yup.mixed(),
+      name: yup.string(),
     })
     .noUnknown()
     .strict(),
-  query: yup.object({}).noUnknown().strict(),
+  query: yup
+    .object({ id: yup.mixed(), name: yup.string() })
+    .noUnknown()
+    .strict(),
 };
 
 const patchTest = {
   body: yup
     .object({
-      id: yup.mixed().required(),
+      id: yup.mixed(),
     })
     .noUnknown()
     .strict(),
-  query: yup.object({}).noUnknown().strict(),
+  query: yup.object({ id: yup.mixed() }).noUnknown().strict(),
 };
 
 const validateEmail = yup
