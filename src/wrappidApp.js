@@ -27,24 +27,27 @@ wrappidApp.use(bodyParser.raw(options));
 wrappidApp.use(bodyParser.urlencoded({ extended: true }));
 
 /**
- *
+ * Setup Models
  */
 setupModels(ModelsRegistry);
-wrappidApp.use(CoreMiddlewaresRegistry.apiLogger);
 
 /**
- * corn jobs
- */
+ * Setup Tasks
+*/
 setupTasks(TasksRegistry);
 
 /**
  * Setup Logging
- */
+*/
 setupLogging(wrappidApp);
 
 /**
- * @todo
- * setup routes
+ * Setup Default Middlewares
+ */
+wrappidApp.use(CoreMiddlewaresRegistry.apiLogger);
+
+/**
+ * Setup Routes
  */
 setupRoutes(wrappidApp, RoutesRegistry);
 

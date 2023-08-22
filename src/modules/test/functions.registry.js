@@ -1,8 +1,0 @@
-const testFunctions = require("./functions/test.functions");
-
-const functionsRegistry = {
-    "testFunc1": testFunctions.testFunc1,
-    "testFunc2": testFunctions.testFunc2
-};
-
-module.exports = functionsRegistry;

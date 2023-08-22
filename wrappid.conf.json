@@ -2,15 +2,8 @@
     "dev": {
         "cache": [
             {
-                "name": "first",
+                "name": "wrappid-cache",
                 "username": "default",
-                "password": "",
-                "host": "127.0.0.1",
-                "port": "6379"
-            },
-            {
-                "name": "second",
-                "username": "",
                 "password": "",
                 "host": "127.0.0.1",
                 "port": "6379"
@@ -18,27 +11,26 @@
         ],
         "databases": [
             {
-                "name": "application",
+                "name": "wrappid-database",
                 "host": "localhost",
                 "port": "5432",
                 "dialect": "postgres",
                 "database": "application",
                 "username": "postgres",
-                "password": "techoneel",
-                "logging": false,
-                "otpLength": 6
+                "password": "",
+                "logging": false
             }
         ],
         "jwt": {
-            "accessTokenSecret": "ce77d552ea82451cbcce28c5ea59711d",
-            "refreshAccessTokenSecret": "2c1a3c2d2f024d429a97c7f49cd54582",
+            "accessTokenSecret": "",
+            "refreshAccessTokenSecret": "",
             "expTime": "60m",
             "expTimeRefreshToken": "1000m"
         },
         "storage": {
             "s3": {
                 "bucket": "",
-                "region": "ap-south-1",
+                "region": "",
                 "accessKeyId": "",
                 "secretAccessKey": ""
             }
@@ -48,32 +40,179 @@
             "razorpaySecret": ""
         },
         "emailProvider": {
+            "fromName": "Wrappid",
+            "fromEmail": "no-reply@wrappid.com",
+            "replyTo": "contact@wrappid.com",
             "gmail": {
-                "email": "no-reply@rxefy.com",
+                "email": "",
                 "password": ""
             }
         },
         "smsProvider": {
             "kit19": {
-                "complete_url": "https://www.kit19.com/ComposeSMS.aspx?username=&password=&sender=RXEFYT&to=#phone&message=#message&priority=1&dnd=1&unicode=0&dlttemplateid=1707167264959149149",
-                "url": "https://www.kit19.com/ComposeSMS.aspx?sender=RXEFYT&to=#phone&message=#message&priority=1&dnd=1&unicode=0&dlttemplateid=1707167264959149149",
+                "url": "https://www.kit19.com/ComposeSMS.aspx?username=#username&password=#password&sender=#sender&to=#phone&message=#message&priority=1&dnd=1&unicode=0&dlttemplateid=",
                 "username": "",
                 "password": ""
             }
         },
         "whatsappProvider": {
-            "accessToken": "",
             "api_url": "https://graph.facebook.com/v15.0/:id/messages",
-            "id": ""
+            "id": "",
+            "accessToken": ""
         },
         "github": {
-            "createIssueURL": "https://api.github.com/repos/rxefy/rxefy-reported-errors/issues",
+            "createIssueURL": "https://api.github.com/repos/wrappid/wrappid-reported-errors/issues",
             "token": "",
             "defaultLabels": [
                 "Public Issues"
             ]
+        },
+        "logging": {
+            "accessLog": ""
         }
     },
-    "stage": {},
-    "prod": {}
+    "stage": {
+        "cache": [
+            {
+                "name": "wrappid-cache",
+                "username": "default",
+                "password": "",
+                "host": "127.0.0.1",
+                "port": "6379"
+            }
+        ],
+        "databases": [
+            {
+                "name": "wrappid-database",
+                "host": "localhost",
+                "port": "5432",
+                "dialect": "postgres",
+                "database": "application",
+                "username": "postgres",
+                "password": "",
+                "logging": false
+            }
+        ],
+        "jwt": {
+            "accessTokenSecret": "",
+            "refreshAccessTokenSecret": "",
+            "expTime": "60m",
+            "expTimeRefreshToken": "1000m"
+        },
+        "storage": {
+            "s3": {
+                "bucket": "",
+                "region": "",
+                "accessKeyId": "",
+                "secretAccessKey": ""
+            }
+        },
+        "razorpay": {
+            "razorpayKey": "",
+            "razorpaySecret": ""
+        },
+        "emailProvider": {
+            "fromName": "Wrappid",
+            "fromEmail": "no-reply@wrappid.com",
+            "replyTo": "contact@wrappid.com",
+            "gmail": {
+                "email": "",
+                "password": ""
+            }
+        },
+        "smsProvider": {
+            "kit19": {
+                "url": "https://www.kit19.com/ComposeSMS.aspx?username=#username&password=#password&sender=#sender&to=#phone&message=#message&priority=1&dnd=1&unicode=0&dlttemplateid=",
+                "username": "",
+                "password": ""
+            }
+        },
+        "whatsappProvider": {
+            "api_url": "https://graph.facebook.com/v15.0/:id/messages",
+            "id": "",
+            "accessToken": ""
+        },
+        "github": {
+            "createIssueURL": "https://api.github.com/repos/wrappid/wrappid-reported-errors/issues",
+            "token": "",
+            "defaultLabels": [
+                "Public Issues"
+            ]
+        },
+        "logging": {
+            "accessLog": ""
+        }
+    },
+    "prod": {
+        "cache": [
+            {
+                "name": "wrappid-cache",
+                "username": "default",
+                "password": "",
+                "host": "127.0.0.1",
+                "port": "6379"
+            }
+        ],
+        "databases": [
+            {
+                "name": "wrappid-database",
+                "host": "localhost",
+                "port": "5432",
+                "dialect": "postgres",
+                "database": "application",
+                "username": "postgres",
+                "password": "",
+                "logging": false
+            }
+        ],
+        "jwt": {
+            "accessTokenSecret": "",
+            "refreshAccessTokenSecret": "",
+            "expTime": "60m",
+            "expTimeRefreshToken": "1000m"
+        },
+        "storage": {
+            "s3": {
+                "bucket": "",
+                "region": "",
+                "accessKeyId": "",
+                "secretAccessKey": ""
+            }
+        },
+        "razorpay": {
+            "razorpayKey": "",
+            "razorpaySecret": ""
+        },
+        "emailProvider": {
+            "fromName": "Wrappid",
+            "fromEmail": "no-reply@wrappid.com",
+            "replyTo": "contact@wrappid.com",
+            "gmail": {
+                "email": "",
+                "password": ""
+            }
+        },
+        "smsProvider": {
+            "kit19": {
+                "url": "https://www.kit19.com/ComposeSMS.aspx?username=#username&password=#password&sender=#sender&to=#phone&message=#message&priority=1&dnd=1&unicode=0&dlttemplateid=",
+                "username": "",
+                "password": ""
+            }
+        },
+        "whatsappProvider": {
+            "api_url": "https://graph.facebook.com/v15.0/:id/messages",
+            "id": "",
+            "accessToken": ""
+        },
+        "github": {
+            "createIssueURL": "https://api.github.com/repos/wrappid/wrappid-reported-errors/issues",
+            "token": "",
+            "defaultLabels": [
+                "Public Issues"
+            ]
+        },
+        "logging": {
+            "accessLog": ""
+        }
+    }
 }
