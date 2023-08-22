@@ -6,5 +6,14 @@
   "repoProvider": "github.com",
   "repoOwner": "wrappid",
   "repoURL": "https://github.com/wrappid/wrappid-service.git",
-  "modules": {}
+  "modules": {
+    "auth": {
+      "projectID": "",
+      "projectName": "auth",
+      "remote": true,
+      "repoProvider": "github.com",
+      "repoOwner": "wrappid",
+      "repoURL": "https://github.com/wrappid/auth-module.git"
+    }
+  }
 }
