@@ -1,5 +1,6 @@
 # Wrappid
-.wrappid
+/.wrappid/runtime
+/.wrappid/wrappid.env
 wrappid.conf.json
 
 # Logs

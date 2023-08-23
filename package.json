@@ -19,7 +19,6 @@
   "author": "wrappid",
   "license": "ISC",
   "dependencies": {
-    "@wrappid/service-core": "^0.0.1",
     "aws-sdk": "^2.1433.0",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
