@@ -4,6 +4,7 @@ const ModelsRegistry = require("./ModelsRegistry");
 const RoutesRegistry = require("./RoutesRegistry");
 const TasksRegistry = require("./TasksRegistry");
 const ValidationsRegistry = require("./ValidationsRegistry");
+const ControllersRegistry = require("./ControllersRegistry");
 
 module.exports = {
     FunctionsRegistry,
@@ -11,5 +12,6 @@ module.exports = {
     ModelsRegistry,
     RoutesRegistry,
     TasksRegistry,
-    ValidationsRegistry
+    ValidationsRegistry,
+    ControllersRegistry
 }
