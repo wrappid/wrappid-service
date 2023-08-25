@@ -12,7 +12,7 @@ const wrappidApp = express();
 
 let bodyParser = require("body-parser");
 let cors = require("cors");
-const { RoutesRegistry, TasksRegistry, ModelsRegistry } = require("./registry");
+const { TasksRegistry, ModelsRegistry, ControllersRegistry } = require("./registry");
 let options = {
   inflate: true,
   limit: "50mb",
@@ -49,6 +49,6 @@ wrappidApp.use(CoreMiddlewaresRegistry.apiLogger);
 /**
  * Setup Routes
  */
-setupRoutes(wrappidApp, RoutesRegistry);
+setupRoutes(wrappidApp, ControllersRegistry);
 
 module.exports = wrappidApp;
