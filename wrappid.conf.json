@@ -43,17 +43,16 @@
             "fromName": "Wrappid",
             "fromEmail": "no-reply@wrappid.com",
             "replyTo": "contact@wrappid.com",
-            "gmail": {
-                "email": "",
-                "password": ""
-            }
+            "service": "gmail",
+            "email": "",
+            "password": ""
         },
         "smsProvider": {
-            "kit19": {
-                "url": "https://www.kit19.com/ComposeSMS.aspx?username=#username&password=#password&sender=#sender&to=#phone&message=#message&priority=1&dnd=1&unicode=0&dlttemplateid=",
-                "username": "",
-                "password": ""
-            }
+            "service": "kit19",
+            "url": "https://www.kit19.com/ComposeSMS.aspx?priority=1&dnd=1&unicode=0",
+            "username": "#username",
+            "password": "#password",
+            "sender": "#sender"
         },
         "whatsappProvider": {
             "api_url": "https://graph.facebook.com/v15.0/:id/messages",
@@ -115,17 +114,16 @@
             "fromName": "Wrappid",
             "fromEmail": "no-reply@wrappid.com",
             "replyTo": "contact@wrappid.com",
-            "gmail": {
-                "email": "",
-                "password": ""
-            }
+            "service": "gmail",
+            "email": "",
+            "password": ""
         },
         "smsProvider": {
-            "kit19": {
-                "url": "https://www.kit19.com/ComposeSMS.aspx?username=#username&password=#password&sender=#sender&to=#phone&message=#message&priority=1&dnd=1&unicode=0&dlttemplateid=",
-                "username": "",
-                "password": ""
-            }
+            "service": "kit19",
+            "url": "https://www.kit19.com/ComposeSMS.aspx?priority=1&dnd=1&unicode=0",
+            "username": "#username",
+            "password": "#password",
+            "sender": "#sender"
         },
         "whatsappProvider": {
             "api_url": "https://graph.facebook.com/v15.0/:id/messages",
@@ -187,17 +185,16 @@
             "fromName": "Wrappid",
             "fromEmail": "no-reply@wrappid.com",
             "replyTo": "contact@wrappid.com",
-            "gmail": {
-                "email": "",
-                "password": ""
-            }
+            "service": "gmail",
+            "email": "",
+            "password": ""
         },
         "smsProvider": {
-            "kit19": {
-                "url": "https://www.kit19.com/ComposeSMS.aspx?username=#username&password=#password&sender=#sender&to=#phone&message=#message&priority=1&dnd=1&unicode=0&dlttemplateid=",
-                "username": "",
-                "password": ""
-            }
+            "service": "kit19",
+            "url": "https://www.kit19.com/ComposeSMS.aspx?priority=1&dnd=1&unicode=0",
+            "username": "#username",
+            "password": "#password",
+            "sender": "#sender"
         },
         "whatsappProvider": {
             "api_url": "https://graph.facebook.com/v15.0/:id/messages",
