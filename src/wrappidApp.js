@@ -51,7 +51,7 @@ wrappidApp.use(CoreMiddlewaresRegistry.apiLogger);
 /**
  * Setup Functions
  */
-setupFunctions(FunctionsRegistry);
+setupFunctions("FunctionsRegistry");
 
 /**
  * Setup Routes
