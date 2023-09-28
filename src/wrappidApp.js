@@ -49,13 +49,14 @@ setupLogging(wrappidApp);
 wrappidApp.use(CoreMiddlewaresRegistry.apiLogger);
 
 /**
+ * Setup Functions
+ */
+await setupFunctions(FunctionsRegistry);
+
+/**
  * Setup Routes
 */
 setupRoutes(wrappidApp, ControllersRegistry);
 
-/**
- * Setup Functions
- */
-setupFunctions(FunctionsRegistry);
 
 module.exports = wrappidApp;
