@@ -27,14 +27,10 @@ wrappidApp.use(bodyParser.json({ limit: "50mb" }));
 wrappidApp.use(bodyParser.raw(options));
 wrappidApp.use(bodyParser.urlencoded({ extended: true }));
 
-/**
- * Setup Functions
- */
-setupFunctions(FunctionsRegistry);
 
 /**
  * Setup Models
- */
+*/
 setupModels(ModelsRegistry);
 
 /**
@@ -49,12 +45,17 @@ setupLogging(wrappidApp);
 
 /**
  * Setup Default Middlewares
- */
+*/
 wrappidApp.use(CoreMiddlewaresRegistry.apiLogger);
 
 /**
  * Setup Routes
- */
+*/
 setupRoutes(wrappidApp, ControllersRegistry);
+
+/**
+ * Setup Functions
+ */
+setupFunctions(FunctionsRegistry);
 
 module.exports = wrappidApp;
