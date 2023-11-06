@@ -55,10 +55,24 @@ wrappid start
 
 This should start your backend service middlewear at `localhost:8080`
 
+## 3. Wrappid Servoce Environments
+Wrappid Service can be runned in 3 environments:
+- Dev: Suitable for Development
+- Stage: Suitable for Testing
+- Prod: Suitable for Production
 
-## 3. Wrappid Packages
+By default, Wrappid Servoce project setups and starts in `dev` environment.
+These environments are to be configured in wrappid.conf.json located at the root of `wrappid-app` project
+
+To run a Wrappid Servoce project in a different environment, run the below command:
+```terminal
+cd wrappid-service
+wrappid start --env=[dev|stage|prod]
+```
+
+## 4. Wrappid Packages
 
 As of now 1 npm package is used by `wrappid-service`, i.e,
  3.1. @wrappid/service-core   
 
-### 3.1. Wrappid Service-Core Package
+### 4.1. Wrappid Service-Core Package
