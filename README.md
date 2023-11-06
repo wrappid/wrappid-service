@@ -1,3 +1,4 @@
+# `Wrappid` Service Boilerplate
 ```
                                     _     _
     __      ___ __ __ _ _ __  _ __ (_) __| |
@@ -7,65 +8,18 @@
                        |_|   |_|
 
 ```
-
-# `Wrappid` Service Boilerplate
+## 1. Introduction   
 
 This is a **service middleware boilerplate application** to support frontend applications built using the `wrappid` framework, which enables simultaneous development of web and mobile application.
 
 ## Getting Started
-This getting started section will help you setup a basic service middleware built using the `Wrappid` framework. Follow the below steps to get going.   
+This getting started section will help you setup a basicservic middleware built using the `Wrappid` framework for Frontend Wrappid Projects. Follow the below steps to get going.   
 
 2.1. [Verify Pre-requisites]()   
 2.2. [Initialize a backend `wrappid-service`]()   
 2.3. [Setup `wrappid-service` application-development environment]()   
 2.4. [Run `wrappid-service` Project]()   
-## Backend Architecture
 
-### Application Specific
-
-- Application
-  - Environment Specific Config
-  - Context
-- Database (Multiple)
-  - ORM
-  - Migration
-- 3rd Party - Client Authentication
-- REST API(s)
-  - Route
-  - Controller
-  - Repository
-  - Models
-- MIDDLEWARE(s) eg. JWT Verification
-- Cron/Event Schedulers
-- Caching
-- Diagnostic
-  - Request Logging
-  - Database Query Time
-  - API
-  - SCHEDULERS
-- Notification
-  - SMS
-  - Email
-  - WhatsApp
-  - Push
-- Swagger
-
-### Wrappid Specific
-
-- Authentication
-  - User
-- Authorization
-  - Role
-  - Permission
-  - Role - Permission
-  - User - Permission
-- Builder
-  - Menu Mgmt
-  - Routes Mgmt
-  - Pages Mgmt
-  - Form Mgmt
-  - Business Entity Mgmt
-  - Table Mgmt
 
 ### 2.2. Initialize a frontend `wrappid-service` project
 
@@ -73,7 +27,7 @@ It is expected that you have successfully installed @wrappid/toolkit(wrappid fra
 Run the below command to create Frontend Wrappid Project
 
 ```terminal
-wrappid init app <wrappid>
+wrappid init service <wrappid>
 ```
 
 **Output:**  
