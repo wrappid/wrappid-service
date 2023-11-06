@@ -13,7 +13,7 @@
 This is a **service middleware boilerplate application** to support frontend applications built using the `wrappid` framework, which enables simultaneous development of web and mobile application.
 
 ## Getting Started
-This getting started section will help you setup a basicservic middleware built using the `Wrappid` framework. Follow the below steps to get going.   
+This getting started section will help you setup a basic service middleware built using the `Wrappid` framework. Follow the below steps to get going.   
 
 2.1. [Verify Pre-requisites]()   
 2.2. [Initialize a backend `wrappid-service`]()   
@@ -104,7 +104,7 @@ This should start your backend service middlewear at `localhost:8080`
 
 ## 3. Wrappid Packages
 
-As of now 1 package is used by `wrappid-service`, i.e,
+As of now 1 npm package is used by `wrappid-service`, i.e,
  3.1. @wrappid/service-core   
 
 ### 3.1. Wrappid Service-Core Package
