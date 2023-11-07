@@ -12,6 +12,7 @@
 - [`Wrappid` Service Boilerplate](#wrappid-service-boilerplate)
   - [1. Introduction](#1-introduction)
   - [Getting Started](#getting-started)
+    - [2.1 What are my Pre-requisites?](#21-what-are-my-pre-requisites)
     - [2.2. How to Create?](#22-how-to-create)
     - [2.3. How to Setup?](#23-how-to-setup)
     - [2.4. How to Start?](#24-how-to-start)
@@ -33,11 +34,15 @@ This is a **service middleware boilerplate application** to support frontend app
 ## Getting Started
 This getting started section will help you setup a basicservic middleware built using the `Wrappid` framework for Frontend Wrappid Projects. Follow the below steps to get going.   
 
-2.1. [Verify Pre-requisites]()   
-2.2. [Initialize a backend `wrappid-service`]()   
-2.3. [Setup `wrappid-service` application-development environment]()   
-2.4. [Run `wrappid-service` Project]()   
+[2.1 What are my Pre-requisites?](#21-what-are-my-pre-requisites)   
+[2.2. How to Create?](#22-how-to-create)   
+[2.3. How to Setup?](#23-how-to-setup)   
+[2.4. How to Start?](#24-how-to-start)    
 
+### 2.1 What are my Pre-requisites?
+
+- [Refer here](https://github.com/wrappid/#1-check-pre-requisites)
+- install @wrappid/toolkit globally. [Click here](https://github.com/wrappid/#2-install-wrappid-toolkit)for installation guide of @wrappid/toolkit.   
 
 ### 2.2. How to Create?
 
