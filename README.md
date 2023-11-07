@@ -12,10 +12,17 @@
 - [`Wrappid` Service Boilerplate](#wrappid-service-boilerplate)
   - [1. Introduction](#1-introduction)
   - [Getting Started](#getting-started)
-    - [2.2. Initialize a frontend `wrappid-service` project](#22-initialize-a-frontend-wrappid-service-project)
-    - [2.3. Setup wrappid-service development environment](#23-setup-wrappid-service-development-environment)
-    - [2.4. Start a Wrappid Frontend project](#24-start-a-wrappid-frontend-project)
-  - [3. Wrappid Servoce Environments](#3-wrappid-servoce-environments)
+    - [2.2. How to Create?](#22-how-to-create)
+    - [2.3. How to Setup?](#23-how-to-setup)
+    - [2.4. How to Start?](#24-how-to-start)
+  - [3. What are Wrappid Environments?](#3-what-are-wrappid-environments)
+  - [4. What are Registries?](#4-what-are-registries)
+    - [4.1 Controllers Registry](#41-controllers-registry)
+    - [4.2. Functions Registry](#42-functions-registry)
+    - [4.3. Middleweares Registry](#43-middleweares-registry)
+    - [4.4. Models Registry](#44-models-registry)
+    - [4.5. Tasks Registry](#45-tasks-registry)
+    - [4.6 Validation Registry](#46-validation-registry)
   - [4. Wrappid Packages](#4-wrappid-packages)
     - [4.1. Wrappid Service-Core Package](#41-wrappid-service-core-package)
 
@@ -32,7 +39,7 @@ This getting started section will help you setup a basicservic middleware built 
 2.4. [Run `wrappid-service` Project]()   
 
 
-### 2.2. Initialize a frontend `wrappid-service` project
+### 2.2. How to Create?
 
 It is expected that you have successfully installed @wrappid/toolkit(wrappid framework's CLI tool) and initialised it.
 Run the below command to create Frontend Wrappid Project
@@ -45,7 +52,7 @@ wrappid init service <wrappid>
 ![wrappid-service](https://github.com/wrappid/.github/assets/61864488/b5c91ac7-f30f-48e7-b3f3-f0e736f27e95)
 
 
-### 2.3. Setup wrappid-service development environment
+### 2.3. How to Setup?
 
 Run the below command to setup a Backend Wrappid Project.
 
@@ -56,7 +63,7 @@ wrappid setup
 
 > **_Note:_** _Unlike wrappid frontend biolerplate(wrappid-app), there are no runtime environments for wrappid-service_
 
-### 2.4. Start a Wrappid Frontend project
+### 2.4. How to Start?
 
 Run the below command to start the development backend service:
 ```bash
@@ -66,7 +73,7 @@ wrappid start
 
 This should start your backend service middlewear at `localhost:8080`
 
-## 3. Wrappid Servoce Environments
+## 3. What are Wrappid Environments?
 Wrappid Service can be runned in 3 environments:
 - Dev: Suitable for Development
 - Stage: Suitable for Testing
@@ -80,6 +87,27 @@ To run a Wrappid Servoce project in a different environment, run the below comma
 cd wrappid-service
 wrappid start --env=[dev|stage|prod]
 ```
+
+## 4. What are Registries?
+
+
+### 4.1 Controllers Registry
+Used for controllers
+
+### 4.2. Functions Registry
+Used for functions
+
+### 4.3. Middleweares Registry
+Used for Middlewears functions
+
+### 4.4. Models Registry
+Used to get models
+
+### 4.5. Tasks Registry
+Used to get tasks
+
+### 4.6 Validation Registry
+Used for validation
 
 ## 4. Wrappid Packages
 
