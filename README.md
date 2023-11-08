@@ -8,6 +8,10 @@
                        |_|   |_|
 
 ```
+
+**This is a template documentation, @wrappid/toolkit uses this template to create backend service boilerplate.**
+
+
 **Table of Contents**
 - [`Wrappid` Service Boilerplate](#wrappid-service-boilerplate)
   - [1. Introduction](#1-introduction)
@@ -58,6 +62,8 @@ wrappid init service <wrappid>
 
 
 ### 2.3. How to Setup?
+
+> **_Note:_** _If you want to setup a wrappid-service project that is already in your github, you need to clone it. After clonning, run `npm i` at the root of the project_
 
 Run the below command to setup a Backend Wrappid Project.
 
