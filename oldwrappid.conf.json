@@ -1,0 +1,215 @@
+{
+    "dev": {
+        "cache": [
+            {
+                "name": "wrappid-cache",
+                "username": "default",
+                "password": "",
+                "host": "127.0.0.1",
+                "port": "6379"
+            }
+        ],
+        "databases": [
+            {
+                "name": "wrappid-database",
+                "host": "localhost",
+                "port": "5432",
+                "dialect": "postgres",
+                "database": "application",
+                "username": "postgres",
+                "password": "",
+                "logging": false
+            }
+        ],
+        "jwt": {
+            "accessTokenSecret": "",
+            "refreshAccessTokenSecret": "",
+            "expTime": "60m",
+            "expTimeRefreshToken": "1000m"
+        },
+        "storage": {
+            "s3": {
+                "bucket": "",
+                "region": "",
+                "accessKeyId": "",
+                "secretAccessKey": ""
+            }
+        },
+        "razorpay": {
+            "razorpayKey": "",
+            "razorpaySecret": ""
+        },
+        "emailProvider": {
+            "fromName": "Wrappid",
+            "fromEmail": "no-reply@wrappid.com",
+            "replyTo": "contact@wrappid.com",
+            "service": "gmail",
+            "email": "",
+            "password": ""
+        },
+        "smsProvider": {
+            "service": "kit19",
+            "url": "https://www.kit19.com/ComposeSMS.aspx?priority=1&dnd=1&unicode=0",
+            "username": "#username",
+            "password": "#password",
+            "sender": "#sender"
+        },
+        "whatsappProvider": {
+            "api_url": "https://graph.facebook.com/v15.0/:id/messages",
+            "id": "",
+            "accessToken": ""
+        },
+        "github": {
+            "createIssueURL": "https://api.github.com/repos/wrappid/wrappid-reported-errors/issues",
+            "token": "",
+            "defaultLabels": [
+                "Public Issues"
+            ]
+        },
+        "logging": {
+            "accessLog": ""
+        }
+    },
+    "stage": {
+        "cache": [
+            {
+                "name": "wrappid-cache",
+                "username": "default",
+                "password": "",
+                "host": "127.0.0.1",
+                "port": "6379"
+            }
+        ],
+        "databases": [
+            {
+                "name": "wrappid-database",
+                "host": "localhost",
+                "port": "5432",
+                "dialect": "postgres",
+                "database": "application",
+                "username": "postgres",
+                "password": "",
+                "logging": false
+            }
+        ],
+        "jwt": {
+            "accessTokenSecret": "",
+            "refreshAccessTokenSecret": "",
+            "expTime": "60m",
+            "expTimeRefreshToken": "1000m"
+        },
+        "storage": {
+            "s3": {
+                "bucket": "",
+                "region": "",
+                "accessKeyId": "",
+                "secretAccessKey": ""
+            }
+        },
+        "razorpay": {
+            "razorpayKey": "",
+            "razorpaySecret": ""
+        },
+        "emailProvider": {
+            "fromName": "Wrappid",
+            "fromEmail": "no-reply@wrappid.com",
+            "replyTo": "contact@wrappid.com",
+            "service": "gmail",
+            "email": "",
+            "password": ""
+        },
+        "smsProvider": {
+            "service": "kit19",
+            "url": "https://www.kit19.com/ComposeSMS.aspx?priority=1&dnd=1&unicode=0",
+            "username": "#username",
+            "password": "#password",
+            "sender": "#sender"
+        },
+        "whatsappProvider": {
+            "api_url": "https://graph.facebook.com/v15.0/:id/messages",
+            "id": "",
+            "accessToken": ""
+        },
+        "github": {
+            "createIssueURL": "https://api.github.com/repos/wrappid/wrappid-reported-errors/issues",
+            "token": "",
+            "defaultLabels": [
+                "Public Issues"
+            ]
+        },
+        "logging": {
+            "accessLog": ""
+        }
+    },
+    "prod": {
+        "cache": [
+            {
+                "name": "wrappid-cache",
+                "username": "default",
+                "password": "",
+                "host": "127.0.0.1",
+                "port": "6379"
+            }
+        ],
+        "databases": [
+            {
+                "name": "wrappid-database",
+                "host": "localhost",
+                "port": "5432",
+                "dialect": "postgres",
+                "database": "application",
+                "username": "postgres",
+                "password": "",
+                "logging": false
+            }
+        ],
+        "jwt": {
+            "accessTokenSecret": "",
+            "refreshAccessTokenSecret": "",
+            "expTime": "60m",
+            "expTimeRefreshToken": "1000m"
+        },
+        "storage": {
+            "s3": {
+                "bucket": "",
+                "region": "",
+                "accessKeyId": "",
+                "secretAccessKey": ""
+            }
+        },
+        "razorpay": {
+            "razorpayKey": "",
+            "razorpaySecret": ""
+        },
+        "emailProvider": {
+            "fromName": "Wrappid",
+            "fromEmail": "no-reply@wrappid.com",
+            "replyTo": "contact@wrappid.com",
+            "service": "gmail",
+            "email": "",
+            "password": ""
+        },
+        "smsProvider": {
+            "service": "kit19",
+            "url": "https://www.kit19.com/ComposeSMS.aspx?priority=1&dnd=1&unicode=0",
+            "username": "#username",
+            "password": "#password",
+            "sender": "#sender"
+        },
+        "whatsappProvider": {
+            "api_url": "https://graph.facebook.com/v15.0/:id/messages",
+            "id": "",
+            "accessToken": ""
+        },
+        "github": {
+            "createIssueURL": "https://api.github.com/repos/wrappid/wrappid-reported-errors/issues",
+            "token": "",
+            "defaultLabels": [
+                "Public Issues"
+            ]
+        },
+        "logging": {
+            "accessLog": ""
+        }
+    }
+}
