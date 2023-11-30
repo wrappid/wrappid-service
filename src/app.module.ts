@@ -1,11 +1,18 @@
-import { Module } from "@nestjs/common";
-import { RootModule } from "@wrappid/service-core";
+import { MiddlewareConsumer, Module } from "@nestjs/common";
+import { DatabaseModule, LoggingMiddleware, RootModule } from "@wrappid/service-core";
+import { UsersModule } from "./modules/users/users.module";
 // import { AppModule } from "@wrappid/service-core";
 
 @Module({
-  imports: [RootModule],
+  imports: [RootModule, UsersModule, DatabaseModule],
   controllers: [],
   providers: [],
   exports: [],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(LoggingMiddleware)
+      .forRoutes('*'); // Apply middleware to all routes
+  }
+}

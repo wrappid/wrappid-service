@@ -1,9 +1,7 @@
-
-// import { ModelDecorator } from '@wrappid/service-core';
 import { Column, Model, Table } from 'sequelize-typescript';
-// @ModelDecorator
+
 @Table
-export class Test1 extends Model {
+export class Users extends Model {
   @Column
   firstName: string;
 
@@ -13,5 +11,3 @@ export class Test1 extends Model {
   @Column({ defaultValue: true })
   isActive: boolean;
 }
-
-

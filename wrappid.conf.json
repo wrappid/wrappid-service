@@ -10,13 +10,23 @@
   ],
   "databases": [
     {
-      "name": "wrappid-database",
+      "name": "wrappid-database1",
       "host": "localhost",
       "port": "5432",
       "dialect": "postgres",
-      "database": "application",
+      "database": "nestJs-test",
       "username": "postgres",
-      "password": "",
+      "password": "admin",
+      "logging": false
+    },
+    {
+      "name": "wrappid-database2",
+      "host": "localhost",
+      "port": "5432",
+      "dialect": "postgres",
+      "database": "postgres",
+      "username": "postgres",
+      "password": "admin",
       "logging": false
     }
   ],
