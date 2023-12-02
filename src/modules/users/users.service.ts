@@ -8,10 +8,9 @@ export class UsersService {
     private readonly databaseService:DatabaseService
   ) {}
   async findAllUsers(): Promise<any> {
-    return this.databaseService.findAll('wrappid-database1','Users');
+    return this.databaseService.findAll('wrappid-database2','Users');
   }
   async findAllStudents(): Promise<any> {
     return this.databaseService.findAll('wrappid-database2','Students');
-
   }
 }

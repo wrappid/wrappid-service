@@ -10,13 +10,13 @@
   ],
   "databases": [
     {
-      "name": "wrappid-database1",
-      "host": "localhost",
+      "name": "application",
+      "host": "rxefy-stage.c1djpfkddxmf.ap-south-1.rds.amazonaws.com",
       "port": "5432",
       "dialect": "postgres",
-      "database": "nestJs-test",
+      "database": "rxefy-stage",
       "username": "postgres",
-      "password": "admin",
+      "password": "O9mIBut4TqaVCdJsbRpIbAlcH3RooN",
       "logging": false
     },
     {
@@ -24,7 +24,7 @@
       "host": "localhost",
       "port": "5432",
       "dialect": "postgres",
-      "database": "postgres",
+      "database": "nestJs-test",
       "username": "postgres",
       "password": "admin",
       "logging": false

@@ -1,4 +1,5 @@
-import { Column, Model, Table } from 'sequelize-typescript';
+import { BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
+import { Users } from './user.model';
 
 @Table
 export class Students extends Model {
@@ -10,4 +11,11 @@ export class Students extends Model {
 
   @Column({ defaultValue: true })
   isActive: boolean;
+
+  @ForeignKey(() => Users)
+  @Column
+  userId: number;
+
+  @BelongsTo(() => Users)
+  user: Users;
 }
