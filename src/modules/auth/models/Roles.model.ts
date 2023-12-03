@@ -44,7 +44,6 @@ export class Roles
     using: "btree",
     unique: true,
   })
-
   @Column({})
   id?: number;
 

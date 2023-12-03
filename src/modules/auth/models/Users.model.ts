@@ -9,7 +9,7 @@ import {
   BelongsTo,
   HasMany,
 } from "sequelize-typescript";
-import { Roles } from "./roles";
+import { Roles } from "./Roles.model";
 
 export interface usersAttributes {
   id?: number;
@@ -31,7 +31,6 @@ export interface usersAttributes {
 
 @Table({
   tableName: "Users",
-  timestamps: false,
 })
 export class Users
   extends Model<usersAttributes, usersAttributes>
@@ -107,22 +106,9 @@ export class Users
 
   @Column({
     allowNull: true,
-    type: DataType.DATE,
-  })
-  createdAt?: Date;
-
-  @Column({
-    allowNull: true,
-    type: DataType.DATE,
-  })
-  updatedAt?: Date;
-
-  @Column({
-    allowNull: true,
     type: DataType.INTEGER,
   })
   roleId?: number;
-
 
   @Column({
     allowNull: true,
@@ -141,5 +127,4 @@ export class Users
     type: DataType.INTEGER,
   })
   updatedBy?: number;
-
 }
