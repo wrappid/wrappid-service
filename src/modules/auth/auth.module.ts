@@ -1,5 +1,6 @@
 import { Module, OnModuleInit, MiddlewareConsumer } from "@nestjs/common";
 import {
+  BaseModule,
   DatabaseModule,
   DatabaseService,
   LoggingMiddleware,
@@ -11,14 +12,21 @@ import { PersonContacts } from "./models/PersonContacts.model";
 import { Persons } from "./models/Persons.model";
 import { Roles } from "./models/Roles.model";
 
+/**
+ *
+ *
+ */
 @Module({
   imports: [DatabaseModule],
   controllers: [AuthController],
   providers: [AuthService],
   exports: [], // Export AppModule to make it available for other modules
 })
-export class AuthModule implements OnModuleInit {
-  constructor(private readonly databaseService: DatabaseService) {}
+export class AuthModule extends BaseModule {
+  constructor(private readonly databaseService: DatabaseService) {
+    super();
+  }
+
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(LoggingMiddleware).forRoutes("*");
   }

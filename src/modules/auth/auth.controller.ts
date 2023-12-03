@@ -1,14 +1,22 @@
-import { Body, Controller, Get, Post, UsePipes, Req } from "@nestjs/common";
+import { Controller, Post, Req } from "@nestjs/common";
 import { AuthService } from "./auth.service";
-import { Request } from 'express';
+import { Request } from "express";
+import { BaseController } from "@wrappid/service-core";
 
-@Controller('')
-export class AuthController {
-    constructor(private readonly authService: AuthService ){}
-    
-    @Get('checkLoginOrRegister')
-    checkLoginOrRegister(@Req() req: Request): Promise<any> {
+@Controller("auth")
+export class AuthController extends BaseController {
+  constructor(private readonly authService: AuthService) {
+    super();
+  }
+
+  /**
+   * @description
+   *
+   * @param req
+   * @returns
+   */
+  @Post("checkLoginOrRegister")
+  checkLoginOrRegister(@Req() req: Request): Promise<any> {
     return this.authService.checkLoginOrRegister(req);
-    } 
-};
-
+  }
+}

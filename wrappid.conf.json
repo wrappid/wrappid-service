@@ -14,6 +14,7 @@
       "port": "5432",
       "dialect": "postgres",
       "database": "wrappid-database",
+      "schema": "application",
       "username": "postgres",
       "password": "",
       "logging": false
@@ -24,6 +25,7 @@
       "port": "5432",
       "dialect": "postgres",
       "database": "wrappid-database",
+      "schema": "wrappid",
       "username": "postgres",
       "password": "",
       "logging": false
