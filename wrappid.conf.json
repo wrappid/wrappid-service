@@ -16,7 +16,7 @@
       "database": "wrappid-database",
       "schema": "application",
       "username": "postgres",
-      "password": "",
+      "password": "admin",
       "logging": false
     },
     "wrappid": {
@@ -27,7 +27,7 @@
       "database": "wrappid-database",
       "schema": "wrappid",
       "username": "postgres",
-      "password": "",
+      "password": "admin",
       "logging": false
     }
   },

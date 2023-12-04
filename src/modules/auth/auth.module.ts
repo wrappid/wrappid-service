@@ -7,10 +7,6 @@ import {
 } from "@wrappid/service-core";
 import { AuthController } from "./auth.controller";
 import { AuthService } from "./auth.service";
-import { Users } from "./models/Users.model";
-import { PersonContacts } from "./models/PersonContacts.model";
-import { Persons } from "./models/Persons.model";
-import { Roles } from "./models/Roles.model";
 
 /**
  *
@@ -32,9 +28,5 @@ export class AuthModule extends BaseModule {
   }
   async onModuleInit() {
     console.log(`::===AuthModule has been Initialization===::`);
-    await this.databaseService.addModels(
-      [Users, PersonContacts, Persons, Roles],
-      "application"
-    );
   }
 }

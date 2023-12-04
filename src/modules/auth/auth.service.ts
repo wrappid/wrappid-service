@@ -1,5 +1,9 @@
 import { Injectable } from "@nestjs/common";
-import { ConfigConstant, DatabaseService } from "@wrappid/service-core";
+import {
+  BaseService,
+  ConfigConstant,
+  DatabaseService,
+} from "@wrappid/service-core";
 // import { Sequelize } from "sequelize-typescript";
 
 const {
@@ -10,11 +14,13 @@ const {
 } = require("./utils/auth.utils");
 
 @Injectable()
-export class AuthService {
+export class AuthService extends BaseService {
   constructor(
     private readonly databaseService: DatabaseService
     // private readonly sequelize: Sequelize
-  ) {}
+  ) {
+    super();
+  }
   async checkLoginOrRegister(req: any): Promise<any> {
     try {
       const dbTxn = await this.databaseService.getTransaction();
@@ -29,7 +35,7 @@ export class AuthService {
         return { staus: 500, message: "Not a valid email or phone" };
       }
 
-      let data = await this.databaseService.findOne("application", "Users", {
+      let data = await this.databaseService.findOne("wrappid", "Users", {
         where: whereOb,
       });
 
@@ -40,7 +46,7 @@ export class AuthService {
         } else {
           console.log("User found", data.id);
           let personData = await this.databaseService.findOne(
-            "application",
+            "wrappid",
             "Persons",
             {
               where: {
@@ -69,14 +75,14 @@ export class AuthService {
           let userBody = whereOb;
 
           let rolesData = await this.databaseService.findOne(
-            "application",
+            "wrappid",
             "Roles",
             {
               where: { role: "doctor" },
-            },
+            }
           );
           let userData = await this.databaseService.create(
-            "application",
+            "wrappid",
             "Users",
             {
               ...userBody,
@@ -88,7 +94,7 @@ export class AuthService {
           console.log("User Created", userData.id);
 
           let personData = await this.databaseService.create(
-            "application",
+            "wrappid",
             "Persons",
             {
               ...userBody,
@@ -105,7 +111,7 @@ export class AuthService {
           console.log("Person Created", personData.id);
 
           let person = await this.databaseService.create(
-            "application",
+            "wrappid",
             "PersonContacts",
             {
               data: emailOrPhone,
@@ -123,7 +129,6 @@ export class AuthService {
 
           console.log("New User created");
           return { status: 201, message: "New User created" };
-
         } else {
           console.error("Not a valid mail or phone:", emailOrPhone);
           return { status: 405, message: "Not valid phone or email" };

@@ -10,6 +10,7 @@ import {
   BelongsTo,
 } from "sequelize-typescript";
 import { Users } from "./Users.model";
+import { ModelDecorator } from "@wrappid/service-core";
 
 export interface rolesAttributes {
   id?: number;
@@ -25,6 +26,7 @@ export interface rolesAttributes {
   deletedBy?: number;
 }
 
+@ModelDecorator
 @Table({
   tableName: "Roles",
   timestamps: false,

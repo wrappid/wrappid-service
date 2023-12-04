@@ -10,6 +10,7 @@ import {
   HasMany,
 } from "sequelize-typescript";
 import { Roles } from "./Roles.model";
+import { ModelDecorator } from "@wrappid/service-core";
 
 export interface usersAttributes {
   id?: number;
@@ -29,6 +30,7 @@ export interface usersAttributes {
   updatedBy?: number;
 }
 
+@ModelDecorator
 @Table({
   tableName: "Users",
 })
