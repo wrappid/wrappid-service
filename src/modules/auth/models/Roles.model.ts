@@ -26,7 +26,7 @@ export interface rolesAttributes {
   deletedBy?: number;
 }
 
-@ModelDecorator
+// @ModelDecorator
 @Table({
   tableName: "Roles",
   timestamps: false,

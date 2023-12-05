@@ -29,6 +29,8 @@ export class AppModule extends BaseModule {
     const modelArray = ModelRegistry.getClasses();
     console.log(`===`, modelArray, `====`);
     this.databaseService.addModels(modelArray as ModelCtor[], "wrappid");
+    // console.log(this.databaseService.getConnection("wrappid"));
+    this.databaseService.associateModels();
   }
 
   // configure(consumer: MiddlewareConsumer) {

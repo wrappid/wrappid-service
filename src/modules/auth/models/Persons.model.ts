@@ -42,7 +42,7 @@ export interface personsAttributes {
   bloodGroup?: string;
 }
 
-@ModelDecorator
+// @ModelDecorator
 @Table({
   tableName: "Persons",
   timestamps: false,

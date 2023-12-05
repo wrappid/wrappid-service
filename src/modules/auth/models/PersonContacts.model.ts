@@ -27,7 +27,7 @@ export interface personContactsAttributes {
   deletedBy?: number;
 }
 
-@ModelDecorator
+// @ModelDecorator
 @Table({
   tableName: "PersonContacts",
   timestamps: false,

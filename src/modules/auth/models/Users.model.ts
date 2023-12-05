@@ -30,7 +30,7 @@ export interface usersAttributes {
   updatedBy?: number;
 }
 
-@ModelDecorator
+// @ModelDecorator
 @Table({
   tableName: "Users",
 })
