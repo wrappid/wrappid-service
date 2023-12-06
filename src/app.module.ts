@@ -8,12 +8,12 @@ import {
   ModelRegistry,
   RootModule,
 } from "@wrappid/service-core";
-import { AuthModule } from "./modules/auth/auth.module";
 import { ModelCtor } from "sequelize-typescript";
 import { join } from "path";
+import { TestModule } from "./modules/test/test.module";
 
 @Module({
-  imports: [RootModule, DatabaseModule, AuthModule],
+  imports: [RootModule, DatabaseModule, TestModule],
   controllers: [],
   providers: [],
   exports: [],

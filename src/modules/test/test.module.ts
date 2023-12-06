@@ -6,8 +6,8 @@ import {
   LoggingMiddleware,
   // S3UploadMiddleware,
 } from "@wrappid/service-core";
-import { AuthController } from "./auth.controller";
-import { AuthService } from "./auth.service";
+import { AuthController } from "./test.controller";
+import { AuthService } from "./test.service";
 
 /**
  *
@@ -19,7 +19,7 @@ import { AuthService } from "./auth.service";
   providers: [AuthService],
   exports: [], // Export AppModule to make it available for other modules
 })
-export class AuthModule extends BaseModule {
+export class TestModule extends BaseModule {
   constructor(private readonly databaseService: DatabaseService) {
     super();
   }

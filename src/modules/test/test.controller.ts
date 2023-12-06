@@ -1,7 +1,11 @@
 import { Controller, Get, Post, Req, Res } from "@nestjs/common";
-import { AuthService } from "./auth.service";
+import { AuthService } from "./test.service";
 import { Request } from "express";
-import { BaseController, DatabaseService } from "@wrappid/service-core";
+import {
+  BaseController,
+  DatabaseService,
+  ModelRegistry,
+} from "@wrappid/service-core";
 
 @Controller("auth")
 export class AuthController extends BaseController {
@@ -31,9 +35,10 @@ export class AuthController extends BaseController {
   }
 
   @Get("all")
-  getAllUsers(@Req() req: Request, @Res() res): Promise<any[]> {
-    return this.databaseService.findAll("wrappid", "User");
-    // console.log(`===`, userData);
-    // return userData;
+  async getAllUsers(@Res() res): Promise<any> {
+    let data = await this.databaseService.findAll("wrappid", "User", {
+      include: [{ model: ModelRegistry.getClass("Post") }],
+    });
+    res.status(200).json(data);
   }
 }
