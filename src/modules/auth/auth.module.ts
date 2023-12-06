@@ -4,6 +4,7 @@ import {
   DatabaseModule,
   DatabaseService,
   LoggingMiddleware,
+  // S3UploadMiddleware,
 } from "@wrappid/service-core";
 import { AuthController } from "./auth.controller";
 import { AuthService } from "./auth.service";
@@ -25,7 +26,9 @@ export class AuthModule extends BaseModule {
 
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(LoggingMiddleware).forRoutes("*");
+    // consumer.apply(S3UploadMiddleware).forRoutes("auth/upload");
   }
+
   async onModuleInit() {
     console.log(`::===AuthModule has been Initialization===::`);
   }
