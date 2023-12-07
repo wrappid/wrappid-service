@@ -5,12 +5,13 @@ import {
   DatabaseModule,
   DatabaseService,
   LoggingMiddleware,
-  ModelRegistry,
   RootModule,
 } from "@wrappid/service-core";
 import { ModelCtor } from "sequelize-typescript";
 import { join } from "path";
 import { TestModule } from "./modules/test/test.module";
+
+import { ModelRegistry } from "./registry/ModelRegistry";
 
 @Module({
   imports: [RootModule, DatabaseModule, TestModule],
@@ -25,12 +26,13 @@ export class AppModule extends BaseModule {
 
   onModuleInit() {
     console.log(`::===AppModule has been Initialization===::`);
-    // ModelRegistry.initialize([join(__dirname, "./")]);
-    // const modelArray = ModelRegistry.getClasses();
-    // console.log(`===`, modelArray, `====`);
-    // this.databaseService.addModels(modelArray as ModelCtor[], "wrappid");
-    // // console.log(this.databaseService.getConnection("wrappid"));
-    // this.databaseService.associateModels();
+    ModelRegistry.initialize([join(__dirname, "./")]);
+    const modelArray = ModelRegistry.getClasses();
+    console.log(`::==`, modelArray, `===::`);
+    this.databaseService.addModels(modelArray as ModelCtor[], "wrappid");
+    // console.log(this.databaseService.getConnection("wrappid"));
+    this.databaseService.associateModels();
+    //
   }
 
   // configure(consumer: MiddlewareConsumer) {

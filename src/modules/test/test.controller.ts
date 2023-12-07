@@ -35,10 +35,18 @@ export class AuthController extends BaseController {
   }
 
   @Get("all")
-  async getAllUsers(@Res() res): Promise<any> {
-    let data = await this.databaseService.findAll("wrappid", "User", {
+  async getAllAuthors(@Res() res): Promise<any> {
+    let data = await this.databaseService.findAll("wrappid", "Author", {
       include: [{ model: ModelRegistry.getClass("Post") }],
     });
     res.status(200).json(data);
   }
+
+  // @Get("alluser")
+  // async getAllUsers(@Res() res): Promise<any> {
+  //   let data = await this.databaseService.findAll("application", "User", {
+  //     include: [{ model: ModelRegistry.getClass("Subject") }],
+  //   });
+  //   res.status(200).json(data);
+  // }
 }
