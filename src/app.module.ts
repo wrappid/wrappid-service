@@ -1,17 +1,14 @@
-import { MiddlewareConsumer, Module } from "@nestjs/common";
+import { Module } from "@nestjs/common";
 import {
   BaseModule,
-  ClassRegistry,
   DatabaseModule,
   DatabaseService,
-  LoggingMiddleware,
   RootModule,
+  ModelRegistry,
 } from "@wrappid/service-core";
 import { ModelCtor } from "sequelize-typescript";
 import { join } from "path";
 import { TestModule } from "./modules/test/test.module";
-
-import { ModelRegistry } from "./registry/ModelRegistry";
 
 @Module({
   imports: [RootModule, DatabaseModule, TestModule],

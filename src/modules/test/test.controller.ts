@@ -28,14 +28,14 @@ export class AuthController extends BaseController {
   }
 
   @Post("upload")
-  checkUpload(@Req() req: Request, @Res() res): string {
+  checkUpload(@Req() req: Request, @Res() res: any): string {
     // console.log(req);
     console.log(res.locals.s3Url);
     return "hi";
   }
 
   @Get("all")
-  async getAllAuthors(@Res() res): Promise<any> {
+  async getAllAuthors(@Res() res: any): Promise<any> {
     let data = await this.databaseService.findAll("wrappid", "Author", {
       include: [{ model: ModelRegistry.getClass("Post") }],
     });

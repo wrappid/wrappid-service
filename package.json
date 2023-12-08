@@ -27,7 +27,7 @@
     "@nestjs/platform-express": "^10.2.10",
     "@nestjs/sequelize": "^10.0.0",
     "@wrappid/service-core": "file:../service-core/dist",
-    "sequelize-typescript": "^2.1.5",
+    "sequelize-typescript": "^2.1.6",
     "yup": "^1.3.2"
   },
   "devDependencies": {
