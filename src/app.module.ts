@@ -17,19 +17,20 @@ import { TestModule } from "./modules/test/test.module";
   exports: [],
 })
 export class AppModule extends BaseModule {
-  constructor(private readonly databaseService: DatabaseService) {
-    super();
-  }
-
-  onModuleInit() {
-    console.log(`::===AppModule has been Initialization===::`);
+  onCoreModuleInit(): void {
+    console.log(`::===AppModule::onCoreModuleInit START===::`);
     ModelRegistry.initialize([join(__dirname, "./")]);
     const modelArray = ModelRegistry.getClasses();
     console.log(`::==`, modelArray, `===::`);
     this.databaseService.addModels(modelArray as ModelCtor[], "wrappid");
     // console.log(this.databaseService.getConnection("wrappid"));
     this.databaseService.associateModels();
-    //
+    console.log(`::===AppModule::onCoreModuleInit END===::`);
+  }
+  onCoreModuleDestroy(): void {}
+  onCoreApplicationBootstrap(): void {}
+  constructor(private readonly databaseService: DatabaseService) {
+    super();
   }
 
   // configure(consumer: MiddlewareConsumer) {
