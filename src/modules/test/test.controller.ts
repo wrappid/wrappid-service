@@ -4,16 +4,46 @@ import { Request } from "express";
 import {
   BaseController,
   DatabaseService,
+  Kit19SmsCommunicationService,
   ModelRegistry,
+  RedisCacheService,
+  WhatsappSmsCommunicationService,
+  MailSmsCommunicationService,
 } from "@wrappid/service-core";
 
 @Controller("auth")
 export class AuthController extends BaseController {
   constructor(
     private readonly authService: AuthService,
-    private readonly databaseService: DatabaseService
+    private readonly databaseService: DatabaseService,
+    private readonly redisCacheService: RedisCacheService,
+    private readonly kit19SmsCommunicationService: Kit19SmsCommunicationService,
+    private readonly whatsappSmsCommunicationService: WhatsappSmsCommunicationService,
+    private readonly mailSmsCommunicationService: MailSmsCommunicationService
   ) {
     super();
+  }
+
+  @Get("sentsms")
+  async sentSMS(@Res() res: any): Promise<any> {
+    let data = this.kit19SmsCommunicationService.communication();
+    res.status(200).json(data);
+  }
+
+  @Get("sentwhatsapp")
+  async sentWhatsapp(@Res() res: any): Promise<any> {
+    let data = this.whatsappSmsCommunicationService.communication();
+    res.status(200).json(data);
+  }
+
+  @Get("sentemail")
+  async sentEmail(@Res() res: any): Promise<any> {
+    try {
+      this.mailSmsCommunicationService.communication();
+      res.status(200).json({ message: "sent successfully!!" });
+    } catch (error) {
+      res.status(200).json({ message: error });
+    }
   }
 
   /**
@@ -34,11 +64,19 @@ export class AuthController extends BaseController {
     return "hi";
   }
 
-  @Get("all")
-  async getAllAuthors(@Res() res: any): Promise<any> {
-    let data = await this.databaseService.findAll("wrappid", "Author", {
-      include: [{ model: ModelRegistry.getClass("Post") }],
-    });
+  @Get("allwrappid")
+  async getAllWrappidAuthors(@Res() res: any): Promise<any> {
+    let data = await this.databaseService.findAll("wrappid", "wrappid", "Post");
+    res.status(200).json(data);
+  }
+
+  @Get("allapplication")
+  async getAllApplicationAuthors(@Res() res: any): Promise<any> {
+    let data = await this.databaseService.findAll(
+      "application",
+      "wrappid",
+      "Post"
+    );
     res.status(200).json(data);
   }
 
