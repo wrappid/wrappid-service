@@ -9,9 +9,10 @@ import {
 import { ModelCtor } from "sequelize-typescript";
 import { join } from "path";
 import { TestModule } from "./modules/test/test.module";
+import { WhatsappModule } from "./modules/whatsapp/whatsapp.module";
 
 @Module({
-  imports: [RootModule, DatabaseModule, TestModule],
+  imports: [RootModule, DatabaseModule, TestModule, WhatsappModule],
   controllers: [],
   providers: [],
   exports: [],
