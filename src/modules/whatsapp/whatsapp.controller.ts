@@ -1,6 +1,6 @@
 import { Controller, Get } from "@nestjs/common";
 import { WhatsAppService } from "./whatsapp.service";
-import { BaseController } from "@wrappid/service-core";
+import { BaseController, ControllerRegistry } from "@wrappid/service-core";
 
 @Controller("whatsapp")
 export class WhatsappController extends BaseController {
@@ -12,3 +12,4 @@ export class WhatsappController extends BaseController {
     return await this.whatsAppService.send_message();
   }
 }
+ControllerRegistry.register("WhatsappController", WhatsappController);

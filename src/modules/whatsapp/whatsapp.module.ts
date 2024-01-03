@@ -10,6 +10,7 @@ import { BaseModule } from "@wrappid/service-core";
   exports: [],
 })
 export class WhatsappModule extends BaseModule {
+  [x: string]: any;
   onCoreModuleInit(): void {}
   onCoreModuleDestroy(): void {}
   onCoreApplicationBootstrap(): void {}

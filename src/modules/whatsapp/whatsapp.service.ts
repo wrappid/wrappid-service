@@ -1,13 +1,13 @@
 import { Injectable } from "@nestjs/common";
 import { BaseService } from "@wrappid/service-core";
+import WhatsApp from "@wrappid/whatsapp";
 
-import WhatsApp from "whatsapp";
 import {
   ComponentTypesEnum,
   LanguagesEnum,
   ParametersTypesEnum,
-} from "whatsapp/build/types/enums";
-import { MessageTemplateObject } from "whatsapp/build/types/messages";
+} from "@wrappid/whatsapp/build/types/enums";
+import { MessageTemplateObject } from "@wrappid/whatsapp/build/types/messages";
 interface WAConfigType {
   WA_BASE_URL: string;
   M4D_APP_ID: string;
@@ -36,7 +36,7 @@ export class WhatsAppService extends BaseService {
         WA_BUSINESS_ACCOUNT_ID: "107155225588091",
         CLOUD_API_VERSION: "v17.0",
         CLOUD_API_ACCESS_TOKEN:
-          "EAAGGOPHCcqwBOz9eeCuwwGZBlh47ZBYnjNj6EYNBfJEqXL3hBOQhR0cBps0L4UITzrjvgZC2X46iT8YF1KTILFRQSAunEOhS1I99GbIGbXMY2yYGKm0GZAPSCINtsz6pqTQbtuZBWGmf1aabFjJ5VjoFiTGLZBdT4GlZAUXglKnSIzrErxXUGCiZByNJf8udya5aZBgVsfwxQnNbmzIv6W9gDEDwFMlTO0g0cgxQZD",
+          "EAAGGOPHCcqwBOy97ENFxmox7Xd9Qz90WpkMvZARnRQDPOZBtafctxP5T4MzWXhnrh9xUyYtgCEkh6w64Pu10EEOeMVwDNnuCNaSR69f3ssmvXZCNaGzqyd5EJ3YJDizUqKYfq7oo3DTTZAjZCKLG8K2lVqAuZBtfTbs59poXAfkZCErts31Ife4dlmoM185NmnzdZAzLFUURM9pce3RRu8RiINKY7welnLZAY9FoZD",
         WEBHOOK_ENDPOINT: "",
         WEBHOOK_VERIFICATION_TOKEN: "",
         LISTENER_PORT: 3000,
@@ -45,7 +45,7 @@ export class WhatsAppService extends BaseService {
         DEBUG: true,
       };
       // Your test sender phone number
-      const wa = new WhatsApp(102308052747189);
+      const wa = new WhatsApp(102308052747189, config);
       console.log("====================================");
       // console.log(wa.config);
       console.log("====================================");

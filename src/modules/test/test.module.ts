@@ -10,7 +10,9 @@ import {
   WhatsappSmsCommunicationService,
   // S3UploadMiddleware,
 } from "@wrappid/service-core";
+import { CustomRouteMatchingMiddleware } from "./routeMapping.middleware";
 import { AuthController } from "./test.controller";
+import { TestController } from "./test2.controller";
 import { AuthService } from "./test.service";
 
 /**
@@ -19,7 +21,7 @@ import { AuthService } from "./test.service";
  */
 @Module({
   imports: [DatabaseModule],
-  controllers: [AuthController],
+  controllers: [AuthController, TestController],
   providers: [
     AuthService,
     RedisCacheService,
@@ -38,7 +40,7 @@ export class TestModule extends BaseModule {
   }
 
   configure(consumer: MiddlewareConsumer) {
+    consumer.apply(CustomRouteMatchingMiddleware).forRoutes("*");
     consumer.apply(LoggingMiddleware).forRoutes("*");
-    // consumer.apply(S3UploadMiddleware).forRoutes("auth/upload");
   }
 }
