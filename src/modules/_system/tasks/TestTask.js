@@ -4,13 +4,11 @@ module.exports = {
     return true;
   },
   perform: () => {
-    console.log(
-      `Test task is running in every minute @ ${new Date()}`
-    );
+    console.log(`Test task is running in every minute @ ${new Date()}`);
   },
   postPerform: () => {
     console.log(`Test Task is completed @ ${new Date()}`);
-    console.log(`<---------------------------------------------------------->`);
+    console.log("<---------------------------------------------------------->");
   },
   handleError: () => {},
 };

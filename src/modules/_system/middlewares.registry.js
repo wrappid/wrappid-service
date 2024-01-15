@@ -1,7 +1,7 @@
 const testMiddleware = require("./middlewares/test.middleware");
 
 const middlewaresRegistry = {
-    "testMiddleware": testMiddleware
- };
+  testMiddleware: testMiddleware,
+};
 
 exports.middlewaresRegistry = middlewaresRegistry;

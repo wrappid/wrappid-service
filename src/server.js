@@ -4,7 +4,7 @@ console.log("###########################################");
 
 const { DEFAULT_PORT } = require("@wrappid/service-core");
 
-const __PORT = process.env.PORT || DEFAULT_PORT
+const __PORT = process.env.PORT || DEFAULT_PORT;
 
 const serverInit = () => {
   console.log("###########################################");
@@ -13,6 +13,7 @@ const serverInit = () => {
 };
 
 const wrappidApp = require("./wrappidApp");
+
 const server = wrappidApp.listen(__PORT, serverInit);
 
 console.log("###########################################");

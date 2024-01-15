@@ -15,7 +15,7 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
     semi: ["error", "always"],
-    "no-console": "warn",
+    "no-console": "off",
     "no-unused-vars": ["error", { args: "after-used", vars: "all" }],
     "import/order": [
       "error",

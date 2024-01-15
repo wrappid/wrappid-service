@@ -1,7 +1,7 @@
-const TestTask = require ("./tasks/TestTask");
+const TestTask = require("./tasks/TestTask");
 
 const tasksRegistry = {
-    "TestTask": TestTask
+  TestTask: TestTask,
 };
 
 exports.tasksRegistry = tasksRegistry;
