@@ -1,11 +1,11 @@
 const { cacheActions, databaseActions } = require("@wrappid/service-core");
 
 /**
- * 
- * @param {*} req 
- * @returns 
+ *
+ * @param {*} req
+ * @returns
  */
-const readTestDataAll = async (req) => {
+const readTestDataAll = async () => {
   try {
     //cache call to get data
     let cacheKey = "testData";
@@ -24,12 +24,12 @@ const readTestDataAll = async (req) => {
   } catch (error) {
     throw new Error(error);
   }
-}
+};
 
 /**
- * 
- * @param {*} req 
- * @returns 
+ *
+ * @param {*} req
+ * @returns
  */
 const readTestData = async (req) => {
   try {
@@ -55,9 +55,9 @@ const readTestData = async (req) => {
 };
 
 /**
- * 
- * @param {*} req 
- * @returns 
+ *
+ * @param {*} req
+ * @returns
  */
 const createTestData = async (req) => {
   try {
@@ -71,22 +71,22 @@ const createTestData = async (req) => {
 };
 
 /**
- * 
- * @param {*} req 
- * @returns 
+ *
+ * @param {*} req
+ * @returns
  */
 const updateTestData = async (req) => {
   try {
     let result = await databaseActions.update("application", "TestDatas", {
       data: { ...req.body },
       where: {
-        id: req.params.id
-      }
+        id: req.params.id,
+      },
     });
 
     if (result) {
       // Delete chache with data
-      cacheKey = req.params.toString();
+      let cacheKey = req.params.toString();
       await cacheActions.delete("wrappid-cache", cacheKey);
     } else {
       throw new Error("Can't update entity in the database");
@@ -96,11 +96,10 @@ const updateTestData = async (req) => {
   }
 };
 
-
 /**
- * 
- * @param {*} req 
- * @returns 
+ *
+ * @param {*} req
+ * @returns
  */
 const deleteTestData = async (req) => {
   try {
@@ -109,15 +108,14 @@ const deleteTestData = async (req) => {
         id: req.params.id,
       },
     });
-    cacheKey = req.params.toString();
+    let cacheKey = req.params.toString();
     await cacheActions.delete("wrappid-cache", cacheKey);
-    
+
     return data;
   } catch (error) {
     throw new Error(error);
   }
 };
-
 
 module.exports = {
   readTestDataAll,

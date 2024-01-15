@@ -1,10 +1,10 @@
 const testFunctions = require("../functions/test.functions");
 
 /**
- * 
- * @param {*} req 
- * @param {*} res 
- * @returns 
+ *
+ * @param {*} req
+ * @param {*} res
+ * @returns
  */
 module.exports.testGetAllFunc = async (req, res) => {
   try {
@@ -53,10 +53,10 @@ module.exports.testPostFunc = async (req, res) => {
  * @param {*} req
  * @param {*} res
  * @returns
-*/
+ */
 module.exports.testPutFunc = async (req, res) => {
   try {
-    console.log('::---',req.params,'---::');
+    console.log("::---", req.params, "---::");
     let data = await testFunctions.updateTestData(req);
     return res.status(200).json({ message: "Data updated (•_•).", data });
   } catch (error) {
