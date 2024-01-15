@@ -4,6 +4,7 @@
   "description": "This is a service middleware to support wrappid framework development.",
   "main": "src/server.js",
   "scripts": {
+    "prepare": "husky install",
     "start": "nodemon src/server.js",
     "test": "jest"
   },
@@ -42,7 +43,8 @@
     "@faker-js/faker": "^8.1.0",
     "jest": "^29.7.0",
     "nodemon": "^2.0.22",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.3",
+    "husky": "^8.0.3"
   },
   "jest": {
     "collectCoverage": true,
