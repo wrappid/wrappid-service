@@ -5,7 +5,9 @@
   "main": "src/server.js",
   "scripts": {
     "start": "nodemon src/server.js",
-    "test": "jest"
+    "test": "jest",
+    "code:lint": "eslint --ignore-path .gitignore .",
+    "code:format": "npm run code:lint -- --fix ."
   },
   "repository": {
     "type": "git",
