@@ -4,8 +4,11 @@
   "description": "This is a service middleware to support wrappid framework development.",
   "main": "src/server.js",
   "scripts": {
+    "prepare": "husky install",
     "start": "nodemon src/server.js",
-    "test": "jest"
+    "test": "jest",
+    "code:lint": "eslint --ignore-path .gitignore .",
+    "code:format": "npm run code:lint -- --fix ."
   },
   "repository": {
     "type": "git",
@@ -40,9 +43,15 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^8.1.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-unused-imports": "^3.0.0",
     "jest": "^29.7.0",
     "nodemon": "^2.0.22",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.3",
+    "husky": "^8.0.3"
   },
   "jest": {
     "collectCoverage": true,
