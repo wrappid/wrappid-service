@@ -1,3 +1,6 @@
+const express = require("express");
+const swaggerJsonFile = require("./swagger-output.json");
+
 const {
   CoreMiddlewaresRegistry,
   setupModels,
@@ -5,19 +8,19 @@ const {
   setupRoutes,
   setupTasks,
   setupFunctions,
+  setupSwagger,
 } = require("@wrappid/service-core");
 
 const wrappidApp = express();
+
 let bodyParser = require("body-parser");
 let cors = require("cors");
-const express = require("express");
 const {
   TasksRegistry,
   ModelsRegistry,
   ControllersRegistry,
   FunctionsRegistry,
 } = require("./registry");
-
 let options = {
   inflate: true,
   limit: "50mb",
@@ -60,5 +63,10 @@ setupFunctions(FunctionsRegistry);
  * Setup Routes
  */
 setupRoutes(wrappidApp, ControllersRegistry);
+
+/**
+ *  Setup swagger API Docs
+ */
+setupSwagger(wrappidApp, swaggerJsonFile);
 
 module.exports = wrappidApp;

@@ -1,0 +1,57 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "WRAPPID-service",
+      "version": "1.0.0",
+      "contact": {}
+    },
+    "servers": [
+      {
+        "url": "http://localhost"
+      }
+    ],
+    "paths": {
+      "/checkLoginOrRegister": {
+        "post": {
+          "tags": [
+            "Auth"
+          ],
+          "summary": "checkLoginOrRegister",
+          "description": "checkLoginOrRegister",
+          "operationId": "checkloginorregister",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "emailOrPhone": {
+                      "type": "string",
+                      "example": "*********"
+                    }
+                  }
+                },
+                "examples": {
+                  "checkLoginOrRegister": {
+                    "value": {
+                      "emailOrPhone": "8797083276"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      {
+        "name": "Auth"
+      }
+    ]
+  }
