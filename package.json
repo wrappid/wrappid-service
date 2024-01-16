@@ -42,6 +42,9 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.5.0",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@commitlint/prompt-cli": "^17.5.0",
     "@faker-js/faker": "^8.1.0",
     "eslint": "^8.56.0",
     "eslint-plugin-import": "^2.29.1",
