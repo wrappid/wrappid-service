@@ -22,6 +22,7 @@
   "author": "wrappid",
   "license": "ISC",
   "dependencies": {
+    "@wrappid/service-core": "latest",
     "aws-sdk": "^2.1433.0",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
@@ -51,10 +52,10 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-unused-imports": "^3.0.0",
+    "husky": "^8.0.3",
     "jest": "^29.7.0",
     "nodemon": "^2.0.22",
-    "supertest": "^6.3.3",
-    "husky": "^8.0.3"
+    "supertest": "^6.3.3"
   },
   "jest": {
     "collectCoverage": true,
