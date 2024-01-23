@@ -20,7 +20,7 @@
     "middleware"
   ],
   "author": "wrappid",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@wrappid/service-core": "latest",
     "aws-sdk": "^2.1433.0",
