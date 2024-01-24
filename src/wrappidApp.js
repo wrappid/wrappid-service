@@ -1,6 +1,3 @@
-const express = require("express");
-const swaggerJsonFile = require("./swagger-output.json");
-
 const {
   CoreMiddlewaresRegistry,
   setupModels,
@@ -10,17 +7,22 @@ const {
   setupFunctions,
   setupSwagger,
 } = require("@wrappid/service-core");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const express = require("express");
+const swaggerJsonFile = require("./swagger-output.json");
+
 
 const wrappidApp = express();
 
-let bodyParser = require("body-parser");
-let cors = require("cors");
 const {
   TasksRegistry,
   ModelsRegistry,
   ControllersRegistry,
   FunctionsRegistry,
+// eslint-disable-next-line import/order
 } = require("./registry");
+
 let options = {
   inflate: true,
   limit: "50mb",
