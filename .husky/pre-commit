@@ -9,7 +9,7 @@ if [ "$branch" = "main" ] || [ "$branch" = "development" ]; then
   exit 1
 fi
 
-if ! [[ $branch =~ $valid_branch_n$branames_regex ]]; then
+if ! [[ $branch =~ $valid_branch_names_regex ]]; then
   echo "Invalid branch name: $branch; commit rejected"
   echo "Please rename your branch to conform to $valid_branch_names_regex pattern."
   exit 1

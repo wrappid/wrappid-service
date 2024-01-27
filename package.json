@@ -4,7 +4,6 @@
   "description": "This is a service middleware to support wrappid framework development.",
   "main": "src/server.js",
   "scripts": {
-    "prepare": "husky install",
     "start": "nodemon src/server.js",
     "test": "echo Testing not yet implemented && exit 0",
     "code:lint": "eslint --ignore-path .gitignore .",
