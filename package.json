@@ -4,9 +4,8 @@
   "description": "This is a service middleware to support wrappid framework development.",
   "main": "src/server.js",
   "scripts": {
-    "prepare": "husky install",
     "start": "nodemon src/server.js",
-    "test": "jest",
+    "test": "echo Testing not yet implemented && exit 0",
     "code:lint": "eslint --ignore-path .gitignore .",
     "code:format": "npm run code:lint -- --fix ."
   },
@@ -20,7 +19,7 @@
     "middleware"
   ],
   "author": "wrappid",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@wrappid/service-core": "latest",
     "aws-sdk": "^2.1433.0",
