@@ -18,8 +18,13 @@
     "nodejs",
     "middleware"
   ],
-  "author": "wrappid",
   "license": "MIT",
+  "author": {
+		"name": "Wrappid",
+		"email": "wrappid.framework@gmail.com",
+		"url": "https://www.github.com/wrappid"
+	},
+  "homepage": "https://github.com/wrappid/wrappid-service/",
   "dependencies": {
     "@wrappid/service-core": "latest",
     "aws-sdk": "^2.1433.0",
