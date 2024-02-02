@@ -1,4 +1,4 @@
-const testFunctions = require("../functions/test.functions");
+import * as testFunctions from "../functions/test.functions";
 
 /**
  *
@@ -6,7 +6,7 @@ const testFunctions = require("../functions/test.functions");
  * @param {*} res
  * @returns
  */
-module.exports.testGetAllFunc = async (req, res) => {
+export const testGetAllFunc = async (req: any, res: any) => {
   try {
     let data = await testFunctions.readTestDataAll(req);
     return res.status(200).json({ message: "Response Data(•_•) :", data });
@@ -22,7 +22,7 @@ module.exports.testGetAllFunc = async (req, res) => {
  * @param {*} res
  * @returns
  */
-module.exports.testGetFunc = async (req, res) => {
+export const testGetFunc = async (req: any, res: any) => {
   try {
     let data = await testFunctions.readTestData(req);
     return res.status(200).json({ message: "Response Data(•_•) :", data });
@@ -38,7 +38,7 @@ module.exports.testGetFunc = async (req, res) => {
  * @param {*} res
  * @returns
  */
-module.exports.testPostFunc = async (req, res) => {
+export const testPostFunc = async (req: any, res: any) => {
   try {
     let data = await testFunctions.createTestData(req);
     return res.status(200).json({ message: "Data is inserted (•_•) ", data });
@@ -54,7 +54,7 @@ module.exports.testPostFunc = async (req, res) => {
  * @param {*} res
  * @returns
  */
-module.exports.testPutFunc = async (req, res) => {
+export const testPutFunc = async (req: any, res: any) => {
   try {
     console.log("::---", req.params, "---::");
     let data = await testFunctions.updateTestData(req);
@@ -71,7 +71,7 @@ module.exports.testPutFunc = async (req, res) => {
  * @param {*} res
  * @returns
  */
-module.exports.testPatchFunc = async (req, res) => {
+export const testPatchFunc = async (req: any, res: any) => {
   try {
     let data = await testFunctions.deleteTestData(req);
     return res.status(200).json({ message: "Deleted(^_^)", data });

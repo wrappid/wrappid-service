@@ -1,4 +1,6 @@
-const {
+import swaggerJsonFile from "./swagger-output.json";
+
+import {
   CoreMiddlewaresRegistry,
   setupModels,
   setupLogging,
@@ -6,22 +8,18 @@ const {
   setupTasks,
   setupFunctions,
   setupSwagger,
-} = require("@wrappid/service-core");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const express = require("express");
-const swaggerJsonFile = require("./swagger-output.json");
+} from "@wrappid/service-core";
 
+import express from "express";
+const wrappidApp: any = express();
 
-const wrappidApp = express();
+import { TasksRegistry } from "./registry/TasksRegistry";
+import { ModelsRegistry } from "./registry/ModelsRegistry";
+import { ControllersRegistry } from "./registry/ControllersRegistry";
+import { FunctionsRegistry } from "./registry/FunctionsRegistry";
 
-const {
-  TasksRegistry,
-  ModelsRegistry,
-  ControllersRegistry,
-  FunctionsRegistry,
-// eslint-disable-next-line import/order
-} = require("./registry");
+let bodyParser = require("body-parser");
+let cors = require("cors");
 
 let options = {
   inflate: true,
@@ -71,4 +69,4 @@ setupRoutes(wrappidApp, ControllersRegistry);
  */
 setupSwagger(wrappidApp, swaggerJsonFile);
 
-module.exports = wrappidApp;
+export { wrappidApp };

@@ -1,11 +1,11 @@
-const { cacheActions, databaseActions } = require("@wrappid/service-core");
+import { cacheActions, databaseActions } from "@wrappid/service-core";
 
 /**
  *
  * @param {*} req
  * @returns
  */
-const readTestDataAll = async () => {
+export const readTestDataAll = async (res: any) => {
   try {
     //cache call to get data
     let cacheKey = "testData";
@@ -31,7 +31,7 @@ const readTestDataAll = async () => {
  * @param {*} req
  * @returns
  */
-const readTestData = async (req) => {
+export const readTestData = async (req: any) => {
   try {
     //cache call to get data
     let cacheKey = req.params.id.toString();
@@ -59,7 +59,7 @@ const readTestData = async (req) => {
  * @param {*} req
  * @returns
  */
-const createTestData = async (req) => {
+export const createTestData = async (req: any) => {
   try {
     let data = await databaseActions.create("application", "TestDatas", {
       req,
@@ -75,14 +75,20 @@ const createTestData = async (req) => {
  * @param {*} req
  * @returns
  */
-const updateTestData = async (req) => {
+export const updateTestData = async (req: any) => {
   try {
-    let result = await databaseActions.update("application", "TestDatas", {
-      data: { ...req.body },
-      where: {
-        id: req.params.id,
+    let result = await databaseActions.update(
+      "application",
+      "TestDatas",
+      {
+        data: { ...req.body },
       },
-    });
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
 
     if (result) {
       // Delete chache with data
@@ -101,7 +107,7 @@ const updateTestData = async (req) => {
  * @param {*} req
  * @returns
  */
-const deleteTestData = async (req) => {
+export const deleteTestData = async (req: any) => {
   try {
     let data = await databaseActions.delete("application", "TestDatas", {
       where: {
@@ -115,12 +121,4 @@ const deleteTestData = async (req) => {
   } catch (error) {
     throw new Error(error);
   }
-};
-
-module.exports = {
-  readTestDataAll,
-  readTestData,
-  createTestData,
-  updateTestData,
-  deleteTestData,
 };

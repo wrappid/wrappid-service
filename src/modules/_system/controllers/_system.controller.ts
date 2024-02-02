@@ -1,4 +1,4 @@
-module.exports.getVersion = async (req, res) => {
+export const getVersion = async (req: any, res: any) => {
   try {
     res.status(200).json({ message: "API call Sucessfully" });
     //   let result = await patientFunction.getVersion(req, res);

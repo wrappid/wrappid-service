@@ -11,7 +11,7 @@
         ],
         "databases": [
             {
-                "name": "wrappid-database",
+                "name": "application",
                 "host": "localhost",
                 "port": "5432",
                 "dialect": "postgres",
@@ -89,7 +89,7 @@
                 "host": "localhost",
                 "port": "5432",
                 "dialect": "postgres",
-                "database": "application",
+                "database": "wrappid-db",
                 "username": "postgres",
                 "password": "admin",
                 "logging": false
@@ -222,3 +222,9 @@
         }
     }
 }
+
+
+
+
+
+
