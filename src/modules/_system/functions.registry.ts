@@ -1,11 +1,9 @@
-const testFunctions = require("./functions/test.functions");
+import * as testFunctions from "./functions/test.functions";
 
-const functionsRegistry = {
+export const functionsRegistry = {
   readTestData: testFunctions.readTestData,
   readTestDataAll: testFunctions.readTestDataAll,
   createTestData: testFunctions.createTestData,
   updateTestData: testFunctions.updateTestData,
   deleteTestData: testFunctions.deleteTestData,
 };
-
-exports.functionsRegistry = functionsRegistry;

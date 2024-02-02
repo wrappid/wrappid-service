@@ -1,4 +1,4 @@
-module.exports = {
+export const TestTask = {
   prePerform: () => {
     console.log(`Test Task is initated @ ${new Date()}`);
     return true;
