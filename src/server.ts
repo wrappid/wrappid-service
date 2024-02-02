@@ -3,6 +3,7 @@ console.log("server.js start");
 console.log("###########################################");
 
 import { DEFAULT_PORT } from "@wrappid/service-core";
+import { wrappidApp } from "./wrappidApp";
 
 const __PORT = process.env.PORT || DEFAULT_PORT;
 
@@ -11,8 +12,6 @@ const serverInit = () => {
   console.log(`Server is up and running on port ${__PORT}...`);
   console.log("###########################################");
 };
-
-import { wrappidApp } from "./wrappidApp";
 
 const server = wrappidApp.listen(__PORT, serverInit);
 

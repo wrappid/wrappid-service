@@ -11,7 +11,7 @@ import {
 } from "@wrappid/service-core";
 
 import express from "express";
-const wrappidApp = express();
+const wrappidApp: any = express();
 
 import { TasksRegistry } from "./registry/TasksRegistry";
 import { ModelsRegistry } from "./registry/ModelsRegistry";
