@@ -14,6 +14,62 @@
       "repoProvider": "github.com",
       "repoOwner": "wrappid",
       "repoURL": "https://github.com/wrappid/auth-module.git"
+    },
+    "data-management": {
+      "projectID": "",
+      "projectName": "data-management",
+      "remote": true,
+      "repoProvider": "github.com",
+      "repoOwner": "wrappid",
+      "repoURL": "https://github.com/Rxefy/data-management-module.git"
+    },
+    "user-management": {
+      "projectID": "",
+      "projectName": "user-management",
+      "remote": true,
+      "repoProvider": "github.com",
+      "repoOwner": "wrappid",
+      "repoURL": "https://github.com/wrappid/user-management-module.git"
+    },
+    "app-builder": {
+      "projectID": "",
+      "projectName": "app-builder",
+      "remote": true,
+      "repoProvider": "github.com",
+      "repoOwner": "wrappid",
+      "repoURL": "https://github.com/wrappid/app-builder-module.git"
+    },
+    "communication": {
+      "projectID": "",
+      "projectName": "communication",
+      "remote": true,
+      "repoProvider": "github.com",
+      "repoOwner": "wrappid",
+      "repoURL": "https://github.com/wrappid/wrappid-module.git"
+    },
+    "support": {
+      "projectID": "",
+      "projectName": "support",
+      "remote": true,
+      "repoProvider": "github.com",
+      "repoOwner": "wrappid",
+      "repoURL": "https://github.com/wrappid/support-module.git"
+    },
+    "settings": {
+      "projectID": "",
+      "projectName": "settings",
+      "remote": true,
+      "repoProvider": "github.com",
+      "repoOwner": "wrappid",
+      "repoURL": "https://github.com/wrappid/settings-module.git"
+    },
+    "guide": {
+      "projectID": "",
+      "projectName": "guide",
+      "remote": true,
+      "repoProvider": "github.com",
+      "repoOwner": "wrappid",
+      "repoURL": "https://github.com/wrappid/guide-module.git"
     }
   }
 }
