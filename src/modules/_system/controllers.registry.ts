@@ -1,4 +1,5 @@
 import { getVersion } from "./controllers/_system.controller";
-export const controllersRegistry = {
+const controllersRegistry = {
   getVersion: [getVersion],
 };
+export { controllersRegistry };

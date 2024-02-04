@@ -45,7 +45,7 @@
       "remote": true,
       "repoProvider": "github.com",
       "repoOwner": "wrappid",
-      "repoURL": "https://github.com/wrappid/wrappid-module.git"
+      "repoURL": "https://github.com/wrappid/communication-module.git"
     },
     "support": {
       "projectID": "",
@@ -63,13 +63,13 @@
       "repoOwner": "wrappid",
       "repoURL": "https://github.com/wrappid/settings-module.git"
     },
-    "guide": {
+    "wrappid": {
       "projectID": "",
-      "projectName": "guide",
+      "projectName": "wrappid",
       "remote": true,
       "repoProvider": "github.com",
       "repoOwner": "wrappid",
-      "repoURL": "https://github.com/wrappid/guide-module.git"
+      "repoURL": "https://github.com/wrappid/wrappid-module.git"
     }
   }
 }

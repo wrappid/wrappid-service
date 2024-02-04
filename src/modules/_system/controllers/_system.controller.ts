@@ -5,7 +5,7 @@ export const getVersion = async (req: any, res: any) => {
     //   let { status, message, data } = result;
     //   res.status(status).json({message: message, data
     // });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error :: ", error);
     res.status(500).json({ message: error.message });
   }
