@@ -12,12 +12,12 @@
         "databases": [
             {
                 "name": "application",
-                "host": "localhost",
+                "host": "wrappid-stage-database-1.cxsqsgoaclyg.ap-south-1.rds.amazonaws.com",
                 "port": "5432",
                 "dialect": "postgres",
-                "database": "application",
-                "username": "postgres",
-                "password": "",
+                "database": "wrappid-stage-database-1",
+                "username": "wrappidpostgadmn",
+                "password": "72yIIbFlsCZMIPsIQ3kh",
                 "logging": false
             }
         ],
@@ -222,9 +222,3 @@
         }
     }
 }
-
-
-
-
-
-

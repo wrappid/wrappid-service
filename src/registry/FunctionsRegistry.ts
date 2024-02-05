@@ -2,7 +2,7 @@ import { CoreFunctionsRegistry } from "@wrappid/service-core";
 import * as modulesFunctionsRegistry from "../modules/modules.functions.registry";
 
 const FunctionsRegistry = {
-  ...modulesFunctionsRegistry,
+  ...modulesFunctionsRegistry.default,
   ...CoreFunctionsRegistry,
 };
-export { FunctionsRegistry };
+export default FunctionsRegistry;

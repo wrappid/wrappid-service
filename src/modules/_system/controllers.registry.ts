@@ -1,5 +1,5 @@
-import { getVersion } from "./controllers/_system.controller";
+import * as _systemController from "./controllers/_system.controller";
 const controllersRegistry = {
-  getVersion: [getVersion],
+  getVersion: [_systemController.getVersion],
 };
-export { controllersRegistry };
+export default controllersRegistry;

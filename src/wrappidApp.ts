@@ -13,11 +13,11 @@ import {
 import express from "express";
 const wrappidApp: any = express();
 
-import { TasksRegistry } from "./registry/TasksRegistry";
-import { ModelsRegistry } from "./registry/ModelsRegistry";
-import { ControllersRegistry } from "./registry/ControllersRegistry";
-import { FunctionsRegistry } from "./registry/FunctionsRegistry";
-import { RoutesRegistry } from "./registry/Routes.Registry";
+import TasksRegistry from "./registry/TasksRegistry";
+import ModelsRegistry from "./registry/ModelsRegistry";
+import ControllersRegistry from "./registry/ControllersRegistry";
+import FunctionsRegistry from "./registry/FunctionsRegistry";
+import RoutesRegistry from "./registry/Routes.Registry";
 
 let bodyParser = require("body-parser");
 let cors = require("cors");

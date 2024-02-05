@@ -5,4 +5,4 @@ const ValidationsRegistry = {
   ...modulesValidationsRegistry,
   ...CoreValidationsRegistry,
 };
-export { ValidationsRegistry };
+export default ValidationsRegistry;

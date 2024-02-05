@@ -1,5 +1,11 @@
-import _systemRouter from "./routes/_system.routes";
 const routesRegistry = {
-  ..._systemRouter,
+  getVersion: {
+    name: "Test Get All API",
+    url: "getversion",
+    authRequired: false,
+    entityRef: "getVersion",
+    reqMethod: "get",
+    controllerRef: "getVersion",
+  },
 };
-export { routesRegistry };
+export default routesRegistry;

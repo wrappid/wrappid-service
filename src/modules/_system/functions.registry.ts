@@ -7,4 +7,4 @@ const functionsRegistry = {
   updateTestData: testFunctions.updateTestData,
   deleteTestData: testFunctions.deleteTestData,
 };
-export { functionsRegistry };
+export default functionsRegistry;
