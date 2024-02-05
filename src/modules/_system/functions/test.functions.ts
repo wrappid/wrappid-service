@@ -7,7 +7,6 @@ import { cacheActions, databaseActions } from "@wrappid/service-core";
  */
 export const readTestDataAll = async (res: any) => {
   try {
-    //cache call to get data
     let cacheKey = "testData";
     let result = await cacheActions.read("wrappid-cache", cacheKey);
     if (result) {
@@ -22,7 +21,7 @@ export const readTestDataAll = async (res: any) => {
       return data;
     }
   } catch (error) {
-    throw new Error(error);
+    throw error;
   }
 };
 
@@ -50,7 +49,7 @@ export const readTestData = async (req: any) => {
       return data;
     }
   } catch (error) {
-    throw new Error(error);
+    throw error;
   }
 };
 
@@ -66,7 +65,7 @@ export const createTestData = async (req: any) => {
     });
     return data;
   } catch (error) {
-    throw new Error(error);
+    throw error;
   }
 };
 
@@ -98,7 +97,7 @@ export const updateTestData = async (req: any) => {
       throw new Error("Can't update entity in the database");
     }
   } catch (error) {
-    throw new Error(error);
+    throw error;
   }
 };
 
@@ -119,6 +118,6 @@ export const deleteTestData = async (req: any) => {
 
     return data;
   } catch (error) {
-    throw new Error(error);
+    throw error;
   }
 };

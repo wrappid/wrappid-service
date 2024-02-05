@@ -1,7 +1,8 @@
 import { CoreModelsRegistry } from "@wrappid/service-core";
 import * as modulesModelsRegistry from "../modules/modules.models.registry";
 
-export const ModelsRegistry = {
-  ...modulesModelsRegistry,
+const ModelsRegistry = {
+  ...modulesModelsRegistry.default,
   ...CoreModelsRegistry,
 };
+export default ModelsRegistry;

@@ -1,7 +1,8 @@
 import { CoreMiddlewaresRegistry } from "@wrappid/service-core";
 import * as modulesMiddlewaresRegistry from "../modules/modules.middlewares.registry";
 
-export const MiddlewaresRegistry = {
-  ...modulesMiddlewaresRegistry,
+const MiddlewaresRegistry = {
+  ...modulesMiddlewaresRegistry.default,
   ...CoreMiddlewaresRegistry,
 };
+export default MiddlewaresRegistry;

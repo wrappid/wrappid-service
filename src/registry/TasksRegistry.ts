@@ -1,7 +1,7 @@
 import { CoreTasksRegistry } from "@wrappid/service-core";
 import * as modulesTasksRegistry from "../modules/modules.tasks.registry";
-
-export const TasksRegistry = {
-  ...modulesTasksRegistry,
+const TasksRegistry = {
+  ...modulesTasksRegistry.default,
   ...CoreTasksRegistry,
 };
+export default TasksRegistry;
