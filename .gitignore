@@ -2,7 +2,7 @@
 /.wrappid/runtime
 /.wrappid/wrappid.env
 wrappid.conf.json
-
+build/
 # Logs
 logs
 *.log
