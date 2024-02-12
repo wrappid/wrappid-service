@@ -22,7 +22,7 @@
   "author": "wrappid",
   "license": "ISC",
   "dependencies": {
-    "@wrappid/service-core": "file:../service-core/dist",
+    "@wrappid/service-core": "latest",
     "aws-sdk": "^2.1433.0",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
