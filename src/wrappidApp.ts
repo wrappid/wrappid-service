@@ -8,9 +8,9 @@ import {
   setupFunctions,
   setupSwagger,
 } from "@wrappid/service-core";
-import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import express from "express";
 import ControllersRegistry from "./registry/ControllersRegistry";
 import FunctionsRegistry from "./registry/FunctionsRegistry";
 import ModelsRegistry from "./registry/ModelsRegistry";
