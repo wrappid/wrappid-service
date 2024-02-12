@@ -8,7 +8,7 @@ import * as testFunctions from "../functions/test.functions";
  */
 export const testGetAllFunc = async (req: any, res: any) => {
   try {
-    let data = await testFunctions.readTestDataAll(req);
+    const data = await testFunctions.readTestDataAll();
     return res.status(200).json({ message: "Response Data(•_•) :", data });
   } catch (error) {
     console.error(error);
@@ -24,7 +24,7 @@ export const testGetAllFunc = async (req: any, res: any) => {
  */
 export const testGetFunc = async (req: any, res: any) => {
   try {
-    let data = await testFunctions.readTestData(req);
+    const data = await testFunctions.readTestData(req);
     return res.status(200).json({ message: "Response Data(•_•) :", data });
   } catch (error) {
     console.error(error);
@@ -40,7 +40,7 @@ export const testGetFunc = async (req: any, res: any) => {
  */
 export const testPostFunc = async (req: any, res: any) => {
   try {
-    let data = await testFunctions.createTestData(req);
+    const data = await testFunctions.createTestData(req);
     return res.status(200).json({ message: "Data is inserted (•_•) ", data });
   } catch (error) {
     console.error(error);
@@ -57,7 +57,7 @@ export const testPostFunc = async (req: any, res: any) => {
 export const testPutFunc = async (req: any, res: any) => {
   try {
     console.log("::---", req.params, "---::");
-    let data = await testFunctions.updateTestData(req);
+    const data = await testFunctions.updateTestData(req);
     return res.status(200).json({ message: "Data updated (•_•).", data });
   } catch (error) {
     console.error(error);
@@ -73,7 +73,7 @@ export const testPutFunc = async (req: any, res: any) => {
  */
 export const testPatchFunc = async (req: any, res: any) => {
   try {
-    let data = await testFunctions.deleteTestData(req);
+    const data = await testFunctions.deleteTestData(req);
     return res.status(200).json({ message: "Deleted(^_^)", data });
   } catch (error) {
     console.error(error);

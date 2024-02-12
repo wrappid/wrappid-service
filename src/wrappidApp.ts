@@ -1,4 +1,3 @@
-import swaggerJsonFile from "./swagger-output.json";
 
 import {
   CoreMiddlewaresRegistry,
@@ -10,19 +9,21 @@ import {
   setupSwagger,
 } from "@wrappid/service-core";
 
-import express from "express";
+
 const wrappidApp: any = express();
 
-import TasksRegistry from "./registry/TasksRegistry";
-import ModelsRegistry from "./registry/ModelsRegistry";
+
+import bodyParser from "body-parser";
+import cors from "cors";
+import express from "express";
 import ControllersRegistry from "./registry/ControllersRegistry";
 import FunctionsRegistry from "./registry/FunctionsRegistry";
+import ModelsRegistry from "./registry/ModelsRegistry";
 import RoutesRegistry from "./registry/Routes.Registry";
+import TasksRegistry from "./registry/TasksRegistry";
+import swaggerJsonFile from "./swagger-output.json";
 
-let bodyParser = require("body-parser");
-let cors = require("cors");
-
-let options = {
+const options = {
   inflate: true,
   limit: "50mb",
   type: "application/octet-stream",

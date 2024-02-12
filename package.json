@@ -7,7 +7,7 @@
     "build": "npx tsc",
     "start": "npx ts-node src/server.ts",
     "test": "echo \"Not Implemented\" && exit 0",
-    "code:lint": "eslint --ignore-path .gitignore .",
+    "code:lint": "eslint --ignore-path .gitignore src",
     "code:format": "npm run code:lint -- --fix ."
   },
   "repository": {
@@ -49,10 +49,14 @@
     "@commitlint/prompt-cli": "^17.5.0",
     "@faker-js/faker": "^8.1.0",
     "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.5",
     "@types/otp-generator": "^4.0.2",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.56.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
