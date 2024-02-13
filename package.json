@@ -5,7 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "npx ts-node src/server.ts",
+    "start:dev": "npx ts-node src/server.ts",
+    "start": "node src/server.js",
     "test": "echo \"Not Implemented\" && exit 0",
     "code:lint": "eslint --ignore-path .gitignore src",
     "code:format": "npm run code:lint -- --fix ."
