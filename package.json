@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "npx ts-node src/server.ts",
+    "start": "nodemon --watch src --exec npx ts-node src/server.ts",
     "start:stage": "node src/server.js",
     "start:prod": "",
     "test": "echo \"Not Implemented\" && exit 0",
