@@ -145,7 +145,8 @@
             "accessLog": ""
         },
         "wrappid": {
-            "otpLength": 6
+            "otpLength": 6,
+            "role": "developer"
         }
     },
     "prod": {
@@ -219,7 +220,8 @@
             "accessLog": ""
         },
         "wrappid": {
-            "otpLength": 6
+            "otpLength": 6,
+            "role": "developer"
         }
     }
 }
