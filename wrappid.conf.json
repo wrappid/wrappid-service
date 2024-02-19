@@ -70,7 +70,8 @@
             "accessLog": ""
         },
         "wrappid": {
-            "otpLength": 6
+            "otpLength": 6,
+            "role": "developer"
         }
     },
     "stage": {
