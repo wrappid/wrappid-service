@@ -71,7 +71,7 @@
         },
         "wrappid": {
             "otpLength": 6,
-            "role": "developer"
+            "defaultUserRole": "developer"
         }
     },
     "stage": {
@@ -146,7 +146,7 @@
         },
         "wrappid": {
             "otpLength": 6,
-            "role": "developer"
+            "defaultUserRole": "developer"
         }
     },
     "prod": {
@@ -221,7 +221,7 @@
         },
         "wrappid": {
             "otpLength": 6,
-            "role": "developer"
+            "defaultUserRole": "developer"
         }
     }
 }
