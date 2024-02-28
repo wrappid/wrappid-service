@@ -2,8 +2,17 @@ console.log("###########################################");
 console.log("server.js start");
 console.log("###########################################");
 
-import { DEFAULT_PORT } from "@wrappid/service-core";
-import { wrappidApp } from "./wrappidApp";
+import { DEFAULT_PORT, coreApp } from "@wrappid/service-core";
+import express from "express";
+import ControllersRegistry from "./registry/ControllersRegistry";
+import FunctionsRegistry from "./registry/FunctionsRegistry";
+import ModelsRegistry from "./registry/ModelsRegistry";
+import RoutesRegistry from "./registry/Routes.Registry";
+import TasksRegistry from "./registry/TasksRegistry";
+import swaggerJsonFile from "./swagger-output.json";
+
+const wrappidApp: any = express();
+coreApp(wrappidApp,ControllersRegistry, FunctionsRegistry, ModelsRegistry, RoutesRegistry, TasksRegistry, swaggerJsonFile);
 
 const __PORT = process.env.PORT || DEFAULT_PORT;
 
