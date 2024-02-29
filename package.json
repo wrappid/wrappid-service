@@ -67,8 +67,8 @@
     "eslint-plugin-unused-imports": "^3.0.0",
     "jest": "^29.7.0",
     "nodemon": "^2.0.22",
-    "supertest": "^6.3.3",
-    "standard-version": "^9.5.0"
+    "standard-version": "^9.5.0",
+    "supertest": "^6.3.3"
   },
   "jest": {
     "collectCoverage": false,
