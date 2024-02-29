@@ -9,7 +9,7 @@
     "start:stage": "node src/server.js",
     "start:prod": "",
     "test": "echo \"Not Implemented\" && exit 0",
-    "code:lint": "eslint --ignore-path .gitignore src",
+    "code:lint": "eslint --ignore-path .gitignore .",
     "code:format": "npm run code:lint -- --fix .",
     "release": "standard-version --bumpFiles ./package.json ./package-lock.json "
   },
