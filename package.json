@@ -8,7 +8,7 @@
     "start": "nodemon --watch src --exec npx ts-node src/server.ts",
     "start:stage": "node src/server.js",
     "start:prod": "",
-    "test": "echo \"Not Implemented\" && exit 0",
+    "test": "jest",
     "code:lint": "eslint --ignore-path .gitignore .",
     "code:format": "npm run code:lint -- --fix .",
     "release": "standard-version --bumpFiles ./package.json ./package-lock.json "
@@ -57,6 +57,7 @@
     "@types/express": "~4.17.21",
     "@types/jsonwebtoken": "~9.0.5",
     "@types/otp-generator": "~4.0.2",
+    "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "~6.21.0",
     "@typescript-eslint/parser": "~6.21.0",
     "eslint": "~8.56.0",
@@ -68,21 +69,7 @@
     "jest": "~29.7.0",
     "nodemon": "~2.0.22",
     "standard-version": "~9.5.0",
-    "supertest": "~6.3.3"
-  },
-  "jest": {
-    "collectCoverage": false,
-    "collectCoverageFrom": [
-      "test/**/*.{js,jsx,ts}",
-      "!**/node_modules/**"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 0,
-        "functions": 0,
-        "lines": 0,
-        "statements": 0
-      }
-    }
+    "supertest": "~6.3.3",
+    "ts-jest": "^29.1.2"
   }
 }
