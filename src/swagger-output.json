@@ -14,6 +14,178 @@
     }
   ],
   "paths": {
+    "/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Login ",
+        "description": "Login",
+        "operationId": "PostLogin",
+        "requestBody": {
+          "description": "Login into your account",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "emailOrPhone": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "personId": {
+                      "type": "integer"
+                    },
+                    "accessToken": {
+                      "type": "string"
+                    },
+                    "refreshToken": {
+                      "type": "string"
+                    },
+                    "sessionId": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "examples": {
+                  "PostLogin": {
+                    "value": {
+                      "status": 200,
+                      "message": "Successfully login",
+                      "id": 587,
+                      "personId": 45,
+                      "accessToken": "eyJhbGciOiJIUzI1I6IkpXVCJ9.eyJ1c2VySWQiOjQxOCwiZW1haWwiOiJwcml0YW1AcnhlZnkuY25JZCI6MSwicm9sZUlkIjTcwOTU",
+                      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQxOCwiZW1haWwiOiJwcml0YW1AcnhlZnkuY29tIiwicGhvbmUiOiIiLCJwZXJzb25JZCI6MSwi",
+                      "sessionId": 343
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "PostLogin": {
+                    "value": {
+                      "status": 401,
+                      "message": "Invalid password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetDatabaseTables": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "PostLogin": {
+                    "value": {
+                      "message": "emailOrPhone must match the following: \"/^([0-9]{10}|[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+)$/\""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "PostLogin": {
+                    "value": {
+                      "message": "Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/business/tables/{database}": {
       "get": {
         "tags": [
@@ -721,7 +893,7 @@
                     "value": {
                       "message": "Entity data found successfully",
                       "data": {
-                        "data": "**",
+                        "data": {},
                         "entity": "**"
                       }
                     }
@@ -867,244 +1039,10 @@
                     "value": {
                       "message": "Entity data found successfully",
                       "data": {
-                        "entity": "RoutePages",
-                        "columns": [
-                          {
-                            "id": "id",
-                            "label": "Id",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "entityRef",
-                            "label": "Entity Ref",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "controllerRef",
-                            "label": "Controller Ref",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "reqMethod",
-                            "label": "Req Method",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "name",
-                            "label": "Name",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "url",
-                            "label": "Url",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "authRequired",
-                            "label": "Auth Required",
-                            "type": "BOOLEAN"
-                          },
-                          {
-                            "id": "title",
-                            "label": "Title",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "description",
-                            "label": "Description",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "keywords",
-                            "label": "Keywords",
-                            "type": "JSONB"
-                          },
-                          {
-                            "id": "extraInfo",
-                            "label": "Extra Info",
-                            "type": "JSONB"
-                          },
-                          {
-                            "id": "source",
-                            "label": "Source",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "_status",
-                            "label": "_status",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "comments",
-                            "label": "Comments",
-                            "type": "JSONB"
-                          },
-                          {
-                            "id": "deletedAt",
-                            "label": "Deleted At",
-                            "type": "TIMESTAMP"
-                          },
-                          {
-                            "id": "createdAt",
-                            "label": "Created At",
-                            "type": "TIMESTAMP WITH TIME ZONE"
-                          },
-                          {
-                            "id": "updatedAt",
-                            "label": "Updated At",
-                            "type": "TIMESTAMP WITH TIME ZONE"
-                          },
-                          {
-                            "id": "pageRef",
-                            "label": "Page Ref",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "createdBy",
-                            "label": "Created By",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "updatedBy",
-                            "label": "Updated By",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "deletedBy",
-                            "label": "Deleted By",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "Pages.id",
-                            "label": "Id",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "Pages.name",
-                            "label": "Name",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "Pages.entityRef",
-                            "label": "Entity Ref",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "Pages.noScroll",
-                            "label": "No Scroll",
-                            "type": "BOOLEAN"
-                          },
-                          {
-                            "id": "Pages.appComponent",
-                            "label": "App Component",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "Pages.schema",
-                            "label": "Schema",
-                            "type": "JSONB"
-                          },
-                          {
-                            "id": "Pages.extraInfo",
-                            "label": "Extra Info",
-                            "type": "JSONB"
-                          },
-                          {
-                            "id": "Pages.commitId",
-                            "label": "Commit Id",
-                            "type": "UUID"
-                          },
-                          {
-                            "id": "Pages._status",
-                            "label": "_status",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "Pages.comments",
-                            "label": "Comments",
-                            "type": "JSONB"
-                          },
-                          {
-                            "id": "Pages.deletedAt",
-                            "label": "Deleted At",
-                            "type": "TIMESTAMP"
-                          },
-                          {
-                            "id": "Pages.layout",
-                            "label": "Layout",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "Pages.createdAt",
-                            "label": "Created At",
-                            "type": "TIMESTAMP WITH TIME ZONE"
-                          },
-                          {
-                            "id": "Pages.updatedAt",
-                            "label": "Updated At",
-                            "type": "TIMESTAMP WITH TIME ZONE"
-                          },
-                          {
-                            "id": "Pages.createdBy",
-                            "label": "Created By",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "Pages.updatedBy",
-                            "label": "Updated By",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "Pages.deletedBy",
-                            "label": "Deleted By",
-                            "type": "INTEGER"
-                          }
-                        ],
-                        "rows": [
-                          {
-                            "id": 82,
-                            "entityRef": "Pages",
-                            "controllerRef": null,
-                            "reqMethod": null,
-                            "name": "Pages",
-                            "url": "pages",
-                            "authRequired": true,
-                            "title": "Pages",
-                            "description": null,
-                            "keywords": [],
-                            "extraInfo": {},
-                            "source": "client-side",
-                            "_status": "published",
-                            "comments": [],
-                            "deletedAt": null,
-                            "createdAt": "2023-03-08T08:26:17.212Z",
-                            "updatedAt": "2023-03-08T14:17:43.878Z",
-                            "pageRef": "pages",
-                            "createdBy": null,
-                            "updatedBy": null,
-                            "deletedBy": null,
-                            "Page": {
-                              "id": 174,
-                              "name": "Pages",
-                              "entityRef": "pages",
-                              "noScroll": false,
-                              "appComponent": "PagesManager",
-                              "schema": {},
-                              "extraInfo": {},
-                              "commitId": "758e1f27-13c1-43d2-ac07-a81a4ea857e7",
-                              "_status": "published",
-                              "comments": [],
-                              "deletedAt": null,
-                              "layout": null,
-                              "createdAt": "2023-03-08T13:56:47.591Z",
-                              "updatedAt": "2023-03-29T05:16:51.444Z",
-                              "createdBy": null,
-                              "updatedBy": null,
-                              "deletedBy": null
-                            }
-                          }
-                        ],
-                        "totalRecords": 86
+                        "entity": "****",
+                        "columns": [],
+                        "rows": [],
+                        "totalRecords": "*"
                       }
                     }
                   }
@@ -1249,244 +1187,10 @@
                     "value": {
                       "message": "Entity data found successfully",
                       "data": {
-                        "entity": "RoutePages",
-                        "columns": [
-                          {
-                            "id": "id",
-                            "label": "Id",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "entityRef",
-                            "label": "Entity Ref",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "controllerRef",
-                            "label": "Controller Ref",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "reqMethod",
-                            "label": "Req Method",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "name",
-                            "label": "Name",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "url",
-                            "label": "Url",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "authRequired",
-                            "label": "Auth Required",
-                            "type": "BOOLEAN"
-                          },
-                          {
-                            "id": "title",
-                            "label": "Title",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "description",
-                            "label": "Description",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "keywords",
-                            "label": "Keywords",
-                            "type": "JSONB"
-                          },
-                          {
-                            "id": "extraInfo",
-                            "label": "Extra Info",
-                            "type": "JSONB"
-                          },
-                          {
-                            "id": "source",
-                            "label": "Source",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "_status",
-                            "label": "_status",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "comments",
-                            "label": "Comments",
-                            "type": "JSONB"
-                          },
-                          {
-                            "id": "deletedAt",
-                            "label": "Deleted At",
-                            "type": "TIMESTAMP"
-                          },
-                          {
-                            "id": "createdAt",
-                            "label": "Created At",
-                            "type": "TIMESTAMP WITH TIME ZONE"
-                          },
-                          {
-                            "id": "updatedAt",
-                            "label": "Updated At",
-                            "type": "TIMESTAMP WITH TIME ZONE"
-                          },
-                          {
-                            "id": "pageRef",
-                            "label": "Page Ref",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "createdBy",
-                            "label": "Created By",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "updatedBy",
-                            "label": "Updated By",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "deletedBy",
-                            "label": "Deleted By",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "Pages.id",
-                            "label": "Id",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "Pages.name",
-                            "label": "Name",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "Pages.entityRef",
-                            "label": "Entity Ref",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "Pages.noScroll",
-                            "label": "No Scroll",
-                            "type": "BOOLEAN"
-                          },
-                          {
-                            "id": "Pages.appComponent",
-                            "label": "App Component",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "Pages.schema",
-                            "label": "Schema",
-                            "type": "JSONB"
-                          },
-                          {
-                            "id": "Pages.extraInfo",
-                            "label": "Extra Info",
-                            "type": "JSONB"
-                          },
-                          {
-                            "id": "Pages.commitId",
-                            "label": "Commit Id",
-                            "type": "UUID"
-                          },
-                          {
-                            "id": "Pages._status",
-                            "label": "_status",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "Pages.comments",
-                            "label": "Comments",
-                            "type": "JSONB"
-                          },
-                          {
-                            "id": "Pages.deletedAt",
-                            "label": "Deleted At",
-                            "type": "TIMESTAMP"
-                          },
-                          {
-                            "id": "Pages.layout",
-                            "label": "Layout",
-                            "type": "VARCHAR(255)"
-                          },
-                          {
-                            "id": "Pages.createdAt",
-                            "label": "Created At",
-                            "type": "TIMESTAMP WITH TIME ZONE"
-                          },
-                          {
-                            "id": "Pages.updatedAt",
-                            "label": "Updated At",
-                            "type": "TIMESTAMP WITH TIME ZONE"
-                          },
-                          {
-                            "id": "Pages.createdBy",
-                            "label": "Created By",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "Pages.updatedBy",
-                            "label": "Updated By",
-                            "type": "INTEGER"
-                          },
-                          {
-                            "id": "Pages.deletedBy",
-                            "label": "Deleted By",
-                            "type": "INTEGER"
-                          }
-                        ],
-                        "rows": [
-                          {
-                            "id": 82,
-                            "entityRef": "Pages",
-                            "controllerRef": null,
-                            "reqMethod": null,
-                            "name": "Pages",
-                            "url": "pages",
-                            "authRequired": true,
-                            "title": "Pages",
-                            "description": null,
-                            "keywords": [],
-                            "extraInfo": {},
-                            "source": "client-side",
-                            "_status": "published",
-                            "comments": [],
-                            "deletedAt": null,
-                            "createdAt": "2023-03-08T08:26:17.212Z",
-                            "updatedAt": "2023-03-08T14:17:43.878Z",
-                            "pageRef": "pages",
-                            "createdBy": null,
-                            "updatedBy": null,
-                            "deletedBy": null,
-                            "Page": {
-                              "id": 174,
-                              "name": "Pages",
-                              "entityRef": "pages",
-                              "noScroll": false,
-                              "appComponent": "PagesManager",
-                              "schema": {},
-                              "extraInfo": {},
-                              "commitId": "758e1f27-13c1-43d2-ac07-a81a4ea857e7",
-                              "_status": "published",
-                              "comments": [],
-                              "deletedAt": null,
-                              "layout": null,
-                              "createdAt": "2023-03-08T13:56:47.591Z",
-                              "updatedAt": "2023-03-29T05:16:51.444Z",
-                              "createdBy": null,
-                              "updatedBy": null,
-                              "deletedBy": null
-                            }
-                          }
-                        ],
-                        "totalRecords": 86
+                        "entity": "****",
+                        "columns": [],
+                        "rows": [],
+                        "totalRecords": "*"
                       }
                     }
                   }
@@ -1786,7 +1490,7 @@
       }
     },
     "/data/{model}/{id}": {
-      "get": {
+      "put": {
         "tags": [
           "service-core"
         ],
