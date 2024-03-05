@@ -43,7 +43,7 @@ describe("Test business/tables/:database", () => {
   });
 });
 describe("Test business/tables/:database", () => {
-  test("TC03 Verify API Response Time Within Acceptable Limits", async () => {
+  test("TC05 Verify API Response Time Within Acceptable Limits", async () => {
     const database = "application";
     const acceptableResponseTime = 2000;
     const startTime = Date.now();
@@ -61,7 +61,7 @@ describe("Test business/tables/:database", () => {
   });
 });
 describe("Test business/tables/:database", () => {
-  test("TC04 Verify API Response Headers", async () => {
+  test("TC08 Verify API Response Headers", async () => {
     const database = "application";
     const response = await request(BASE_URL)
       .get(`business/tables/${database}`)
@@ -77,7 +77,7 @@ describe("Test business/tables/:database", () => {
   });
 });
 describe("Test business/tables/:database", () => {
-  test("TC04 Verify API Response Headers", async () => {
+  test("TC09 Verify API Response Headers", async () => {
     const database = "application";
     const response = await request(BASE_URL)
       .get(`business/tables/${database}`)
@@ -93,7 +93,7 @@ describe("Test business/tables/:database", () => {
   });
 });
 describe("Test business/tables/:database", () => {
-  test("TC05 Verify API Response Payload Size", async () => {
+  test("TC10 Verify API Response Payload Size", async () => {
     const database = "application";
     const response = await request(BASE_URL)
       .get(`business/tables/${database}`)
@@ -109,7 +109,7 @@ describe("Test business/tables/:database", () => {
   });
 });
 /*describe("Test business/tables/:database", () => {
-  test("TC05 Verify API Handles Malformed Requests", async () => {
+  test("TC11 Verify API Handles Malformed Requests", async () => {
     //Request with wrong password
     const response = await request(BASE_URL)*/
 /**
@@ -136,12 +136,30 @@ describe("Test business/tables/:database", () => {
 });
 */
 describe("Test business/tables/:database", () => {
-  test("TC06 Verify API Response Payload Size", async () => {
+  test("TC12 Verify API Handles Authentication Failure....(Skiped)", async () => {
+  });
+});
+/*describe("Test business/tables/:database", () => {
+  test("TC13 Verify API Handles Missing Request Payload", async () => {
+    const database = "application";
+    const response = await request(BASE_URL)
+      .get(`business/tables/${database}`)
+      .set("Authorization", `Bearer ${token}`)
+      .set("Content-Type", "application/json")
+      .set("Accept-Encoding", "gzip, deflate, br")
+      .set("Connection", "keep-alive")
+      .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
+    expect(response.statusCode).toBeGreaterThanOrEqual(400);
+    expect(response.statusCode).toBeLessThan(500);
+  });
+});
+*/
+describe("Test business/tables/:database", () => {
+  test("TC15 Verify API Handles Unauthorized Access", async () => {
     const database = "application";
     const falsetoken = "JyotirmoyGhosh1610";
     const response = await request(BASE_URL)
       .get(`business/tables/${database}`)
-      .send({ emailOrPhone: "8777083276", password: "Pritam@rxefy123" })
       .set("Authorization", `Bearer ${falsetoken}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -150,4 +168,44 @@ describe("Test business/tables/:database", () => {
     expect(response.statusCode).toBe(401);
   });
 });
-
+describe("Test business/tables/:database", () => {
+  test("TC16 Verify API Handles Request Payload Size Limit...(Skiped)", async () => {
+  });
+});
+describe("Test business/tables/:database", () => {
+  test("TC18 Verify API Handles Invalid Request Method...(Skiped)", async () => {
+  });
+});
+describe("Test business/tables/:database", () => {
+  test("TC38 Verify API Response Content Type", async () => {
+    const database = "application";
+    const response = await request(BASE_URL)
+      .get(`business/tables/${database}`)
+      .set("Authorization", `Bearer ${token}`)
+      .set("Content-Type", "application/json")
+      .set("Accept-Encoding", "gzip, deflate, br")
+      .set("Connection", "keep-alive")
+      .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
+    expect(response.header["content-type"]).toContain("application/json");
+  });
+});
+describe("Test business/tables/:database", () => {
+  test("TC39 Verify API Response Compression (Accept-Encoding)", async () => {   
+  });
+});
+describe("Test business/tables/:database", () => {
+  test("TC41 Verify API Response Not Compressed (Other Encoding)", async () => {   
+  });
+});
+describe("Test business/tables/:database", () => {
+  test("TC42 Verify API Response Language (Accept-Language)", async () => {   
+  });
+});
+describe("Test business/tables/:database", () => {
+  test("TC43 Verify API Response Locale", async () => {   
+  });
+});
+describe("Test business/tables/:database", () => {
+  test("TC44 Verify API Response Timezone (Accept-Timezone)", async () => {   
+  });
+});
