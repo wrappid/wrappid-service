@@ -25,5 +25,5 @@
   // "exclude": ["node_modules"],
   // "include": ["./package.json", "src/**/*", "*.json", "src/config.json"]
   "include": [".wrappid/runtime/service/**/*.ts", ".wrappid/runtime/service/**/*.tsx", ".wrappid/runtime/service/**/*.json"],
-  "exclude": ["node_modules", "test", "dist", ".github", ".git", "temp", "**/*specs.ts"],
+  "exclude": ["node_modules", "dist", ".github", ".git", "temp", "**/*specs.ts"],
 }
