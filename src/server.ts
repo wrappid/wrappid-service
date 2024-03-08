@@ -12,20 +12,24 @@ import TasksRegistry from "./registry/TasksRegistry";
 import swaggerJsonFile from "./swagger-output.json";
 
 const wrappidApp: any = express();
-coreApp(wrappidApp,ControllersRegistry, FunctionsRegistry, ModelsRegistry, RoutesRegistry, TasksRegistry, swaggerJsonFile);
+try {
+  
+  coreApp(wrappidApp,ControllersRegistry, FunctionsRegistry, ModelsRegistry, RoutesRegistry, TasksRegistry, swaggerJsonFile);
 
-const __PORT = process.env.PORT || DEFAULT_PORT;
+  const __PORT = process.env.PORT || DEFAULT_PORT;
 
-const serverInit = () => {
+  const serverInit = () => {
+    console.log("###########################################");
+    console.log(`Server is up and running on port ${__PORT}...`);
+    console.log("###########################################");
+  };
+
+  wrappidApp.listen(__PORT, serverInit);
+
   console.log("###########################################");
-  console.log(`Server is up and running on port ${__PORT}...`);
+  console.log("server.js end");
   console.log("###########################################");
-};
 
-const server = wrappidApp.listen(__PORT, serverInit);
-
-console.log("###########################################");
-console.log("server.js end");
-console.log("###########################################");
-
-export { server };
+} catch (error: any) {
+  console.log(error);
+}
