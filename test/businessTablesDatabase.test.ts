@@ -136,7 +136,7 @@ describe("Test business/tables/:database", () => {
 });
 */
 describe("Test business/tables/:database", () => {
-  test("TC12 Verify API Handles Authentication Failure....(Skiped)", async () => {
+  test("TC12 Verify API Handles Authentication Failure....(Not Applicable for this url)", async () => {
   });
 });
 /*describe("Test business/tables/:database", () => {
