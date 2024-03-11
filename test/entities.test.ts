@@ -18,7 +18,7 @@ describe("Testing API: /business/tables/attributes/:database/:table", () => {
   test("TC01 Verify API Response Status Code", async () => {
   
     const response = await request(BASE_URL)
-      .get("business/entities/")
+      .put("business/entities/")
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -32,7 +32,7 @@ describe("Test business/tables/:database", () => {
   test("TC02 Verify API Response Format JSON", async () => {
     const database = "application";
     const response = await request(BASE_URL)
-      .get(`business/tables/${database}`)
+      .put(`business/tables/${database}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -48,7 +48,7 @@ describe("Test business/tables/:database", () => {
     const acceptableResponseTime = 2000;
     const startTime = Date.now();
     await request(BASE_URL)
-      .get(`business/tables/${database}`)
+      .put(`business/tables/${database}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -64,7 +64,7 @@ describe("Test business/tables/:database", () => {
   test("TC08 Verify API Response Headers", async () => {
     const database = "application";
     const response = await request(BASE_URL)
-      .get(`business/tables/${database}`)
+      .put(`business/tables/${database}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -80,7 +80,7 @@ describe("Test business/tables/:database", () => {
   test("TC09 Verify API Response Headers", async () => {
     const database = "application";
     const response = await request(BASE_URL)
-      .get(`business/tables/${database}`)
+      .put(`business/tables/${database}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -96,7 +96,7 @@ describe("Test business/tables/:database", () => {
   test("TC10 Verify API Response Payload Size", async () => {
     const database = "application";
     const response = await request(BASE_URL)
-      .get(`business/tables/${database}`)
+      .put(`business/tables/${database}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -159,7 +159,7 @@ describe("Test business/tables/:database", () => {
     const database = "application";
     const falsetoken = "JyotirmoyGhosh1610";
     const response = await request(BASE_URL)
-      .get(`business/tables/${database}`)
+      .put(`business/tables/${database}`)
       .set("Authorization", `Bearer ${falsetoken}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -180,7 +180,7 @@ describe("Test business/tables/:database", () => {
   test("TC38 Verify API Response Content Type", async () => {
     const database = "application";
     const response = await request(BASE_URL)
-      .get(`business/tables/${database}`)
+      .put(`business/tables/${database}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
