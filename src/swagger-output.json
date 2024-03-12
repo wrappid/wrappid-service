@@ -1,57 +1,1735 @@
 {
-    "openapi": "3.0.3",
-    "info": {
-      "title": "WRAPPID-service",
-      "version": "1.0.0",
-      "contact": {}
+  "openapi": "3.0.3",
+  "info": {
+    "title": "WRAPPID-service",
+    "version": "1.0.0",
+    "contact": {}
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
     },
-    "servers": [
-      {
-        "url": "http://localhost"
-      }
-    ],
-    "paths": {
-      "/checkLoginOrRegister": {
-        "post": {
-          "tags": [
-            "Auth"
-          ],
-          "summary": "checkLoginOrRegister",
-          "description": "checkLoginOrRegister",
-          "operationId": "checkloginorregister",
-          "requestBody": {
+    {
+      "url": "https://demoapi.wrappid.dev"
+    }
+  ],
+  "paths": {
+    "/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Login ",
+        "description": "Login",
+        "operationId": "PostLogin",
+        "requestBody": {
+          "description": "Login into your account",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "emailOrPhone": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "emailOrPhone": {
-                      "type": "string",
-                      "example": "*********"
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "personId": {
+                      "type": "integer"
+                    },
+                    "accessToken": {
+                      "type": "string"
+                    },
+                    "refreshToken": {
+                      "type": "string"
+                    },
+                    "sessionId": {
+                      "type": "integer"
                     }
                   }
                 },
                 "examples": {
-                  "checkLoginOrRegister": {
+                  "PostLogin": {
                     "value": {
-                      "emailOrPhone": "8797083276"
+                      "status": 200,
+                      "message": "Successfully login",
+                      "id": 587,
+                      "personId": 45,
+                      "accessToken": "eyJhbGciOiJIUzI1I6IkpXVCJ9.eyJ1c2VySWQiOjQxOCwiZW1haWwiOiJwcml0YW1AcnhlZnkuY25JZCI6MSwicm9sZUlkIjTcwOTU",
+                      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQxOCwiZW1haWwiOiJwcml0YW1AcnhlZnkuY29tIiwicGhvbmUiOiIiLCJwZXJzb25JZCI6MSwi",
+                      "sessionId": 343
                     }
                   }
                 }
               }
             }
           },
-          "responses": {
-            "200": {
-              "description": ""
+          "401": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "PostLogin": {
+                    "value": {
+                      "status": 401,
+                      "message": "Invalid password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetDatabaseTables": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "PostLogin": {
+                    "value": {
+                      "message": "emailOrPhone must match the following: \"/^([0-9]{10}|[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+)$/\""
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "PostLogin": {
+                    "value": {
+                      "message": "Server Error"
+                    }
+                  }
+                }
+              }
             }
           }
         }
       }
     },
-    "tags": [
+    "/business/tables/{database}": {
+      "get": {
+        "tags": [
+          "service-core"
+        ],
+        "summary": "Get Database Tables",
+        "description": "Get Database Tables",
+        "operationId": "GetDatabaseTables",
+        "parameters": [
+          {
+            "name": "database",
+            "in": "path",
+            "description": "Database name to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "rows": {
+                          "type": "array",
+                          "xml": {
+                            "wrapped": true
+                          },
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "totalRecords": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetDatabaseTables": {
+                    "value": {
+                      "data": {
+                        "rows": [
+                          {
+                            "id": "****",
+                            "name": "****"
+                          }
+                        ],
+                        "totalRecords": 1
+                      },
+                      "message": "Tables fetched successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Access!!"
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetDatabaseTables": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetDatabaseTables": {
+                    "value": {
+                      "message": "Error to fetch tables"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "jwtbearer"
+            ]
+          }
+        ]
+      }
+    },
+    "/business/tables/attributes/{database}/{table}": {
+      "get": {
+        "tags": [
+          "service-core"
+        ],
+        "summary": "Get Table Attributes",
+        "description": "Get Table Attributes",
+        "operationId": "GetTableAttributes",
+        "parameters": [
+          {
+            "name": "database",
+            "in": "path",
+            "description": "Database name to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "table",
+            "in": "path",
+            "description": "table name to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "entity": {
+                          "type": "string"
+                        },
+                        "rows": {
+                          "type": "array",
+                          "xml": {
+                            "wrapped": true
+                          },
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "totalRecords": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetTablesAttributes": {
+                    "value": {
+                      "data": {
+                        "entity": "****",
+                        "rows": [
+                          {
+                            "id": "****",
+                            "name": "****"
+                          }
+                        ],
+                        "totalRecords": 1
+                      },
+                      "message": "Tables fetched successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Access!!"
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetDatabaseTables": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetDatabaseTables": {
+                    "value": {
+                      "message": "Error to fetch tables"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "jwtbearer"
+            ]
+          }
+        ]
+      }
+    },
+    "/noauth/business/columns/{entity}": {
+      "get": {
+        "tags": [
+          "service-core"
+        ],
+        "summary": "Get Table Attributes",
+        "description": "Get Table Attributes",
+        "operationId": "GetTableAttributes",
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "path",
+            "description": "Entity name to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "xml": {
+                            "wrapped": true
+                          },
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "label": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "totalRecords": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetTablesAttributes": {
+                    "value": {
+                      "data": [
+                        {
+                          "id": "****",
+                          "name": "****",
+                          "type": "***"
+                        }
+                      ],
+                      "message": "Business entity columns found successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetDatabaseTables": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetDatabaseTables": {
+                    "value": {
+                      "error": "Error: Entity is missing",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/business/entities": {
+      "get": {
+        "tags": [
+          "service-core"
+        ],
+        "summary": "Get Business Entities",
+        "description": "Get Business Entities",
+        "operationId": "GetBusinessEntities",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "rows": {
+                          "type": "object",
+                          "xml": {
+                            "wrapped": true
+                          },
+                          "totalRecords": "string"
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetBusinessEntities": {
+                    "value": {
+                      "data": [
+                        {
+                          "rows": {},
+                          "totalRecords": {}
+                        }
+                      ],
+                      "message": "Business entities found successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetDatabaseTables": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetDatabaseTables": {
+                    "value": {
+                      "error": "****",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "jwtbearer"
+            ]
+          }
+        ]
+      }
+    },
+    "/business/count/{entity}": {
+      "get": {
+        "tags": [
+          "service-core"
+        ],
+        "summary": "Get Business Entity Count",
+        "description": "Get Business Entity Count",
+        "operationId": "GetBusinessEntityCount",
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "path",
+            "description": "Entity Name to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "integer"
+                    },
+                    "totalRecords": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetBusinessEntityCount": {
+                    "value": {
+                      "data": "*",
+                      "message": "Business entity columns found successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetBusinessEntityCount": {
+                    "value": {
+                      "data": 0,
+                      "message": "No entity found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetBusinessEntityCount": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetBusinessEntityCount": {
+                    "value": {
+                      "error": "****",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "jwtbearer"
+            ]
+          }
+        ]
+      }
+    },
+    "/business/individual/{entity}": {
+      "get": {
+        "tags": [
+          "service-core"
+        ],
+        "summary": "Get Individual EntityData",
+        "description": "Get Individual EntityData",
+        "operationId": "GetIndividualEntityData",
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "path",
+            "description": "Entity Name to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "object"
+                        },
+                        "entity": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "GetIndividualEntityData": {
+                    "value": {
+                      "message": "Entity data found successfully",
+                      "data": {
+                        "data": {},
+                        "entity": "**"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetIndividualEntityData": {
+                    "value": {
+                      "message": "Entity not found on the request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetIndividualEntityData": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetIndividualEntityData": {
+                    "value": {
+                      "error": "****",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "jwtbearer"
+            ]
+          }
+        ]
+      }
+    },
+    "/business/all/{entity}": {
+      "get": {
+        "tags": [
+          "service-core"
+        ],
+        "summary": "Get All Entity Data",
+        "description": "Get All Entity Data",
+        "operationId": "GetAllEntityData",
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "path",
+            "description": "Entity Name to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "entity": {
+                          "type": "string"
+                        },
+                        "columns": {
+                          "type": "array"
+                        },
+                        "rows": {
+                          "type": "array"
+                        },
+                        "totalRecords": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "GetIndividualEntityData": {
+                    "value": {
+                      "message": "Entity data found successfully",
+                      "data": {
+                        "entity": "****",
+                        "columns": [],
+                        "rows": [],
+                        "totalRecords": "*"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetAllEntityData": {
+                    "value": {
+                      "message": "Entity is missing"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetAllEntityData": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetAllEntityData": {
+                    "value": {
+                      "error": "****",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "jwtbearer"
+            ]
+          }
+        ]
+      }
+    },
+    "/noauth/business/all/{entity}": {
+      "get": {
+        "tags": [
+          "service-core"
+        ],
+        "summary": "No Auth Get All Entity Data",
+        "description": "No Auth Get All Entity Data",
+        "operationId": "NoAuthGetAllEntityData",
+        "parameters": [
+          {
+            "name": "entity",
+            "in": "path",
+            "description": "Entity Name to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "entity": {
+                          "type": "string"
+                        },
+                        "columns": {
+                          "type": "array"
+                        },
+                        "rows": {
+                          "type": "array"
+                        },
+                        "totalRecords": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "NoAuthGetAllEntityData": {
+                    "value": {
+                      "message": "Entity data found successfully",
+                      "data": {
+                        "entity": "****",
+                        "columns": [],
+                        "rows": [],
+                        "totalRecords": "*"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "NoAuthGetAllEntityData": {
+                    "value": {
+                      "message": "Entity is missing"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "NoAuthGetAllEntityData": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "NoAuthGetAllEntityData": {
+                    "value": {
+                      "error": "****",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/noauth/formSchema/{formID}": {
+      "get": {
+        "tags": [
+          "service-core"
+        ],
+        "summary": "Get No Auth Form Schema",
+        "description": "Get No Auth Form Schema",
+        "operationId": "GetNoAuthFormSchema",
+        "parameters": [
+          {
+            "name": "formID",
+            "in": "path",
+            "description": "FormID to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array"
+                    },
+                    "formID": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetNoAuthFormSchema": {
+                    "value": {
+                      "message": "Entity data found successfully",
+                      "data": "***",
+                      "formID": "***"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetNoAuthFormSchema": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetNoAuthFormSchema": {
+                    "value": {
+                      "error": "****",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/formSchema/{formID}": {
+      "get": {
+        "tags": [
+          "service-core"
+        ],
+        "summary": "Get Form Schema",
+        "description": "Get Form Schema",
+        "operationId": "GetFormSchema",
+        "parameters": [
+          {
+            "name": "formID",
+            "in": "path",
+            "description": "FormID to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array"
+                    },
+                    "formID": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetFormSchema": {
+                    "value": {
+                      "message": "Entity data found successfully",
+                      "data": "***",
+                      "formID": "***"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetFormSchema": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetFormSchema": {
+                    "value": {
+                      "error": "****",
+                      "message": "Something went wrong"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "jwtbearer"
+            ]
+          }
+        ]
+      }
+    },
+    "/data/{model}/{id}": {
+      "put": {
+        "tags": [
+          "service-core"
+        ],
+        "summary": "Create or Update Model data",
+        "description": "Create or Update Model data",
+        "operationId": "CreateOrUpdateModeldata",
+        "parameters": [
+          {
+            "name": "model",
+            "in": "path",
+            "description": "Model name for create or update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id for create or update",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "entity": {
+                      "type": "object"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "CreateOrUpdateModeldata": {
+                    "value": {
+                      "status": 200,
+                      "entity": "***",
+                      "message": "{ModelName} updated successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetFormSchema": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "entity": {
+                      "type": "string"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "CreateOrUpdateModeldata": {
+                    "value": {
+                      "status": 200,
+                      "entity": "****",
+                      "error": "****",
+                      "message": "Error to update {ModelName}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "jwtbearer"
+            ]
+          }
+        ]
+      }
+    },
+    "/settingMeta": {
+      "get": {
+        "tags": [
+          "service-core"
+        ],
+        "summary": "Get Setting Meta",
+        "description": "Get Setting Meta",
+        "operationId": "GetSettingMeta",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetSettingMeta": {
+                    "value": {
+                      "message": "SettingMeta fetched successfully",
+                      "data": []
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request API Not Found!!"
+          },
+          "403": {
+            "description": "Forbidden!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetFormSchema": {
+                    "value": {
+                      "message": "Invalid request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "GetSettingMeta": {
+                    "value": {
+                      "message": "SettingMeta fetched error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "jwtbearer"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "security": [
       {
-        "name": "Auth"
+        "bearerAuth": [
+          "jwtbearer "
+        ]
+      },
+      {
+        "apiKeyAuth": []
       }
     ]
   }
+}
