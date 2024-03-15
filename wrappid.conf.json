@@ -73,6 +73,7 @@
                 "enabled": true,
                 "providers": [
                     {
+                        "default": true,
                         "api_url": "",
                         "id": "",
                         "accessToken": ""
@@ -169,6 +170,7 @@
                 "enabled": true,
                 "providers": [
                     {
+                        "default": true,
                         "api_url": "",
                         "id": "",
                         "accessToken": ""
@@ -265,6 +267,7 @@
                 "enabled": true,
                 "providers": [
                     {
+                        "default": true,
                         "api_url": "",
                         "id": "",
                         "accessToken": ""
