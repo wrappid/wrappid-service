@@ -1,6 +1,6 @@
 {
   "name": "wrappid-service",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "This is a service middleware to support wrappid framework development.",
   "main": "src/server.js",
   "scripts": {
