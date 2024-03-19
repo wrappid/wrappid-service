@@ -1,9 +1,10 @@
 {
   "name": "wrappid-service",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "This is a service middleware to support wrappid framework development.",
   "main": "src/server.js",
   "scripts": {
+    "attributions:gen": "node ./scripts/attributions.gen.js",
     "build": "npx tsc",
     "start": "nodemon --watch src --exec npx ts-node src/server.ts",
     "start:stage": "node src/server.js",
@@ -76,6 +77,7 @@
     "nodemon": "~2.0.22",
     "standard-version": "~9.5.0",
     "supertest": "~6.3.3",
-    "ts-jest": "^29.1.2"
+    "ts-jest": "^29.1.2",
+    "license-checker": "~25.0.1"
   }
 }

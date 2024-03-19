@@ -39,25 +39,47 @@
             "razorpayKey": "",
             "razorpaySecret": ""
         },
-        "emailProvider": {
-            "fromName": "",
-            "fromEmail": "",
-            "replyTo": "",
-            "service": "",
-            "email": "",
-            "password": ""
-        },
-        "smsProvider": {
-            "service": "",
-            "url": "",
-            "username": "",
-            "password": "",
-            "sender": ""
-        },
-        "whatsappProvider": {
-            "api_url": "",
-            "id": "",
-            "accessToken": ""
+        "communication": {
+            "enabled": true,
+            "email": {
+                "enabled": true,
+                "providers": [
+                    {
+                        "default": true,
+                        "fromName": "",
+                        "fromEmail": "",
+                        "replyTo": "",
+                        "service": "",
+                        "email": "",
+                        "password": ""
+                    }
+                ]
+            },
+            "sms": {
+                "enabled": true,
+                "providers": [
+                    {
+                        "default": true,
+                        "enabled": true,
+                        "service": "",
+                        "url": "",
+                        "username": "",
+                        "password": "",
+                        "sender": ""
+                    }
+                ]
+            },
+            "whatsapp": {
+                "enabled": true,
+                "providers": [
+                    {
+                        "default": true,
+                        "api_url": "",
+                        "id": "",
+                        "accessToken": ""
+                    }
+                ]
+            }
         },
         "github": {
             "createIssueURL": "",
@@ -114,25 +136,47 @@
             "razorpayKey": "",
             "razorpaySecret": ""
         },
-        "emailProvider": {
-            "fromName": "",
-            "fromEmail": "",
-            "replyTo": "",
-            "service": "",
-            "email": "",
-            "password": ""
-        },
-        "smsProvider": {
-            "service": "",
-            "url": "",
-            "username": "",
-            "password": "",
-            "sender": ""
-        },
-        "whatsappProvider": {
-            "api_url": "",
-            "id": "",
-            "accessToken": ""
+        "communication": {
+            "enabled": true,
+            "email": {
+                "enabled": true,
+                "providers": [
+                    {
+                        "default": true,
+                        "fromName": "",
+                        "fromEmail": "",
+                        "replyTo": "",
+                        "service": "",
+                        "email": "",
+                        "password": ""
+                    }
+                ]
+            },
+            "sms": {
+                "enabled": true,
+                "providers": [
+                    {
+                        "default": true,
+                        "enabled": true,
+                        "service": "",
+                        "url": "",
+                        "username": "",
+                        "password": "",
+                        "sender": ""
+                    }
+                ]
+            },
+            "whatsapp": {
+                "enabled": true,
+                "providers": [
+                    {
+                        "default": true,
+                        "api_url": "",
+                        "id": "",
+                        "accessToken": ""
+                    }
+                ]
+            }
         },
         "github": {
             "createIssueURL": "",
@@ -189,25 +233,47 @@
             "razorpayKey": "",
             "razorpaySecret": ""
         },
-        "emailProvider": {
-            "fromName": "",
-            "fromEmail": "",
-            "replyTo": "",
-            "service": "",
-            "email": "",
-            "password": ""
-        },
-        "smsProvider": {
-            "service": "",
-            "url": "",
-            "username": "",
-            "password": "",
-            "sender": ""
-        },
-        "whatsappProvider": {
-            "api_url": "",
-            "id": "",
-            "accessToken": ""
+        "communication": {
+            "enabled": true,
+            "email": {
+                "enabled": true,
+                "providers": [
+                    {
+                        "default": true,
+                        "fromName": "",
+                        "fromEmail": "",
+                        "replyTo": "",
+                        "service": "",
+                        "email": "",
+                        "password": ""
+                    }
+                ]
+            },
+            "sms": {
+                "enabled": true,
+                "providers": [
+                    {
+                        "default": true,
+                        "enabled": true,
+                        "service": "",
+                        "url": "",
+                        "username": "",
+                        "password": "",
+                        "sender": ""
+                    }
+                ]
+            },
+            "whatsapp": {
+                "enabled": true,
+                "providers": [
+                    {
+                        "default": true,
+                        "api_url": "",
+                        "id": "",
+                        "accessToken": ""
+                    }
+                ]
+            }
         },
         "github": {
             "createIssueURL": "",
