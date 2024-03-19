@@ -64,7 +64,11 @@ describe("Test business/tables/attributes/:database/:table", () => {
   });
 });
 describe("Test business/tables/attributes/:database/:table", () => {
-  test("TC08 Verify API Response Headers", async () => {
+  test("TC08 Verify API Endpoint URL", async () => {   
+  });
+});
+describe("Test business/tables/attributes/:database/:table", () => {
+  test("TC09 Verify API Response Headers", async () => {
     const database = "application";
     const tableName = "Routes";
     const response = await request(BASE_URL)
@@ -98,6 +102,18 @@ describe("Test business/tables/attributes/:database/:table", () => {
   });
 });
 describe("Test business/tables/attributes/:database/:table", () => {
+  test("TC11 Verify API Handles Malformed Requests", async () => {   
+  });
+});
+describe("Test business/tables/attributes/:database/:table", () => {
+  test("TC12 Verify API Handles Authentication Failure", async () => {   
+  });
+});
+describe("Test business/tables/attributes/:database/:table", () => {
+  test("TC13 Verify API Handles Authentication Failure", async () => {   
+  });
+});
+describe("Test business/tables/attributes/:database/:table", () => {
   test("TC15 Verify API Handles Unauthorized Access", async () => {
     const database = "application";
     const tableName = "Routes";
@@ -110,6 +126,14 @@ describe("Test business/tables/attributes/:database/:table", () => {
       .set("Connection", "keep-alive")
       .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
     expect(response.statusCode).toBe(401);
+  });
+});
+describe("Test business/tables/attributes/:database/:table", () => {
+  test("TC44 Verify API Response Timezone (Accept-Timezone)", async () => {   
+  });
+});
+describe("Test business/tables/attributes/:database/:table", () => {
+  test("TC44 Verify API Response Timezone (Accept-Timezone)", async () => {   
   });
 });
 describe("Test business/tables/attributes/:database/:table", () => {
@@ -132,10 +156,6 @@ describe("Test business/tables/attributes/:database/:table", () => {
 });
 describe("Test business/tables/attributes/:database/:table", () => {
   test("TC41 Verify API Response Not Compressed (Other Encoding)", async () => {   
-  });
-});
-describe("Test business/tables/attributes/:database/:table", () => {
-  test("TC42 Verify API Response Language (Accept-Language)", async () => {   
   });
 });
 describe("Test business/tables/attributes/:database/:table", () => {
