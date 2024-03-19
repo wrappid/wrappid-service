@@ -63,7 +63,11 @@ describe("business/individual/:entity", () => {
   });
 });
 describe("business/individual/:entity", () => {
-  test("TC08 Verify API Response Headers", async () => {
+  test("TC08 Verify API Endpoint URL", async () => {   
+  });
+});
+describe("business/individual/:entity", () => {
+  test("TC09 Verify API Response Headers", async () => {
     const entitys = ["Users", "Routes"];
     const response = await request(BASE_URL)
       .get(`business/individual/${entitys}`)
@@ -95,6 +99,18 @@ describe("business/individual/:entity", () => {
   });
 });
 describe("business/individual/:entity", () => {
+  test("TC11 Verify API Handles Malformed Requests", async () => {   
+  });
+});
+describe("business/individual/:entity", () => {
+  test("TC12 Verify API Handles Authentication Failure", async () => {   
+  });
+});
+describe("business/individual/:entity", () => {
+  test("TC13 Verify API Handles Missing Request Payload", async () => {   
+  });
+});
+describe("business/individual/:entity", () => {
   test("TC15 Verify API Handles Unauthorized Access", async () => {
     const entitys = ["Users", "Routes"];
     const falsetoken = "JyotirmoyGhosh1610";
@@ -119,6 +135,14 @@ describe("business/individual/:entity", () => {
       .set("Connection", "keep-alive")
       .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
     expect(response.header["content-type"]).toContain("application/json");
+  });
+});
+describe("business/individual/:entity", () => {
+  test("TC16 Verify API Handles Request Payload Size Limit", async () => {   
+  });
+});
+describe("business/individual/:entity", () => {
+  test("TC18 Verify API Handles Invalid Request Method", async () => {   
   });
 });
 describe("business/individual/:entity", () => {

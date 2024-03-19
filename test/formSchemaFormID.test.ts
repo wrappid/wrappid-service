@@ -122,7 +122,7 @@ describe("business/individual/:entity", () => {
 describe("business/individual/:entity", () => {
   test("TC39 Verify API Response Compression (Accept-Encoding)", async () => {   
   });
-});
+}); 
 describe("business/individual/:entity", () => {
   test("TC41 Verify API Response Not Compressed (Other Encoding)", async () => {   
   });

@@ -62,7 +62,11 @@ describe("business/count/:entity", () => {
   });
 });
 describe("business/count/:entity", () => {
-  test("TC08 Verify API Response Headers", async () => {
+  test("TC08 Verify API Endpoint URL", async () => {   
+  });
+});
+describe("business/count/:entity", () => {
+  test("TC09 Verify API Response Headers", async () => {
     const entity = "Users";
     const response = await request(BASE_URL)
       .get(`business/count/${entity}`)
@@ -94,6 +98,18 @@ describe("business/count/:entity", () => {
   });
 });
 describe("business/count/:entity", () => {
+  test("TC11 Verify API Handles Malformed Requests", async () => {   
+  });
+});
+describe("business/count/:entity", () => {
+  test("TC12 Verify API Handles Authentication Failure", async () => {   
+  });
+});
+describe("business/count/:entit", () => {
+  test("TC13 Verify API Handles Missing Request Payload", async () => {   
+  });
+});
+describe("business/count/:entity", () => {
   test("TC15 Verify API Handles Unauthorized Access", async () => {
     const entity = "Users";
     const falsetoken = "JyotirmoyGhosh1610";
@@ -105,6 +121,14 @@ describe("business/count/:entity", () => {
       .set("Connection", "keep-alive")
       .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
     expect(response.statusCode).toBe(401);
+  });
+});
+describe("business/count/:entity", () => {
+  test("TC16 Verify API Response Compression (Accept-Encoding)", async () => {   
+  });
+});
+describe("business/count/:entity", () => {
+  test("TC18 Verify API Response Compression (Accept-Encoding)", async () => {   
   });
 });
 describe("business/count/:entity", () => {
@@ -120,23 +144,23 @@ describe("business/count/:entity", () => {
     expect(response.header["content-type"]).toContain("application/json");
   });
 });
-describe("Test business/tables/attributes/:database/:table", () => {
+describe("business/count/:entity", () => {
   test("TC39 Verify API Response Compression (Accept-Encoding)", async () => {   
   });
 });
-describe("Test business/tables/attributes/:database/:table", () => {
+describe("business/count/:entity", () => {
   test("TC41 Verify API Response Not Compressed (Other Encoding)", async () => {   
   });
 });
-describe("Test business/tables/attributes/:database/:table", () => {
+describe("business/count/:entity", () => {
   test("TC42 Verify API Response Language (Accept-Language)", async () => {   
   });
 });
-describe("Test business/tables/attributes/:database/:table", () => {
+describe("business/count/:entity", () => {
   test("TC43 Verify API Response Locale", async () => {   
   });
 });
-describe("Test business/tables/attributes/:database/:table", () => {
+describe("business/count/:entity", () => {
   test("TC44 Verify API Response Timezone (Accept-Timezone)", async () => {   
   });
 });
