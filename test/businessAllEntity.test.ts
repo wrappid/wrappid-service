@@ -27,8 +27,7 @@ describe("business/all/:entity",() => {
 
     expect(response.statusCode).toBe(200);
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC02 Verify API Response Format JSON", async () => {
     const entity = "Users";
     const response = await request(BASE_URL)
@@ -41,8 +40,7 @@ describe("business/all/:entity", () => {
 
     expect(response.body).toBeInstanceOf(Object);
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC05 Verify API Response Time Within Acceptable Limits", async () => {
     const entity = "Users";
     const acceptableResponseTime = 2000;
@@ -59,12 +57,10 @@ describe("business/all/:entity", () => {
     const responseTime = endTime - startTime;
     expect(responseTime).toBeLessThanOrEqual(acceptableResponseTime);  //responsetime = 152ms as of now 
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC08 Verify API Endpoint URL", async () => {
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC09 Verify API Response Headers", async () => {
     const entity = "Users";
     const response = await request(BASE_URL)
@@ -79,8 +75,7 @@ describe("business/all/:entity", () => {
     expect(response.headers["access-control-allow-origin"]).toBe("*");
     expect(response.headers["connection"]).toBe("keep-alive");
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC10 Verify API Response Payload Size", async () => {
     const entity = "Users";
     const response = await request(BASE_URL)
@@ -95,23 +90,28 @@ describe("business/all/:entity", () => {
     const maxSize = 5000; // Set the maximum allowed payload size in bytes
     expect(payloadSize).toBeLessThanOrEqual(maxSize);
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC11 Verify API Handles Malformed Requests", async () => {   
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC12 Verify API Handles Authentication Failure", async () => {   
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC13 Verify API Handles Missing Request Payload", async () => {   
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC15 Verify API Handles Unauthorized Access", async () => {
     const entity = "Users";
-    const falsetoken = "JyotirmoyGhosh1610";
+    function generateRandomString(length: number): string {
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let result = "";
+      for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      return result;
+    }
+    const falsetoken = generateRandomString(20);
+    //const falsetoken = "JyotirmoyGhosh1610";
     const response = await request(BASE_URL)
       .get(`business/all/${entity}`)
       .set("Authorization", `Bearer ${falsetoken}`)
@@ -121,17 +121,13 @@ describe("business/all/:entity", () => {
       .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
     expect(response.statusCode).toBe(401);
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC16 Verify API Handles Request Payload Size Limit", async () => {   
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC18 Verify API Handles Invalid Request Method", async () => {   
   });
-});
 
-describe("business/all/:entity", () => {
   test("TC38 Verify API Response Content Type", async () => {
     const entity = "Users";
     const response = await request(BASE_URL)
@@ -143,24 +139,19 @@ describe("business/all/:entity", () => {
       .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
     expect(response.header["content-type"]).toContain("application/json");
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC39 Verify API Response Compression (Accept-Encoding)", async () => {   
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC41 Verify API Response Not Compressed (Other Encoding)", async () => {   
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC42 Verify API Response Language (Accept-Language)", async () => {   
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC43 Verify API Response Locale", async () => {   
   });
-});
-describe("business/all/:entity", () => {
+
   test("TC44 Verify API Response Timezone (Accept-Timezone)", async () => {   
   });
 });
