@@ -28,8 +28,6 @@ describe("data/:model/:id", () => {
 
     expect(response.statusCode).toBe(200);
   });
-});
-describe("data/:model/:id", () => {
   test("TC02 Verify API Response Format JSON", async () => {
     const model = "formSchema";
     const id ="1";
@@ -43,8 +41,6 @@ describe("data/:model/:id", () => {
 
     expect(response.body).toBeInstanceOf(Object);
   });
-});
-describe("data/:model/:id", () => {
   test("TC05 Verify API Response Time Within Acceptable Limits", async () => {
     const model = "formSchema";
     const id ="1";
@@ -62,9 +58,9 @@ describe("data/:model/:id", () => {
     const responseTime = endTime - startTime;
     expect(responseTime).toBeLessThanOrEqual(acceptableResponseTime);  //responsetime = 306ms as of now 
   });
-});
-describe("data/:model/:id", () => {
-  test("TC08 Verify API Response Headers", async () => {
+  test("TC08 Verify API Endpoint URL", async () => {
+  });
+  test("TC09 Verify API Response Headers", async () => {
     const model = "formSchema";
     const id ="1";
     const response = await request(BASE_URL)
@@ -79,8 +75,6 @@ describe("data/:model/:id", () => {
     expect(response.headers["access-control-allow-origin"]).toBe("*");
     expect(response.headers["connection"]).toBe("keep-alive");
   });
-});
-describe("data/:model/:id", () => {
   test("TC10 Verify API Response Payload Size", async () => {
     const model = "formSchema";
     const id ="1";
@@ -96,26 +90,26 @@ describe("data/:model/:id", () => {
     const maxSize = 2000; // Set the maximum allowed payload size in bytes
     expect(payloadSize).toBeLessThanOrEqual(maxSize);
   });
-});
-describe("data/:model/:id", () => {
   test("TC11 Verify API Handles Malformed Requests", async () => {
   });
-});  
-
-describe("data/:model/:id", () => {
   test("TC12 Verify API Handles Authentication Failure....(Not Applicable for this url)", async () => {
   });
-});
-describe("data/:model/:id", () => {
+
   test("TC13 Verify API Handles Missing Request Payload...(Skiped)", async () => {  
   });
-});
-
-describe("data/:model/:id", () => {
   test("TC15 Verify API Handles Unauthorized Access", async () => {
     const model = "formSchema";
     const id ="1";
-    const falsetoken = "JyotirmoyGhosh1610!!!!";
+    function generateRandomString(length: number): string {
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let result = "";
+      for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      return result;
+    }
+    const falsetoken = generateRandomString(20);
+    //const falsetoken = "JyotirmoyGhosh1610!!!!";
     const response = await request(BASE_URL)
       .put(`data/${model}/${id}`)
       .set("Authorization", `Bearer ${falsetoken}`)
@@ -125,16 +119,10 @@ describe("data/:model/:id", () => {
       .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
     expect(response.statusCode).toBe(401);
   });
-});
-describe("data/:model/:id", () => {
   test("TC16 Verify API Handles Request Payload Size Limit...(Skiped)", async () => {
   });
-});
-describe("data/:model/:id", () => {
   test("TC18 Verify API Handles Invalid Request Method...(Skiped)", async () => {
   });
-});
-describe("data/:model/:id", () => {
   test("TC38 Verify API Response Content Type", async () => {
     const model = "formSchema";
     const id ="1";
@@ -147,24 +135,14 @@ describe("data/:model/:id", () => {
       .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
     expect(response.header["content-type"]).toContain("application/json");
   });
-});
-describe("data/:model/:id", () => {
   test("TC39 Verify API Response Compression (Accept-Encoding)", async () => {   
   });
-});
-describe("data/:model/:id", () => {
   test("TC41 Verify API Response Not Compressed (Other Encoding)", async () => {   
   });
-});
-describe("data/:model/:id", () => {
   test("TC42 Verify API Response Language (Accept-Language)", async () => {   
   });
-});
-describe("data/:model/:id", () => {
   test("TC43 Verify API Response Locale", async () => {   
   });
-});
-describe("data/:model/:id", () => {
   test("TC44 Verify API Response Timezone (Accept-Timezone)", async () => {   
   });
 });

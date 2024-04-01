@@ -112,7 +112,16 @@ describe("business/count/:entit", () => {
 describe("business/count/:entity", () => {
   test("TC15 Verify API Handles Unauthorized Access", async () => {
     const entity = "Users";
-    const falsetoken = "JyotirmoyGhosh1610";
+    function generateRandomString(length: number): string {
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let result = "";
+      for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      return result;
+    }
+    const falsetoken = generateRandomString(20);
+    //const falsetoken = "JyotirmoyGhosh1610";
     const response = await request(BASE_URL)
       .get(`business/count/${entity}`)
       .set("Authorization", `Bearer ${falsetoken}`)
