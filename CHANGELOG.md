@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://https//github.com/wrappid/service/compare/v0.0.6...v0.0.9) (2024-04-01)
+
+
+### Features
+
+* **global:** :recycle: configuration file paymet informaion structure change ([d13cf0e](https://https//github.com/wrappid/service/commit/d13cf0e227aa12f23a1e7c3114bfd97eb12a6c35)), closes [#111](https://https//github.com/wrappid/service/issues/111)
+
 ### [0.0.8](https://https//github.com/wrappid/service/compare/v0.0.3...v0.0.8) (2024-03-29)
 
 
