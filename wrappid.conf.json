@@ -35,9 +35,22 @@
                 "secretAccessKey": ""
             }
         },
-        "razorpay": {
-            "razorpayKey": "",
-            "razorpaySecret": ""
+        "payment": {
+            "enabled": false,
+            "gateways": [
+                {
+                    "name": "razorpay",
+                    "default": true,
+                    "key": "",
+                    "secret": ""
+                },
+                {
+                    "name": "paypal",
+                    "default": false,
+                    "key": "",
+                    "secret": ""
+                }
+            ]
         },
         "communication": {
             "enabled": true,
@@ -132,9 +145,22 @@
                 "secretAccessKey": ""
             }
         },
-        "razorpay": {
-            "razorpayKey": "",
-            "razorpaySecret": ""
+        "payment": {
+            "enabled": false,
+            "gateways": [
+                {
+                    "name": "razorpay",
+                    "default": true,
+                    "key": "",
+                    "secret": ""
+                },
+                {
+                    "name": "paypal",
+                    "default": false,
+                    "key": "",
+                    "secret": ""
+                }
+            ]
         },
         "communication": {
             "enabled": true,
@@ -229,9 +255,22 @@
                 "secretAccessKey": ""
             }
         },
-        "razorpay": {
-            "razorpayKey": "",
-            "razorpaySecret": ""
+        "payment": {
+            "enabled": false,
+            "gateways": [
+                {
+                    "name": "razorpay",
+                    "default": true,
+                    "key": "",
+                    "secret": ""
+                },
+                {
+                    "name": "paypal",
+                    "default": false,
+                    "key": "",
+                    "secret": ""
+                }
+            ]
         },
         "communication": {
             "enabled": true,
