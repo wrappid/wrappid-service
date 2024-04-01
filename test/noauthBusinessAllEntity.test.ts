@@ -15,8 +15,6 @@ describe("Testing API: noauth/business/all/:entity", () => {
   
     expect(response.statusCode).toBe(200);
   });
-});
-describe("Testing API: noauth/business/all/:entity", () => {
   test("TC02 Verify API Response Format JSON", async () => {
     const entity = "Routes";
     const response = await request(BASE_URL)
@@ -29,8 +27,6 @@ describe("Testing API: noauth/business/all/:entity", () => {
 
     expect(response.body).toBeInstanceOf(Object);
   });
-});
-describe("Testing API: noauth/business/all/:entity", () => {
   test("TC05 Verify API Response Time Within Acceptable Limits", async () => {
     const acceptableResponseTime = 2000;
     const startTime = Date.now();
@@ -47,9 +43,9 @@ describe("Testing API: noauth/business/all/:entity", () => {
     const responseTime = endTime - startTime;
     expect(responseTime).toBeLessThanOrEqual(acceptableResponseTime);  //responsetime = 152ms as of now 
   });
-});
-describe("Testing API: noauth/business/all/:entity", () => {
-  test("TC08 Verify API Response Headers", async () => {
+  test("TC08 Verify API Endpoint URL", async () => {
+  });
+  test("TC09 Verify API Response Headers", async () => {
     const entity = "Routes";
     const response = await request(BASE_URL)
       .get(`business/individual/${entity}`)
@@ -63,8 +59,6 @@ describe("Testing API: noauth/business/all/:entity", () => {
     expect(response.headers["access-control-allow-origin"]).toBe("*");
     expect(response.headers["connection"]).toBe("keep-alive");
   });
-});
-describe("Testing API: noauth/business/all/:entity", () => {
   test("TC10 Verify API Response Payload Size", async () => {
     const entity = "Routes";
     const response = await request(BASE_URL)
@@ -79,13 +73,22 @@ describe("Testing API: noauth/business/all/:entity", () => {
     const maxSize = 2000; // Set the maximum allowed payload size in bytes
     expect(payloadSize).toBeLessThanOrEqual(maxSize);
   });
-});
-describe("Testing API: noauth/business/all/:entity", () => {
-  test("TC15 Verify API Handles Unauthorized Access.....(Not applicable)", async () => {
-    
+  
+  test("TC11 Verify API Handles Malformed Requests", async () => {   
   });
-});
-describe("Testing API: noauth/business/all/:entity", () => {
+
+  test("TC12 Verify API Handles Authentication Failure", async () => {   
+  });
+
+  test("TC13 Verify API Handles Missing Request Payload", async () => {   
+  });
+  test("TC15 Verify API Handles Unauthorized Access.....(Not applicable)", async () => {
+  });
+  test("TC16 Verify API Handles Request Payload Size Limit", async () => {   
+  });
+
+  test("TC18 Verify API Handles Invalid Request Method", async () => {   
+  });
   test("TC38 Verify API Response Content Type", async () => {
     const entity = "Routes";
     const response = await request(BASE_URL)
@@ -97,24 +100,14 @@ describe("Testing API: noauth/business/all/:entity", () => {
       .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
     expect(response.header["content-type"]).toContain("application/json");
   });
-});
-describe("Testing API: noauth/business/all/:entity", () => {
   test("TC39 Verify API Response Compression (Accept-Encoding)", async () => {   
   });
-}); 
-describe("Testing API: noauth/business/all/:entity", () => {
   test("TC41 Verify API Response Not Compressed (Other Encoding)", async () => {   
   });
-});
-describe("Testing API: noauth/business/all/:entity", () => {
   test("TC42 Verify API Response Language (Accept-Language)", async () => {   
   });
-});
-describe("Testing API: noauth/business/all/:entity", () => {
   test("TC43 Verify API Response Locale", async () => {
   });
-});
-describe("Testing API: noauth/business/all/:entity", () => {
   test("TC44 Verify API Response Timezone (Accept-Timezone)", async () => {   
   });
 });
