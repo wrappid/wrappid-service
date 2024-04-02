@@ -14,7 +14,7 @@ beforeAll(async () => {
     .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
   token = response.body.accessToken;
 });
-describe("data/:model/:id", () => {
+describe("Test: data/:model/:id", () => {
   test("TC01 Verify API Response Status Code", async () => {
     const model = "formSchema";
     const id ="1";
