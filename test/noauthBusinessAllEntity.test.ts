@@ -18,7 +18,7 @@ describe("Testing API: noauth/business/all/:entity", () => {
   test("TC02 Verify API Response Format JSON", async () => {
     const entity = "Routes";
     const response = await request(BASE_URL)
-      .get(`business/individual/${entity}`)
+      .get(`noauth/business/all/${entity}`)
       //.set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -32,7 +32,7 @@ describe("Testing API: noauth/business/all/:entity", () => {
     const startTime = Date.now();
     const entity = "Routes";
     await request(BASE_URL)
-      .get(`business/individual/${entity}`)
+      .get(`noauth/business/all/${entity}`)
       //.set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -48,7 +48,7 @@ describe("Testing API: noauth/business/all/:entity", () => {
   test("TC09 Verify API Response Headers", async () => {
     const entity = "Routes";
     const response = await request(BASE_URL)
-      .get(`business/individual/${entity}`)
+      .get(`noauth/business/all/${entity}`)
       //.set("Authorization", `Bearer `)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -62,7 +62,7 @@ describe("Testing API: noauth/business/all/:entity", () => {
   test("TC10 Verify API Response Payload Size", async () => {
     const entity = "Routes";
     const response = await request(BASE_URL)
-      .get(`business/individual/${entity}`)
+      .get(`noauth/business/all/${entity}`)
       //.set("Authorization", `Bearer`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -92,7 +92,7 @@ describe("Testing API: noauth/business/all/:entity", () => {
   test("TC38 Verify API Response Content Type", async () => {
     const entity = "Routes";
     const response = await request(BASE_URL)
-      .get(`business/individual/${entity}`)
+      .get(`noauth/business/all/${entity}`)
       //.set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")

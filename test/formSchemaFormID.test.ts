@@ -28,9 +28,9 @@ describe("formSchema/:formID",() => {
     expect(response.statusCode).toBe(200);
   });
   test("TC02 Verify API Response Format JSON", async () => {
-    const entitys = ["Users", "Routes"];
+    const formID = "Users";
     const response = await request(BASE_URL)
-      .get(`business/individual/${entitys}`)
+      .get(`formSchema/${formID}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -40,11 +40,11 @@ describe("formSchema/:formID",() => {
     expect(response.body).toBeInstanceOf(Object);
   });
   test("TC05 Verify API Response Time Within Acceptable Limits", async () => {
-    const entitys = ["Users", "Routes"];
     const acceptableResponseTime = 2000;
     const startTime = Date.now();
+    const formID = "Users";
     await request(BASE_URL)
-      .get(`business/individual/${entitys}`)
+      .get(`formSchema/${formID}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -58,9 +58,9 @@ describe("formSchema/:formID",() => {
   test("TC08 Verify API Endpoint URL", async () => {
   });
   test("TC09 Verify API Response Headers", async () => {
-    const entitys = ["Users", "Routes"];
+    const formID = "Users";
     const response = await request(BASE_URL)
-      .get(`business/individual/${entitys}`)
+      .get(`formSchema/${formID}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -72,9 +72,9 @@ describe("formSchema/:formID",() => {
     expect(response.headers["connection"]).toBe("keep-alive");
   });
   test("TC10 Verify API Response Payload Size", async () => {
-    const entitys = ["Users", "Routes"];
+    const formID = "Users";
     const response = await request(BASE_URL)
-      .get(`business/individual/${entitys}`)
+      .get(`formSchema/${formID}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -95,7 +95,6 @@ describe("formSchema/:formID",() => {
   test("TC13 Verify API Handles Missing Request Payload", async () => {   
   });
   test("TC15 Verify API Handles Unauthorized Access", async () => {
-    const entitys = ["Users", "Routes"];
     function generateRandomString(length: number): string {
       const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
       let result = "";
@@ -106,8 +105,9 @@ describe("formSchema/:formID",() => {
     }
     const falsetoken = generateRandomString(20);
     //const falsetoken = "JyotirmoyGhosh1610";
+    const formID = "Users";
     const response = await request(BASE_URL)
-      .get(`business/individual/${entitys}`)
+      .get(`formSchema/${formID}`)
       .set("Authorization", `Bearer ${falsetoken}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -121,9 +121,9 @@ describe("formSchema/:formID",() => {
   test("TC18 Verify API Handles Invalid Request Method", async () => {   
   });
   test("TC38 Verify API Response Content Type", async () => {
-    const entitys = ["Users", "Routes"];
+    const formID = "Users";
     const response = await request(BASE_URL)
-      .get(`business/individual/${entitys}`)
+      .get(`formSchema/${formID}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")

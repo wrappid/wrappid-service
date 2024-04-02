@@ -139,6 +139,8 @@ describe("TC01 Verify API Response Status Code", () => {
   });
   test("TC41 Verify API Response Not Compressed (Other Encoding)", async () => {   
   });
+  test("TC42 Verify API Response Language (Accept-Language)", async () => {   
+  });
   test("TC43 Verify API Response Locale", async () => {   
   });
   test("TC44 Verify API Response Timezone (Accept-Timezone)", async () => {   

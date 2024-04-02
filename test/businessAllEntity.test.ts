@@ -46,7 +46,7 @@ describe("business/all/:entity",() => {
     const acceptableResponseTime = 2000;
     const startTime = Date.now();
     await request(BASE_URL)
-      .get(`business/count/${entity}`)
+      .get(`business/all/${entity}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")

@@ -32,7 +32,7 @@ describe("data/:model/:id", () => {
     const model = "formSchema";
     const id ="1";
     const response = await request(BASE_URL)
-      .get(`data/${model}/${id}`)
+      .put(`data/${model}/${id}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -47,7 +47,7 @@ describe("data/:model/:id", () => {
     const acceptableResponseTime = 2000;
     const startTime = Date.now();
     await request(BASE_URL)
-      .get(`data/${model}/${id}`)
+      .put(`data/${model}/${id}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
