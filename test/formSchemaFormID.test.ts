@@ -14,7 +14,7 @@ beforeAll (async () => {
     .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
   token = response.body.accessToken;
 });
-describe("Test: formSchema/:formID",() => {
+describe("formSchema/:formID",() => {
   test("TC01 Verify API Response Status Code", async () => {
     const formID = "Users";
     const response = await request(BASE_URL)
@@ -27,10 +27,12 @@ describe("Test: formSchema/:formID",() => {
 
     expect(response.statusCode).toBe(200);
   });
+});
+describe("business/individual/:entity", () => {
   test("TC02 Verify API Response Format JSON", async () => {
-    const formID = "Users";
+    const entitys = ["Users", "Routes"];
     const response = await request(BASE_URL)
-      .get(`formSchema/${formID}`)
+      .get(`business/individual/${entitys}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -39,12 +41,14 @@ describe("Test: formSchema/:formID",() => {
 
     expect(response.body).toBeInstanceOf(Object);
   });
+});
+describe("business/individual/:entity", () => {
   test("TC05 Verify API Response Time Within Acceptable Limits", async () => {
+    const entitys = ["Users", "Routes"];
     const acceptableResponseTime = 2000;
     const startTime = Date.now();
-    const formID = "Users";
     await request(BASE_URL)
-      .get(`formSchema/${formID}`)
+      .get(`business/individual/${entitys}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -55,12 +59,12 @@ describe("Test: formSchema/:formID",() => {
     const responseTime = endTime - startTime;
     expect(responseTime).toBeLessThanOrEqual(acceptableResponseTime);  //responsetime = 152ms as of now 
   });
-  test("TC08 Verify API Endpoint URL", async () => {
-  });
-  test("TC09 Verify API Response Headers", async () => {
-    const formID = "Users";
+});
+describe("business/individual/:entity", () => {
+  test("TC08 Verify API Response Headers", async () => {
+    const entitys = ["Users", "Routes"];
     const response = await request(BASE_URL)
-      .get(`formSchema/${formID}`)
+      .get(`business/individual/${entitys}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -71,10 +75,12 @@ describe("Test: formSchema/:formID",() => {
     expect(response.headers["access-control-allow-origin"]).toBe("*");
     expect(response.headers["connection"]).toBe("keep-alive");
   });
+});
+describe("business/individual/:entity", () => {
   test("TC10 Verify API Response Payload Size", async () => {
-    const formID = "Users";
+    const entitys = ["Users", "Routes"];
     const response = await request(BASE_URL)
-      .get(`formSchema/${formID}`)
+      .get(`business/individual/${entitys}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -85,29 +91,13 @@ describe("Test: formSchema/:formID",() => {
     const maxSize = 2000; // Set the maximum allowed payload size in bytes
     expect(payloadSize).toBeLessThanOrEqual(maxSize);
   });
-  
-  test("TC11 Verify API Handles Malformed Requests", async () => {   
-  });
-
-  test("TC12 Verify API Handles Authentication Failure", async () => {   
-  });
-
-  test("TC13 Verify API Handles Missing Request Payload", async () => {   
-  });
+});
+describe("business/individual/:entity", () => {
   test("TC15 Verify API Handles Unauthorized Access", async () => {
-    function generateRandomString(length: number): string {
-      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-      let result = "";
-      for (let i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * characters.length));
-      }
-      return result;
-    }
-    const falsetoken = generateRandomString(20);
-    //const falsetoken = "JyotirmoyGhosh1610";
-    const formID = "Users";
+    const entitys = ["Users", "Routes"];
+    const falsetoken = "JyotirmoyGhosh1610";
     const response = await request(BASE_URL)
-      .get(`formSchema/${formID}`)
+      .get(`business/individual/${entitys}`)
       .set("Authorization", `Bearer ${falsetoken}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -115,15 +105,12 @@ describe("Test: formSchema/:formID",() => {
       .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
     expect(response.statusCode).toBe(401);
   });
-  test("TC16 Verify API Handles Request Payload Size Limit", async () => {   
-  });
-
-  test("TC18 Verify API Handles Invalid Request Method", async () => {   
-  });
+});
+describe("business/individual/:entity", () => {
   test("TC38 Verify API Response Content Type", async () => {
-    const formID = "Users";
+    const entitys = ["Users", "Routes"];
     const response = await request(BASE_URL)
-      .get(`formSchema/${formID}`)
+      .get(`business/individual/${entitys}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -131,14 +118,24 @@ describe("Test: formSchema/:formID",() => {
       .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
     expect(response.header["content-type"]).toContain("application/json");
   });
+});
+describe("business/individual/:entity", () => {
   test("TC39 Verify API Response Compression (Accept-Encoding)", async () => {   
   });
+}); 
+describe("business/individual/:entity", () => {
   test("TC41 Verify API Response Not Compressed (Other Encoding)", async () => {   
   });
+});
+describe("business/individual/:entity", () => {
   test("TC42 Verify API Response Language (Accept-Language)", async () => {   
   });
+});
+describe("business/individual/:entity", () => {
   test("TC43 Verify API Response Locale", async () => {
   });
+});
+describe("business/individual/:entity", () => {
   test("TC44 Verify API Response Timezone (Accept-Timezone)", async () => {   
   });
 });

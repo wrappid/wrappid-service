@@ -14,7 +14,7 @@ beforeAll (async () => {
     .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
   token = response.body.accessToken;
 });
-describe("Test: business/all/:entity",() => {
+describe("business/all/:entity",() => {
   test("TC01 Verify API Response Status Code", async () => {
     const entity = "Users";
     const response = await request(BASE_URL)
@@ -46,7 +46,7 @@ describe("Test: business/all/:entity",() => {
     const acceptableResponseTime = 2000;
     const startTime = Date.now();
     await request(BASE_URL)
-      .get(`business/all/${entity}`)
+      .get(`business/count/${entity}`)
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
