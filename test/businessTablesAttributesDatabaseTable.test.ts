@@ -14,8 +14,8 @@ beforeAll(async () => {
     .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
   token = response.body.accessToken;
 });
-describe("TC01 Verify API Response Status Code", () => {
-  test("Status: 200", async () => {
+describe("Test: business/tables/attributes/:database/:table", () => {
+  test("TC01 Verify API Response Status Code", async () => {
     const tableName = "Routes";
     const database = "application";
     const response = await request(BASE_URL)
@@ -138,6 +138,8 @@ describe("TC01 Verify API Response Status Code", () => {
   test("TC39 Verify API Response Compression (Accept-Encoding)", async () => {   
   });
   test("TC41 Verify API Response Not Compressed (Other Encoding)", async () => {   
+  });
+  test("TC42 Verify API Response Language (Accept-Language)", async () => {   
   });
   test("TC43 Verify API Response Locale", async () => {   
   });

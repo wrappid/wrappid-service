@@ -14,7 +14,7 @@ beforeAll(async () => {
     .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
   token = response.body.accessToken;
 });
-describe("Testing API: /business/tables/attributes/:database/:table", () => {
+describe("Test: business/entities", () => {
   test("TC01 Verify API Response Status Code", async () => {
   
     const response = await request(BASE_URL)
@@ -28,9 +28,8 @@ describe("Testing API: /business/tables/attributes/:database/:table", () => {
     expect(response.statusCode).toBe(200);
   });
   test("TC02 Verify API Response Format JSON", async () => {
-    const database = "application";
     const response = await request(BASE_URL)
-      .put(`business/tables/${database}`)
+      .put("business/entities")
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -40,11 +39,10 @@ describe("Testing API: /business/tables/attributes/:database/:table", () => {
     expect(response.body).toBeInstanceOf(Object);
   });
   test("TC05 Verify API Response Time Within Acceptable Limits", async () => {
-    const database = "application";
     const acceptableResponseTime = 2000;
     const startTime = Date.now();
     await request(BASE_URL)
-      .put(`business/tables/${database}`)
+      .put("business/entities")
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -58,9 +56,8 @@ describe("Testing API: /business/tables/attributes/:database/:table", () => {
   test("TC08 Verify API Endpoint URL", async () => {
   });
   test("TC09 Verify API Response Headers", async () => {
-    const database = "application";
     const response = await request(BASE_URL)
-      .put(`business/tables/${database}`)
+      .put("business/entities")
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -72,9 +69,8 @@ describe("Testing API: /business/tables/attributes/:database/:table", () => {
     expect(response.headers["connection"]).toBe("keep-alive");
   });
   test("TC10 Verify API Response Payload Size", async () => {
-    const database = "application";
     const response = await request(BASE_URL)
-      .put(`business/tables/${database}`)
+      .put("business/entities")
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -93,7 +89,6 @@ describe("Testing API: /business/tables/attributes/:database/:table", () => {
   test("TC13 Verify API Handles Missing Request Payload", async () => {
   });
   test("TC15 Verify API Handles Unauthorized Access", async () => {
-    const database = "application";
     function generateRandomString(length: number): string {
       const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
       let result = "";
@@ -105,7 +100,7 @@ describe("Testing API: /business/tables/attributes/:database/:table", () => {
     const falsetoken = generateRandomString(20);
     //const falsetoken = "JyotirmoyGhosh1610";
     const response = await request(BASE_URL)
-      .put(`business/tables/${database}`)
+      .put("business/entities")
       .set("Authorization", `Bearer ${falsetoken}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")
@@ -118,9 +113,8 @@ describe("Testing API: /business/tables/attributes/:database/:table", () => {
   test("TC18 Verify API Handles Invalid Request Method...(Skiped)", async () => {
   });
   test("TC38 Verify API Response Content Type", async () => {
-    const database = "application";
     const response = await request(BASE_URL)
-      .put(`business/tables/${database}`)
+      .put("business/entities")
       .set("Authorization", `Bearer ${token}`)
       .set("Content-Type", "application/json")
       .set("Accept-Encoding", "gzip, deflate, br")

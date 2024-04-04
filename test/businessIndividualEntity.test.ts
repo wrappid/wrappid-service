@@ -14,7 +14,7 @@ beforeAll(async () => {
     .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36");
   token = response.body.accessToken;
 });
-describe("business/individual/:entity", () => {
+describe("Test: business/individual/:entity", () => {
   test("TC01 Verify API Response Status Code", async () => {
     const entitys = ["Users", "Routes"];
     entitys.forEach(async entity => {

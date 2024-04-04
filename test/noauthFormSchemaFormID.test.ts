@@ -2,7 +2,7 @@ import { describe, test, expect } from "@jest/globals";
 import request from "supertest";
 
 const BASE_URL = "https://demoapi.wrappid.dev/";
-describe("Testing API: noauth/formSchema/:formID", () => {
+describe("Test: noauth/formSchema/:formID", () => {
   test("TC01 Verify API Response Status Code", async () => {
     const formID = "loginWithOtp";
     const response = await request(BASE_URL)
