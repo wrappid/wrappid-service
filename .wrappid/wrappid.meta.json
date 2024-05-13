@@ -2,7 +2,7 @@
   "projectType": "service",
   "projectID": "",
   "projectName": "wrappid-service",
-  "wrTemplateVersion": "0.0.9",
+  "wrTemplateVersion": "0.0.11",
   "remote": true,
   "repoProvider": "github.com",
   "repoOwner": "wrappid",

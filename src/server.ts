@@ -1,35 +1,55 @@
-console.log("###########################################");
-console.log("server.js start");
-console.log("###########################################");
+import { DEFAULT_PORT, WrappidApp } from "@wrappid/service-core";
 
-import { DEFAULT_PORT, app } from "@wrappid/service-core";
-import express from "express";
+import packageJson from "./../package.json";
+import applicationConfig from "./config.json";
 import ControllersRegistry from "./registry/ControllersRegistry";
 import FunctionsRegistry from "./registry/FunctionsRegistry";
+import MiddlewaresRegistry from "./registry/MiddlewaresRegistry";
 import ModelsRegistry from "./registry/ModelsRegistry";
 import RoutesRegistry from "./registry/Routes.Registry";
 import TasksRegistry from "./registry/TasksRegistry";
-import swaggerJsonFile from "./swagger-output.json";
+import ValidationsRegistry from "./registry/ValidationsRegistry";
+import swaggerJson from "./swagger-output.json";
 
-const wrappidApp: any = express();
 try {
-  
-  app(wrappidApp,ControllersRegistry, FunctionsRegistry, ModelsRegistry, RoutesRegistry, TasksRegistry, swaggerJsonFile);
+  console.log("###########################################");
+  console.log("server.js start");
+  console.log("###########################################");
 
   const __PORT = process.env.PORT || DEFAULT_PORT;
+  
+  const wrappidApp = new WrappidApp({
+    port: __PORT,
+    cors: { origin: "*" },
+    bodyPerser: {
+      json: { limit: "50mb" },
+      raw: {
+        inflate: true,
+        limit: "50mb",
+        type: "application/octet-stream",
+      },
+      urlencoded: { extended: true }
+    },
+    registry: {
+      ControllersRegistry, 
+      FunctionsRegistry, 
+      ModelsRegistry, 
+      RoutesRegistry, 
+      TasksRegistry, 
+      MiddlewaresRegistry, 
+      ValidationsRegistry
+    },
+    swagger: { ...swaggerJson },
+    config: { ...applicationConfig },
+    package: {...packageJson}
+  });
 
-  const serverInit = () => {
-    console.log("###########################################");
-    console.log(`Server is up and running on port ${__PORT}...`);
-    console.log("###########################################");
-  };
+  wrappidApp.init();
 
-  wrappidApp.listen(__PORT, serverInit);
-
+} catch (error: any) {
+  console.error(error);
+} finally {
   console.log("###########################################");
   console.log("server.js end");
   console.log("###########################################");
-
-} catch (error: any) {
-  console.log(error);
 }
