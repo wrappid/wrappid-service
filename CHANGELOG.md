@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://https//github.com/wrappid/service/compare/v0.0.10...v0.0.13) (2024-05-13)
+
+
+### Features
+
+* **global:** :zap: swagger json automate versioning ([5cee115](https://https//github.com/wrappid/service/commit/5cee11506f8a3293e7f919e0484f844dedff9b99)), closes [#119](https://https//github.com/wrappid/service/issues/119)
+
 ### [0.0.12](https://https//github.com/wrappid/service/compare/v0.0.9...v0.0.12) (2024-05-06)
 
 
