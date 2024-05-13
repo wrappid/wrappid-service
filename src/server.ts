@@ -1,5 +1,6 @@
 import { DEFAULT_PORT, WrappidApp } from "@wrappid/service-core";
 
+import packageJson from "./../package.json";
 import applicationConfig from "./config.json";
 import ControllersRegistry from "./registry/ControllersRegistry";
 import FunctionsRegistry from "./registry/FunctionsRegistry";
@@ -39,7 +40,8 @@ try {
       ValidationsRegistry
     },
     swagger: { ...swaggerJson },
-    config: { ...applicationConfig }
+    config: { ...applicationConfig },
+    package: {...packageJson}
   });
 
   wrappidApp.init();
