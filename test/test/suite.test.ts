@@ -1,4 +1,4 @@
-import { beforeAll, describe } from "@jest/globals";
+import { describe } from "@jest/globals";
 import { DEFAULT_PORT, WrappidApp } from "@wrappid/service-core";
 import { WrappidTestSuite } from "@wrappid/test-suite";
 
@@ -14,10 +14,11 @@ import ValidationsRegistry from "./../../src/registry/ValidationsRegistry";
 import swaggerJson from "./../../src/swagger-output.json";
 
 let wrappidApp: WrappidApp;
+let wrappidTestSuite: WrappidTestSuite;
 
-beforeAll(async () => {
-  await wrappidApp.init();
-}, 20000);
+// beforeAll(async () => {
+//   await wrappidTestSuite.getRoutes();
+// }, 20000);
 
 describe("Wrappid Automation Testing Suite", () => {
   const __PORT = process.env.PORT || DEFAULT_PORT;
@@ -48,5 +49,6 @@ describe("Wrappid Automation Testing Suite", () => {
     package: {...packageJson}
   });
 
-  new WrappidTestSuite(wrappidApp).init();
+  wrappidTestSuite = new WrappidTestSuite(wrappidApp);
+  wrappidTestSuite.init();
 });
