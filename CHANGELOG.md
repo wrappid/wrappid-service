@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://https//github.com/wrappid/service/compare/v0.0.14...v0.0.15) (2024-10-14)
+
+
+### Bug Fixes
+
+* **core:** :bug: unable to read local module routes registry ([b12a32b](https://https//github.com/wrappid/service/commit/b12a32b96f7150a68e0b2cbdbb9962979e3b2307)), closes [#128](https://https//github.com/wrappid/service/issues/128)
+
 ### [0.0.14](https://https//github.com/wrappid/service/compare/v0.0.11...v0.0.14) (2024-07-11)
 
 ### [0.0.13](https://https//github.com/wrappid/service/compare/v0.0.10...v0.0.13) (2024-05-13)
