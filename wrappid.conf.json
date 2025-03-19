@@ -106,6 +106,8 @@
         },
         "wrappid": {
             "otpLength": 6,
+            "otpExpiryDescription": "'otpExpiryIn' takes duration in seconds. After this time period, OTP will expire.",
+            "otpExpiryIn": 300,
             "defaultUserRole": "developer"
         }
     },
@@ -216,6 +218,8 @@
         },
         "wrappid": {
             "otpLength": 6,
+            "otpExpiryDescription": "'otpExpiryIn' takes duration in seconds. After this time period, OTP will expire.",
+            "otpExpiryIn": 300,
             "defaultUserRole": "developer"
         }
     },
@@ -326,6 +330,8 @@
         },
         "wrappid": {
             "otpLength": 6,
+            "otpExpiryDescription": "'otpExpiryIn' takes duration in seconds. After this time period, OTP will expire.",
+            "otpExpiryIn": 300,
             "defaultUserRole": "developer"
         }
     }
