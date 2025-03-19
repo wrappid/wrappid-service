@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.16](https://https//github.com/wrappid/service/compare/v0.0.15...v0.0.16) (2025-03-19)
+
+
+### Features
+
+* **config:** :wrench: add OTP expiry settings ([4724300](https://https//github.com/wrappid/service/commit/47243003bda3adaca255dd546bd239ed70fefb11)), closes [#131](https://https//github.com/wrappid/service/issues/131)
+
 ### [0.0.15](https://https//github.com/wrappid/service/compare/v0.0.14...v0.0.15) (2024-10-14)
 
 
